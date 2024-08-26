@@ -2,7 +2,7 @@
 export default function Home() {
   return (
     <main className="">
-      Hello word 
+      Hello word
     </main>
   );
 }
