@@ -13,6 +13,6 @@ export const SideNavbar = () => {
         <MenuItem title="Categories"><IoGridOutline/></MenuItem>
         <MenuItem title="Evenements"><IoCalendarOutline/></MenuItem>
         <MenuItem title="Mon e-vitrine"><IoStorefrontOutline/></MenuItem>
-        <MainButton text="Publier"/>
+        <MainButton text="Publier" className="py-2"/>
     </div>
 }
