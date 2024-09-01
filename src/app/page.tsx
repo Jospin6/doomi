@@ -1,4 +1,3 @@
-import { MainButton } from "@/components/MainButton";
 import { SideNavbar } from "@/components/SideNavbar";
 
 export default function Home() {
