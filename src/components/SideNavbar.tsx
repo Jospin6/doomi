@@ -25,7 +25,7 @@ export const SideNavbar = () => {
         <MenuItem title="Categories"><IoGridOutline /></MenuItem>
         <MenuItem title="Evenements"><IoCalendarOutline /></MenuItem>
         <MenuItem title="Mon e-vitrine"><IoStorefrontOutline /></MenuItem>
-        <MainButton text="Publier" className="py-2 mt-4" />
+        <MainButton text="Publier" className="py-2 mt-4 text-[12px]" />
         <ListTile />
     </div>
 }
