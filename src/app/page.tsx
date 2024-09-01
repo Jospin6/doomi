@@ -1,3 +1,4 @@
+import { CategoryItem } from "@/components/CategoryItem";
 import { MainItem } from "@/components/MainItem";
 import { SideNavbar } from "@/components/SideNavbar";
 import { SuggestionSideBar } from "@/components/SuggestionSideBar";
@@ -9,7 +10,10 @@ export default function Home() {
         <SideNavbar/>
       </div>
       <div className="col-span-4 h-[100vh] border-x-[1px] border-[#121212]">
-        <div className="h-[80px] border-b-[1px] border-[#121212] w-full"></div>
+        <div className="h-[80px] px-4 relative border-b-[1px] border-[#121212] w-full">
+          <CategoryItem/>
+          <CategoryItem/>
+        </div>
         <div>
           <MainItem/>
         </div>
