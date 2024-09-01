@@ -1,5 +1,10 @@
-export const CategoryItem = () => {
-    return <button className={`rounded-lg h-[30px] text-[14px] text-gray-500 mr-4`}>
-        Vetements
+
+type CategoryItemProps = {
+    title: String,
+    className: String
+}
+export const CategoryItem = ({title, className}: CategoryItemProps) => {
+    return <button className={`h-[100%] text-[14px] mr-4 ${className}`}>
+        {title}
     </button>
 }
