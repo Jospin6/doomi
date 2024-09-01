@@ -1,5 +1,6 @@
 import { MainItem } from "@/components/MainItem";
 import { SideNavbar } from "@/components/SideNavbar";
+import { SuggestionSideBar } from "@/components/SuggestionSideBar";
 
 export default function Home() {
   return (
@@ -13,7 +14,9 @@ export default function Home() {
           <MainItem/>
         </div>
       </div>
-      <div className="col-span-2 h-[100vh]"></div>
+      <div className="col-span-2 h-[100vh]">
+        <SuggestionSideBar/>
+      </div>
     </main>
   );
 }
