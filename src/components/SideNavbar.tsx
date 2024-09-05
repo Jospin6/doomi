@@ -21,7 +21,7 @@ export const SideNavbar = () => {
         <MenuItem title="Search"><IoSearchOutline /></MenuItem>
         <MenuItem title="Favory"><IoHeartOutline /></MenuItem>
         <MenuItem title="Notifications"><IoNotificationsOutline /></MenuItem>
-        <MenuItem title="Chat"><IoChatboxOutline /></MenuItem>
+        <MenuItem title="Messages"><IoChatboxOutline /></MenuItem>
         <MenuItem title="Categories"><IoGridOutline /></MenuItem>
         <MenuItem title="Evenements"><IoCalendarOutline /></MenuItem>
         <MenuItem title="Mon e-vitrine"><IoStorefrontOutline /></MenuItem>
