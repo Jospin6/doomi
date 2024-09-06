@@ -3,6 +3,8 @@ import { MainButton } from "./MainButton"
 import { MenuItem } from "./MenuItem"
 import Link from 'next/link'
 import { 
+    IoBriefcaseOutline,
+    IoBusinessOutline,
     IoCalendarOutline, 
     IoChatboxOutline, 
     IoGridOutline, 
@@ -23,8 +25,8 @@ export const SideNavbar = () => {
         <Link href={"/favoris"}><MenuItem title="Favory"><IoHeartOutline /></MenuItem></Link>
         <Link href={"/notifications"}><MenuItem title="Notifications"><IoNotificationsOutline /></MenuItem></Link>
         <Link href={"/messages"}><MenuItem title="Messages"><IoChatboxOutline /></MenuItem></Link>
-        <Link href={"/"}><MenuItem title="Categories"><IoGridOutline /></MenuItem></Link>
         <Link href={"/evenements"}><MenuItem title="Evenements"><IoCalendarOutline /></MenuItem></Link>
+        <Link href={"/emplois"}><MenuItem title="Emplois"><IoBriefcaseOutline /></MenuItem></Link>
         <Link href={"/ma_vitrine"}><MenuItem title="Mon e-vitrine"><IoStorefrontOutline /></MenuItem></Link>       
         <MainButton text="Publier" className="py-2 mt-4 text-[12px]" />
         <ListTile />
