@@ -1,5 +1,6 @@
 import { IoSearchOutline } from "react-icons/io5"
 import { CategoryItem } from "./CategoryItem"
+import { Categories } from "./Categories"
 
 type SearchBarProps = {
     isHidden?: boolean
@@ -12,12 +13,6 @@ export const SearchBar = ({isHidden = false}: SearchBarProps) => {
       <input type="text" className="w-[95%] outline-none mr-2 bg-transparent pl-2 text-gray-500" placeholder="Rechercher sur doomi" />
       <IoSearchOutline className="text-white cursor-pointer" />
     </div>
-    <div className={!isHidden ? `h-[44px] flex items-center justify-between`: `hidden`}>
-      <CategoryItem title="Tous" />
-      <CategoryItem title="Produits" isActive={true} />
-      <CategoryItem title="Services" />
-      <CategoryItem title="Evenements" />
-      <CategoryItem title="Emplois" />
-    </div>
+    <Categories isHidden={isHidden}/>
   </div>
 }
