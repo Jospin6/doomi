@@ -7,13 +7,7 @@ import { IoSearchOutline } from "react-icons/io5";
 
 export default function Home() {
   return (
-    <main className="flex h-screen bg-[#000000]">
-      <div className="w-[20%] fixed top-0 left-0 p-2">
-        <SideNavbar />
-      </div>
-
-      <div className="ml-[20%] w-[80%] flex">
-
+    <main className="flex w-full">
         <div className="w-[70%] min-h-[100vh] h-auto border-x-[1px] border-[#121212]">
           <div className="h-[80px] border-b-[1px] border-[#121212] w-full px-2">
             <div className="flex items-center mt-2 rounded-lg bg-[#121212] h-[35px]">
@@ -37,7 +31,6 @@ export default function Home() {
         <div className="w-[30%]">
           <SuggestionSideBar />
         </div>
-      </div>
     </main>
   );
 }
