@@ -2,6 +2,7 @@ import { CategoryItem } from "@/components/CategoryItem";
 import { Input } from "@/components/Input";
 import { SearchBar } from "@/components/SearchBar";
 import { SelectInput } from "@/components/SelectInput";
+import { TextArea } from "@/components/TextArea";
 
 export default function Nouveau() {
     return <div className=" flex w-full text-white">
@@ -22,6 +23,7 @@ export default function Nouveau() {
                     label="Quel est le titre ?" />
                 <SelectInput id="categ" name="category" label="Choisissez une categorie"/>
                 <SelectInput id="categ" name="category" label="Etat"/>
+                <TextArea id="descr" label="Description"/>
             </div>
         </div>
 
