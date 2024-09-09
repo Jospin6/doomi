@@ -1,4 +1,5 @@
 import { CategoryItem } from "@/components/CategoryItem";
+import { Input } from "@/components/Input";
 import { SearchBar } from "@/components/SearchBar";
 
 export default function Nouveau() {
@@ -10,6 +11,9 @@ export default function Nouveau() {
                     <CategoryItem title="Services" />
                     <CategoryItem title="Evenements" />
                     <CategoryItem title="Emplois" />
+                </div>
+                <div className="p-4 ">
+                    <Input type="text" id="title" placeholder="Entrer le titre" label="Quel est le titre ?"/>
                 </div>
             </div>
         </div>

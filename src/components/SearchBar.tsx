@@ -19,7 +19,7 @@ export const SearchBar = ({ isHidden = false, hideOtherComp = false, topTitle }:
             <div className="flex items-center mt-2 w-full rounded-lg bg-[#121212] h-[35px]">
                 <input
                     type="text"
-                    className="w-[95%] outline-none mr-2 bg-transparent pl-2 text-gray-500"
+                    className="w-[95%] outline-none mr-2 bg-transparent pl-2"
                     placeholder="Rechercher sur doomi" />
                 <IoSearchOutline className="text-white cursor-pointer" />
             </div>
