@@ -16,14 +16,21 @@ export default function Nouveau() {
                 </div>
             </div>
             <div className="p-4 ">
-                <Input 
-                    type="text" 
-                    id="title" 
-                    placeholder="Entrer le titre" 
-                    label="Quel est le titre ?" />
-                <SelectInput id="categ" name="category" label="Choisissez une categorie"/>
-                <SelectInput id="categ" name="category" label="Etat"/>
-                <TextArea id="descr" label="Description"/>
+                <div className="w-[60%]">
+                    <Input
+                        type="text"
+                        id="title"
+                        placeholder="Entrer le titre"
+                        label="Quel est le titre ?" />
+                </div>
+                <div className="w-[60%]">
+                    <SelectInput id="categ" name="category" label="Choisissez une categorie" />
+                    <SelectInput id="categ" name="category" label="Etat" />
+                </div>
+                <TextArea id="descr" label="Description" />
+                <div>
+                    <button className="bg-blue-500 rounded-lg text-[14px] px-[10px] py-[3px]">Publier</button>
+                </div>
             </div>
         </div>
 

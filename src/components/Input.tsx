@@ -13,7 +13,7 @@ export const Input = ({type, id, placeholder, label}: InputProps) => {
         <input 
             type={type} 
             className="w-full border-[1px] h-[35px] rounded-lg border-[#121212] 
-            outline-none mr-2 bg-transparent pl-2" 
+            outline-none mr-2 text-[12px] bg-transparent pl-2" 
             id={id} 
             placeholder={placeholder}/>
     </div>
