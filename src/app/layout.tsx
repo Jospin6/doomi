@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { SideNavbar } from "@/components/SideNavbar";
-
+import { ReduxProvider } from "@/features/Provider"
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -17,16 +17,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-[#000000]`}>
-        <div className="w-[20%] fixed top-0 left-0 p-2">
-          <SideNavbar />
-        </div>
+      <ReduxProvider>
+        <body className={`${inter.className} bg-[#000000]`}>
+          <div className="w-[20%] fixed top-0 left-0 p-2">
+            <SideNavbar />
+          </div>
 
-        <div className="ml-[20%] w-[80%] flex">
-          {children}
-        </div>
-        
-      </body>
+          <div className="ml-[20%] w-[80%] flex">
+            {children}
+          </div>
+
+        </body>
+      </ReduxProvider>
+
     </html>
   );
 }
