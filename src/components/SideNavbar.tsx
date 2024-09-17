@@ -18,6 +18,7 @@ import {
 
 export const SideNavbar = () => {
     const isNavbarTextHidden = useSelector((state: RootState) => state.navbar.isTextHidden)
+    console.log(isNavbarTextHidden)
     return <div className={isNavbarTextHidden ? "hidden" : `h-[100vh] px-2`}>
         <div className="font-[600] w-full text-white text-[20px] h-[100px] flex items-center pl-2">
             doomi

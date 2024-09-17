@@ -3,7 +3,7 @@ import { SearchBar } from "@/components/SearchBar";
 export default function MesRecherches() {
     return <div className=" flex w-full text-white">
         <div className="w-[70%] min-h-[100vh] h-auto border-x-[1px] border-[#121212]">
-            <SearchBar isHidden={true} hideOtherComp={true} topTitle="Recherche" />
+            <SearchBar isHidden={true} />
             <div className="px-2">
                 <div className="mt-4">
                     <div className="text-white mb-2 text-[14px]">Recherches recents</div>
