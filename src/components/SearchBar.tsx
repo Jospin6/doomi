@@ -3,11 +3,9 @@ import { Categories } from "./Categories"
 
 type SearchBarProps = {
     isHidden?: boolean,
-    hideOtherComp?: boolean,
-    topTitle?: string
 }
 
-export const SearchBar = ({ isHidden = false, hideOtherComp = false, topTitle }: SearchBarProps) => {
+export const SearchBar = ({ isHidden = false }: SearchBarProps) => {
 
     return <div className="h-auto border-b-[1px] border-[#121212] w-full px-2 pb-2">
         <div className="flex items-center h-[60px]">
