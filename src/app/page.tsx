@@ -1,3 +1,4 @@
+import { CategoryItemWithImg } from "@/components/CategoryItemWithImg";
 import { MainItem } from "@/components/MainItem";
 import { MainItemOutline } from "@/components/MainItemOutline";
 import { ProductsByCategory } from "@/components/ProductsByCategory";
@@ -12,8 +13,8 @@ export default function Home() {
         <SearchBar />
         <div>
           <ProductsByCategory>
-            <MainItemOutline/>
-            <MainItemOutline/>
+            <MainItemOutline />
+            <MainItemOutline />
           </ProductsByCategory>
           <ProductsByCategory>
             <MainItem />
@@ -25,6 +26,16 @@ export default function Home() {
             <MainItem />
             <MainItem />
           </ProductsByCategory>
+        </div>
+        <div>
+          <div className="p-2 text-white font-[500]">Explorer nos categories</div>
+          <div className="w-full flex m-auto px-6">
+            <CategoryItemWithImg category="Vetement" />
+            <CategoryItemWithImg category="Immobilier" />
+            <CategoryItemWithImg category="Beauté" />
+            <CategoryItemWithImg category="Vehicule" />
+            <CategoryItemWithImg category="Loisir" />
+          </div>
         </div>
       </div>
 
