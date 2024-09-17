@@ -1,4 +1,4 @@
-import { IoEllipsisHorizontal, IoHeartOutline, IoPaperPlaneOutline } from "react-icons/io5"
+import { IoHeartOutline } from "react-icons/io5"
 
 export const HorizontalItem = () => {
     return <div className="w-full flex h-auto rounded-lg bg-[#121212] mb-2">

@@ -1,5 +1,4 @@
-import { IoMenu, IoMenuSharp, IoSearchOutline, IoSettings } from "react-icons/io5"
-import { CategoryItem } from "./CategoryItem"
+import { IoMenu, IoSearchOutline } from "react-icons/io5"
 import { Categories } from "./Categories"
 
 type SearchBarProps = {
