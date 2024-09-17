@@ -1,4 +1,4 @@
-import { IoAirplane, IoEllipsisHorizontal, IoHeart, IoHeartOutline, IoPaperPlaneOutline, IoTelescopeOutline } from "react-icons/io5"
+import { IoHeartOutline } from "react-icons/io5"
 
 export const MainItem = () => {
     return <div className="w-[180px] h-auto mt-2 pb-2 mr-2">
@@ -11,6 +11,7 @@ export const MainItem = () => {
                     <div className="w-[18px] h-[18px] rounded-full bg-red-300 mr-2"></div>
                     <div>Nom du vendeur</div>
                 </div>
+
             </div>
         </div>
         <div className="w-[180px] h-[220px] bg-blue-300 rounded-lg"></div>
