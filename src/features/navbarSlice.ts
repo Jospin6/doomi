@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit'
 
 interface initialState {
     isTextHidden: boolean
@@ -12,10 +12,12 @@ const navbar = createSlice({
     name: "navbar",
     initialState,
     reducers: {
-        setIsTextHidden: (state, action: PayloadAction<any>) => {
-            state.isTextHidden = action.payload
+        setIsTextHidden: (state) => {
+            state.isTextHidden = !state.isTextHidden
         }
     }
 })
+
+export const { setIsTextHidden } = navbar.actions
 
 export default navbar.reducer

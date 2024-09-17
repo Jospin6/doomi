@@ -1,13 +1,14 @@
+"use client"
 import { ListTile } from "./ListTile"
 import { MainButton } from "./MainButton"
 import { MenuItem } from "./MenuItem"
 import Link from 'next/link'
+import { useSelector } from 'react-redux'
+import { RootState } from '@/features/store'
 import { 
     IoBriefcaseOutline,
-    IoBusinessOutline,
     IoCalendarOutline, 
     IoChatboxOutline, 
-    IoGridOutline, 
     IoHeartOutline, 
     IoHomeOutline, 
     IoNotificationsOutline, 
@@ -16,7 +17,8 @@ import {
 } from "react-icons/io5"
 
 export const SideNavbar = () => {
-    return <div className="h-[100vh] px-2">
+    const isNavbarTextHidden = useSelector((state: RootState) => state.navbar.isTextHidden)
+    return <div className={isNavbarTextHidden ? "hidden" : `h-[100vh] px-2`}>
         <div className="font-[600] w-full text-white text-[20px] h-[100px] flex items-center pl-2">
             doomi
         </div>
