@@ -1,16 +1,11 @@
 "use client"
-import { useDispatch } from 'react-redux'
-import { setIsTextHidden } from "@/features/navbarSlice"
 import { Input } from '@/components/Input'
 import { MainButton } from '@/components/MainButton'
 import { Checkbox } from '@/components/Checkbox'
 import Link from 'next/link'
+import { AuthComp } from '@/components/AuthComp'
 export default function Connexion() {
-    return <div className='w-[350px] h-[400px] bg-[#121212] m-auto rounded-lg mt-[50px]  relative'>
-        <div className='text-center mb-4'>
-            <p className='text-2xl text-white py-4'>Bonjour !</p>
-            <p className='text-[12px] text-gray-500'>Connectez-vous et profiter de nos services</p>
-        </div>
+    return <AuthComp hTitle='Bonjour !' hSubTitle='Connectez-vous et profiter de nos services'>
         <div className='px-4'>
             <Input id='phone' className='mb-4' placeholder='Entrer votre nurero' label='Numero télé' type='text' />
             <Input id='password' placeholder='Entrer le mot de passe' label='Mot de passe' type='password' />
@@ -24,5 +19,5 @@ export default function Connexion() {
             <span className='text-gray-500'>Envie de nous rejoindre ? </span>
             <Link href={"/inscription"} className='text-blue-500'>Créer un compte</Link>
         </div>
-    </div>
+    </AuthComp>
 }
