@@ -41,5 +41,9 @@ export const VerifAccount = () => {
                 ))
             }
         </div>
+        <div className="text-center mt-8">
+            <p className="text-[14px] text-gray-300">Si vous n'avez rien reçu</p>
+            <p className="text-[10px] text-gray-500 px-8">Veuiller patienter 30 secondes avant de pouvoir demander un autre</p>
+        </div>
     </AuthComp>
 }
