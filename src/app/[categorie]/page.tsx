@@ -30,9 +30,6 @@ export default function Categorie({ params }: CategoriesProps) {
                 <MainItem/>
                 <MainItem/>
                 <MainItem/>
-                <MainItem/>
-                <MainItem/>
-                <MainItem/>
             </div>
         </div>
 

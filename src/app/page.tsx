@@ -13,8 +13,8 @@ export default function Home() {
         <SearchBar />
         <div>
           <ProductsByCategory>
-            <MainItemOutline />
-            <MainItemOutline />
+            <MainItemOutline className={"w-[180px]"} />
+            <MainItemOutline className={"w-[180px]"} />
           </ProductsByCategory>
           <ProductsByCategory>
             <MainItem />

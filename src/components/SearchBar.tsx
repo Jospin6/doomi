@@ -7,7 +7,7 @@ type SearchBarProps = {
 
 export const SearchBar = ({ isHidden = false }: SearchBarProps) => {
 
-    return <div className="h-auto border-b-[1px] border-[#121212] w-full px-2 pb-2">
+    return <div className="h-auto border-b-[1px] border-[#121212] w-full px-2">
         <div className="flex items-center h-[60px]">
             <div className="flex items-center mt-2 w-full rounded-lg bg-[#121212] h-[35px]">
                 <input
