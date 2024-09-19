@@ -4,16 +4,13 @@ import { Input } from "@/components/Input";
 import { MainButton } from "@/components/MainButton";
 import { Radiobox } from "@/components/Radiobox";
 import { SelectInput } from "@/components/SelectInput";
-import { VerifAccount } from "@/components/VerifAccount";
 import { useState } from "react";
 
 export default function Inscription() {
 
     return <div>
 
-        <VerifAccount/>
-
-        {/* <AuthComp>
+        <AuthComp>
             <div className="px-4 pb-4">
                 <Input 
                     id='username' 
@@ -46,7 +43,7 @@ export default function Inscription() {
                 </p>
                 <MainButton text="S'inscrire" className="w-full py-[5px] mt-4" />
             </div>
-        </AuthComp> */}
+        </AuthComp>
 
         {/* <AuthComp>
             <div className="px-4 pt-[80px]">
