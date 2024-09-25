@@ -16,6 +16,7 @@ export const Input = ({type, id, placeholder, label, className}: InputProps) => 
             className="w-full border-[1px] h-[35px] rounded-lg border-gray-500 
             outline-none mr-2 text-[12px] bg-transparent pl-2" 
             id={id} 
+            autoComplete="off"
             placeholder={placeholder}/>
     </div>
 }

@@ -27,6 +27,13 @@ export default function Nouveau() {
                     <SelectInput id="categ" name="category" label="Choisissez une categorie" />
                     <SelectInput id="categ" name="category" label="Etat" />
                 </div>
+                <div className="w-[60%]">
+                    <Input
+                        type="text"
+                        id="price"
+                        placeholder="Entrer le prix"
+                        label="Quel est le prix ?" />
+                </div>
                 <TextArea id="descr" label="Description" />
                 <div>
                     <button className="bg-blue-500 rounded-lg text-[14px] px-[10px] py-[3px]">Publier</button>
