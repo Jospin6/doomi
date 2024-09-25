@@ -20,6 +20,7 @@ export default function Nouveau() {
                     <Input
                         type="text"
                         id="title"
+                        inputBorder="border-[#121212]"
                         placeholder="Entrer le titre"
                         label="Quel est le titre ?" />
                 </div>
@@ -31,6 +32,7 @@ export default function Nouveau() {
                     <Input
                         type="text"
                         id="price"
+                        inputBorder="border-[#121212]"
                         placeholder="Entrer le prix"
                         label="Quel est le prix ?" />
                 </div>
