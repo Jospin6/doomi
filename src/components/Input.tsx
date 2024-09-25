@@ -15,7 +15,7 @@ export const Input = ({type, id, placeholder, label, className, inputBorder}: In
         <input 
             type={type} 
             className={`w-full border-[1px] h-[35px] rounded-lg  
-            outline-none mr-2 text-[12px] bg-transparent pl-2 ${inputBorder}`} 
+            outline-none mr-2 no-spiner text-[12px] bg-transparent pl-2 ${inputBorder}`} 
             id={id} 
             autoComplete="off"
             placeholder={placeholder}/>

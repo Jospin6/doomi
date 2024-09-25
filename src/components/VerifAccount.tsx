@@ -37,7 +37,7 @@ export const VerifAccount = () => {
                         onChange={(e) => handleChange(e, index)}
                         className="w-10 h-10 text-center text-2xl text-black border 
                     border-gray-300 rounded focus:outline-none focus:ring-blue-500"
-                        type="text" />
+                        type="number" />
                 ))
             }
         </div>

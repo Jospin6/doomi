@@ -4,13 +4,17 @@ import { Input } from "@/components/Input";
 import { MainButton } from "@/components/MainButton";
 import { Radiobox } from "@/components/Radiobox";
 import { SelectInput } from "@/components/SelectInput";
+import { VerifAccount } from "@/components/VerifAccount";
 import { useState } from "react";
 
 export default function Inscription() {
 
     return <div>
 
-        <AuthComp>
+        <VerifAccount/>
+
+
+        {/* <AuthComp>
             <div className="px-4 pb-4">
                 <Input
                     id='username'
@@ -37,7 +41,7 @@ export default function Inscription() {
                     id='password_conf'
                     placeholder='Confirmer le mot de passe'
                     label='Mot de passe confirmation'
-                    inputBorder="border-gray-500"
+                    inputBorder="bg-[#121212]"
                     type='password' />
                 <p className="text-[10px] text-gray-500 mt-8">
                     En m'inscrivant sur ce site je reconnais avoir lu et accepter les
@@ -47,7 +51,7 @@ export default function Inscription() {
                 </p>
                 <MainButton text="S'inscrire" className="w-full py-[5px] mt-4" />
             </div>
-        </AuthComp>
+        </AuthComp> */}
 
         {/* <AuthComp>
             <div className="px-4 pt-[80px]">
