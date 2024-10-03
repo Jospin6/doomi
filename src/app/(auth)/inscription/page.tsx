@@ -10,7 +10,22 @@ import { useState } from "react";
 export default function Inscription() {
 
     const [step, setStep] = useState(1)
+    const [selectedOption, setSelectedOption] = useState('')
+    const personel = "particulier"
+    const entreprise = "entreprise"
 
+    const continueStep = () => {
+        if (step > 4) {
+            setStep(1)
+        }
+        setStep(step + 1)
+    }
+
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setSelectedOption(event.target.value);
+        setStep(2)
+    }
+    
     return <div>
         {step != 4 && (
             <AuthComp>
@@ -22,8 +37,18 @@ export default function Inscription() {
                                 <p className='text-[12px] text-gray-500'>Vous créez ce compte pour qui ? </p>
                             </div>
                             <div>
-                                <Radiobox id="personal" label="Moi" />
-                                <Radiobox id="personal" label="Mon entreprise" />
+                                <Radiobox 
+                                    id="personal" 
+                                    label="Moi" 
+                                    value={personel} 
+                                    checked={selectedOption === personel}
+                                    onchange={handleChange} />
+                                <Radiobox 
+                                    id="personal" 
+                                    label="Mon entreprise" 
+                                    value={entreprise} 
+                                    checked={selectedOption === entreprise}
+                                    onchange={handleChange} />
                             </div>
                             <div className="text-[10px] mt-3">
                                 <p className="text-gray-500"> Nous choisir c'est choisir l'excelence</p>
@@ -34,8 +59,8 @@ export default function Inscription() {
                 )}
                 {step === 2 && (
                     <div className="px-4 pt-[80px]">
-                        <SelectInput id="address" label="Ville (ou village)" name="Address" />
-                        <MainButton text="Continuer" className="w-full py-[5px] mt-4" />
+                        <SelectInput id="address" borderColor="border-gray-400" label="Ville (ou village)" name="Address" />
+                        <MainButton text="Continuer" className="w-full py-[5px] mt-4" onclick={continueStep} />
                     </div>
                 )}
                 {step === 3 && (

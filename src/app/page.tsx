@@ -1,11 +1,20 @@
+"use client"
 import { CategoryItemWithImg } from "@/components/CategoryItemWithImg";
 import { MainItem } from "@/components/MainItem";
 import { MainItemOutline } from "@/components/MainItemOutline";
 import { ProductsByCategory } from "@/components/ProductsByCategory";
 import { SearchBar } from "@/components/SearchBar";
 import { SuggestionSideBar } from "@/components/SuggestionSideBar";
+import { AppDispatch } from "@/features/store";
+import {setIsTextHidden} from "@/features/navbarSlice"
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 
 export default function Home() {
+  const dispatch = useDispatch<AppDispatch>()
+  useEffect(() => {
+    dispatch(setIsTextHidden(false))
+  }, [])
   return (
     <main className="flex w-full">
 
