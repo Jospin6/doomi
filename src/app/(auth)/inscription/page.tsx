@@ -15,7 +15,7 @@ export default function Inscription() {
     const entreprise = "entreprise"
 
     const continueStep = () => {
-        if (step > 4) {
+        if (step > 5) {
             setStep(1)
         }
         setStep(step + 1)
@@ -98,7 +98,19 @@ export default function Inscription() {
                             <span className="text-blue-500"> conditions d'utilisation </span>
                             et je confirme être âgé d'au moins 18 ans
                         </p>
-                        <MainButton text="S'inscrire" className="w-full py-[5px] mt-4" />
+                        <MainButton text="S'inscrire" className="w-full py-[5px] mt-4" onclick={continueStep} />
+                    </div>
+                )}
+                {step === 5 && (
+                    <div className="px-4 pt-[80px]">
+                        <Input
+                            id='username'
+                            className='mb-4'
+                            placeholder='Entrer votre RCCM'
+                            label='Registre de commerce et de credit mobilier'
+                            inputBorder="border-gray-500"
+                            type='text' />
+                        <MainButton text="Continuer" className="w-full py-[5px] mt-4" onclick={continueStep} />
                     </div>
                 )}
             </AuthComp>
