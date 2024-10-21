@@ -25,9 +25,21 @@ export default function Inscription() {
         setSelectedOption(event.target.value);
         setStep(2)
     }
-    
+
     return <div>
-        {step != 4 && (
+        <AuthComp>
+            <div className="px-4 pt-[80px]">
+                <Input
+                    id='username'
+                    className='mb-4'
+                    placeholder='Entrer votre RCCM'
+                    label='Registre de commerce et de credit mobilier'
+                    inputBorder="border-gray-500"
+                    type='text' />
+                <MainButton text="Continuer" className="w-full py-[5px] mt-4" onclick={continueStep} />
+            </div>
+        </AuthComp>
+        {/* {step != 5 && (
             <AuthComp>
                 {step === 1 && (
                     <div className="flex items-center h-full">
@@ -37,16 +49,16 @@ export default function Inscription() {
                                 <p className='text-[12px] text-gray-500'>Vous créez ce compte pour qui ? </p>
                             </div>
                             <div>
-                                <Radiobox 
-                                    id="personal" 
-                                    label="Moi" 
-                                    value={personel} 
+                                <Radiobox
+                                    id="personal"
+                                    label="Moi"
+                                    value={personel}
                                     checked={selectedOption === personel}
                                     onchange={handleChange} />
-                                <Radiobox 
-                                    id="personal" 
-                                    label="Mon entreprise" 
-                                    value={entreprise} 
+                                <Radiobox
+                                    id="personal"
+                                    label="Mon entreprise"
+                                    value={entreprise}
                                     checked={selectedOption === entreprise}
                                     onchange={handleChange} />
                             </div>
@@ -118,6 +130,6 @@ export default function Inscription() {
 
         {step === 4 && (
             <VerifAccount />
-        )}
+        )} */}
     </div>
 }

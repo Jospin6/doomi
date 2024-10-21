@@ -13,8 +13,8 @@ export default function Favoris() {
                 <SecondButton text="emplois"/>
             </div>
             <div className="px-[90px]">
-                <MainItemOutline className="w-full"/>
-                <MainItemOutline className="w-full"/>
+                <MainItemOutline className="w-full" entreprise="LA MANNE" description="alimentation" poste="Caissier"/>
+                <MainItemOutline className="w-full" entreprise="MAPASA CAR" description="Agence de transport" poste="Chauffeur"/>
             </div>
         </div>
 

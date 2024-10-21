@@ -31,6 +31,8 @@ export const SideNavbar = () => {
         <Link href={"/emplois"}><MenuItem title="Emplois"><IoBriefcaseOutline /></MenuItem></Link>
         <Link href={"/ma_vitrine"}><MenuItem title="Mon e-vitrine"><IoStorefrontOutline /></MenuItem></Link>       
         <Link href={"/nouveau"}><MainButton text="Publier" className="py-2 mt-4 w-full text-[12px]" /></Link>
-        <Link href={"/compte"}><ListTile className=" mt-8 hover:bg-[#121212]" /></Link>
+        <Link href={"/compte"}>
+            <ListTile className=" mt-8 hover:bg-[#121212]" titre="Bahati" sousTitre="personnel" />
+        </Link>
     </div>
 }

@@ -14,9 +14,10 @@ export default function Notifications() {
                 <SecondButton text="services"/>
             </div>
             <div className="px-[90px]">
-                <HorizontalItem/>
-                <HorizontalItem/>
-                <HorizontalItem/>
+                <HorizontalItem titre="Location voiture" image="/assets/vh1.png" prix="$150" location="Bukavu"/>
+                <HorizontalItem titre="Maison à louer" image="/assets/msn2.png" prix="$200" location="Bukavu"/>
+                <HorizontalItem titre="Tricot" image="/assets/vt4.png" prix="$10" location="Bukavu"/>
+                <HorizontalItem titre="T-shirt" image="/assets/vt5.png" prix="$20" location="Bukavu"/>
             </div>
         </div>
 

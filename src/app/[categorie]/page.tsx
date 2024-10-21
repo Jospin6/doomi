@@ -20,16 +20,20 @@ export default function Categorie({ params }: CategoriesProps) {
                 <SecondButton text="taille"/>
                 <SecondButton text="marque"/>
             </div>
-            <div className="px-[90px]">
-                <MainItemOutline className="w-full"/>
-                <MainItemOutline className="w-full"/>
+            <div className="text-xl font-[500] text-white px-4 pt-2">
+                Vêtements
             </div>
+            {/* <div className="px-[90px]">
+                <MainItemOutline className="w-full"/>
+                <MainItemOutline className="w-full"/>
+            </div> */}
             <div className="flex flex-wrap px-[90px]">
-                <MainItem/>
-                <MainItem/>
-                <MainItem/>
-                <MainItem/>
-                <MainItem/>
+            <MainItem titre="tricot pour bébé" vendeur="LA MANNE" prix="FC6000" image="/assets/vt3.png" location="Bukavu" />
+            <MainItem titre="T-shirt" vendeur="Glody business" prix="$3" image="/assets/vt5.png" location="Bukavu" />
+            <MainItem titre="tricot" vendeur="Nadine" prix="$10" image="/assets/vt4.png" location="Bukavu" />
+            <MainItem titre="Chemises pour hommes" vendeur="LA MANNE" prix="FC6000" image="/assets/vet1.png" location="Bukavu" />
+            <MainItem titre="Pull" vendeur="Glody business" prix="$3" image="/assets/vet2.png" location="Bukavu" />
+            <MainItem titre="tricot" vendeur="Nadine" prix="$10" image="/assets/vt4.png" location="Bukavu" />
             </div>
         </div>
 

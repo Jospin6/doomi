@@ -12,8 +12,8 @@ export const SuggestionSideBar = () => {
             <span className="text-blue-600 text-[12px]">Voir tous</span>
         </div>
         <div>
-            <HorizontalItem/>
-            <HorizontalItem/>
+            <HorizontalItem titre="Location voiture" image="/assets/vh1.png" prix="$150" location="Bukavu"/>
+            <HorizontalItem titre="Maison à louer" image="/assets/msn2.png" prix="$200" location="Bukavu"/>
         </div>
     </div>
 }

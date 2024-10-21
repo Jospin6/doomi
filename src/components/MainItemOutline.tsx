@@ -1,10 +1,13 @@
-import { IoHeartOutline } from "react-icons/io5"
+import { IoHeart, IoHeartOutline } from "react-icons/io5"
 
 type MainItemOutlineProps = {
-    className: string
+    className: string,
+    entreprise: string,
+    description: string,
+    poste: string
 }
 
-export const MainItemOutline = ({ className }: MainItemOutlineProps) => {
+export const MainItemOutline = ({ className, entreprise, description, poste }: MainItemOutlineProps) => {
     return <div className={`${className} shadow border-[1px] border-[#121212] h-auto rounded-lg mt-2 p-2 mr-2`}>
         <div className="text-[12px] text-white pb-[2px] flex justify-between">
             <div className="flex">
@@ -12,16 +15,16 @@ export const MainItemOutline = ({ className }: MainItemOutlineProps) => {
 
                 </div>
                 <div>
-                    <div>Nom du vendeur</div>
+                    <div> {entreprise} </div>
                     <div className="text-[10px] text-gray-500">
-                        le business de l'entreprise
+                        {description}
                     </div>
                 </div>
             </div>
-            <IoHeartOutline />
+            <IoHeart className="text-red-500"/>
         </div>
         <div>
-            <h2 className="text-white text-[14px] my-[5px]">Titre du post</h2>
+            <h2 className="text-white text-[14px] my-[5px]"> {poste} </h2>
             <div className="text-gray-500 text-[12px]">temp plein 12$/heure</div>
             <div className="text-[10px] my-[5px] w-[160px] rounded-full bg-green-500 py-[3px] text-center text-white">
                 Recrute activement
