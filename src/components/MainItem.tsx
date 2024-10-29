@@ -10,7 +10,7 @@ type MainItemProps = {
 }
 
 export const MainItem = ({titre, vendeur, prix, image, location}: MainItemProps) => {
-    return <div className="w-[180px] h-auto mt-2 pb-2 mr-2">
+    return <div className="w-[180px] h-auto mt-[3px] pb-2 mr-2">
         <div className="text-[14px] text-white pb-[2px]">
             <span>{titre}</span>
         </div>
