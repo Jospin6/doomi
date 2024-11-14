@@ -18,7 +18,7 @@ export const VerifAccount = () => {
     const handleSubmitConf = () => {
         alert(`code de verification: ${code.join('')}`)
     }
-    return <AuthComp>
+    return <>
         <div className='text-center mb-4'>
             <p className='text-xl text-white pt-4'>Valider votre compte</p>
             <p className='text-[10px] text-gray-500'>
@@ -45,5 +45,5 @@ export const VerifAccount = () => {
             <p className="text-[14px] text-gray-300">Si vous n'avez rien reçu</p>
             <p className="text-[10px] text-gray-500 px-8">Veuiller patienter 30 secondes avant de pouvoir demander un autre</p>
         </div>
-    </AuthComp>
+    </>
 }

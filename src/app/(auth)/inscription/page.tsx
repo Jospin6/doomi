@@ -27,21 +27,10 @@ export default function Inscription() {
     }
 
     return <div>
-        <AuthComp>
-            <div className="px-4 pt-[80px]">
-                <Input
-                    id='username'
-                    className='mb-4'
-                    placeholder='Entrer votre RCCM'
-                    label='Registre de commerce et de credit mobilier'
-                    inputBorder="border-gray-500"
-                    type='text' />
-                <MainButton text="Continuer" className="w-full py-[5px] mt-4" onclick={continueStep} />
-            </div>
-        </AuthComp>
-        {/* {step != 5 && (
+
+        {step != 5 && (
             <AuthComp>
-                {step === 1 && (
+                {/* {step === 1 && (
                     <div className="flex items-center h-full">
                         <div className="pl-6">
                             <div className='mb-4'>
@@ -68,14 +57,14 @@ export default function Inscription() {
                             </div>
                         </div>
                     </div>
-                )}
-                {step === 2 && (
+                )} */}
+                {step === 1 && (
                     <div className="px-4 pt-[80px]">
                         <SelectInput id="address" borderColor="border-gray-400" label="Ville (ou village)" name="Address" />
                         <MainButton text="Continuer" className="w-full py-[5px] mt-4" onclick={continueStep} />
                     </div>
                 )}
-                {step === 3 && (
+                {step === 2 && (
                     <div className="px-4 pb-4">
                         <Input
                             id='username'
@@ -113,23 +102,12 @@ export default function Inscription() {
                         <MainButton text="S'inscrire" className="w-full py-[5px] mt-4" onclick={continueStep} />
                     </div>
                 )}
-                {step === 5 && (
-                    <div className="px-4 pt-[80px]">
-                        <Input
-                            id='username'
-                            className='mb-4'
-                            placeholder='Entrer votre RCCM'
-                            label='Registre de commerce et de credit mobilier'
-                            inputBorder="border-gray-500"
-                            type='text' />
-                        <MainButton text="Continuer" className="w-full py-[5px] mt-4" onclick={continueStep} />
-                    </div>
+                {step === 3 && (
+                    <VerifAccount />
                 )}
             </AuthComp>
         )}
 
-        {step === 4 && (
-            <VerifAccount />
-        )} */}
+
     </div>
 }
