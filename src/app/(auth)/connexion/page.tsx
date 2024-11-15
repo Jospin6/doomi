@@ -18,12 +18,12 @@ export default function Connexion() {
     const navigate = useNavigate()
 
     const initialValues = {
-        email: '',
+        phone_number: '',
         password: ''
     };
 
     const validationSchema = Yup.object({
-        email: Yup.string().email('Email invalide').required('Email requis'),
+        phone_number: Yup.string().required('Numèro de téléphone requis'),
         password: Yup.string().min(8, 'Le mot de passe doit contenir au moins 8 caractères').required('Mot de passe requis')
     });
 
@@ -33,7 +33,7 @@ export default function Connexion() {
         onSubmit: async (data, { resetForm }) => {
             const userData: UserData = {
                 user: {
-                    email: data.email,
+                    email: data.phone_number,
                     password: data.password,
                 }
             };
@@ -60,11 +60,11 @@ export default function Connexion() {
                     placeholder='Entrer votre nurero'
                     fieldName="email"
                     onchange={formik.handleChange}
-                    value={formik.values.email}
+                    value={formik.values.phone_number}
                     label='Numero télé'
                     type='text' />
-                {formik.errors.email && formik.touched.email && (
-                    <div className="text-red-500">{formik.errors.email}</div>
+                {formik.errors.phone_number && formik.touched.phone_number && (
+                    <div className="text-red-500">{formik.errors.phone_number}</div>
                 )}
                 <Input
                     id='password'
