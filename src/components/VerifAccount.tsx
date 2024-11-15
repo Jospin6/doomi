@@ -37,7 +37,7 @@ export const VerifAccount = ({id}: userId) => {
         }
         const resultAction = await dispatch(confirmUser(userData));
             if (confirmUser.fulfilled.match(resultAction)) {
-                alert('Inscription réussie !');
+                alert('Compte confirmé avec succés !');
                 navigate("/")
             } else {
                 alert('Erreur lors de l\'inscription');
