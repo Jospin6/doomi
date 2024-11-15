@@ -1,9 +1,18 @@
 import { useState } from "react"
-import { AuthComp } from "./AuthComp"
+import { confirmUser } from '@/features/users/userApi'
+import { useDispatch } from 'react-redux'
+import { AppDispatch } from "@/features/store"
+import { CompteConfirmationData, userId } from '@/helpers/types'
+import { useNavigate } from "react-router-dom"
 
 
-export const VerifAccount = () => {
+
+export const VerifAccount = ({id}: userId) => {
+    const dispatch = useDispatch<AppDispatch>()
+    const navigate = useNavigate()
+
     const [code, setCode] = useState(['', '', '', '', ''])
+    const user_id = id; 
 
     const handleChange = (e: any, index: number) => {
         const value = e.target.value
@@ -13,11 +22,29 @@ export const VerifAccount = () => {
             document.getElementById(`input${index + 2}`)?.focus()
         }
         setCode(newCode)
+
+        if (newCode.every(digit => digit.length === 1)) {
+            handleSubmitConf();
+        }
     }
 
-    const handleSubmitConf = () => {
+    const handleSubmitConf = async () => {
         alert(`code de verification: ${code.join('')}`)
+        const confirmation_code = code.join('')
+        const userData: CompteConfirmationData = {
+            user_id ,
+            confirmation_code
+        }
+        const resultAction = await dispatch(confirmUser(userData));
+            if (confirmUser.fulfilled.match(resultAction)) {
+                alert('Inscription réussie !');
+                navigate("/")
+            } else {
+                alert('Erreur lors de l\'inscription');
+                console.error(resultAction.error);
+            }
     }
+
     return <>
         <div className='text-center mb-4'>
             <p className='text-xl text-white pt-4'>Valider votre compte</p>

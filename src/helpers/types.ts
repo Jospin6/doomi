@@ -13,6 +13,17 @@ interface UserData {
     lat_lon?: string;
 }
 
+interface userId {
+    id: number
+}
+
+interface CompteConfirmationData {
+    user_id: number,
+    confirmation_code: string
+}
+
 export type {
     UserData,
+    CompteConfirmationData,
+    userId
 }

@@ -12,11 +12,9 @@ import * as Yup from 'yup'
 import { UserData } from '@/helpers/types'
 import { useFormik } from "formik"
 import { SubmitBtn } from "@/components/SubmitBtn"
-import { useNavigate } from "react-router-dom"
 
 export default function Inscription() {
     const dispatch = useDispatch<AppDispatch>()
-    const navigate = useNavigate()
 
     const [step, setStep] = useState(1)
     const personel = "particulier"
@@ -43,7 +41,7 @@ export default function Inscription() {
     });
 
     const continueStep = () => {
-        if (step > 5) {
+        if (step > 3) {
             setStep(1)
         }
         setStep(step + 1)
@@ -73,13 +71,12 @@ export default function Inscription() {
                 alert('Erreur lors de l\'inscription');
                 console.error(resultAction.error);
             }
-            navigate("/")
         }
     })
 
     return <div>
 
-        {step != 5 && (
+        {step != 3 && (
             <AuthComp>
                 <>
                     <form onSubmit={formik.handleSubmit} encType="multipart/form-data">
@@ -136,18 +133,16 @@ export default function Inscription() {
                                     <span className="text-blue-500"> conditions d'utilisation </span>
                                     et je confirme être âgé d'au moins 18 ans
                                 </p>
-                                <SubmitBtn text="S'inscrire"/>
+                                <SubmitBtn text="S'inscrire" />
                             </div>
                         )}
                     </form>
 
                     {step === 3 && (
-                        <VerifAccount />
+                        <VerifAccount id={3}/>
                     )}
                 </>
             </AuthComp>
         )}
-
-
     </div>
 }

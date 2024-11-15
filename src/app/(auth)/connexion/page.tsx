@@ -41,11 +41,11 @@ export default function Connexion() {
             const resultAction = await dispatch(loginUser(userData));
             if (loginUser.fulfilled.match(resultAction)) {
                 alert('Connexion réussie !');
+                navigate("/")
             } else {
                 alert('Erreur lors de la connexion');
                 console.error(resultAction.error);
             }
-            navigate("/")
         }
     })
 
