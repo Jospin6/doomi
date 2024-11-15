@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { loginUser } from './userApi'
+import { siginUser, loginUser } from './userApi'
 type initialState = {
     token: string,
     loading: boolean,
@@ -25,6 +25,20 @@ const userSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder
+            .addCase(siginUser.pending, (state) => {
+                state.loading = true;
+                state.error = null;
+            })
+            .addCase(siginUser.fulfilled, (state, action: PayloadAction<any>) => {
+                state.loading = false;
+                state.user = action.payload;
+                localStorage.setItem('token', action.payload.token);
+            })
+            .addCase(siginUser.rejected, (state, action: PayloadAction<any>) => {
+                state.loading = false;
+                state.error = action.payload;
+            })
+            // connexion
             .addCase(loginUser.pending, (state) => {
                 state.loading = true;
                 state.error = null;

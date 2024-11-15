@@ -5,11 +5,14 @@ type InputProps = {
     placeholder: string,
     label: string,
     className?: string,
-    inputBorder: string
+    inputBorder: string,
+    fieldName: string,
+    onchange: (event: React.ChangeEvent<HTMLInputElement>) => void
+    value: any
 
 }
 
-export const Input = ({type, id, placeholder, label, className, inputBorder}: InputProps) => {
+export const Input = ({type, id, placeholder, label, className, inputBorder, fieldName, onchange, value}: InputProps) => {
     return <div className={`text-white ${className}`}>
         <label htmlFor={id} className="font-[500] text-[12px] block"> {label} </label>
         <input 
@@ -17,6 +20,9 @@ export const Input = ({type, id, placeholder, label, className, inputBorder}: In
             className={`w-full border-[1px] h-[35px] rounded-lg  
             outline-none mr-2 no-spiner text-[12px] bg-transparent pl-2 ${inputBorder}`} 
             id={id} 
+            name={fieldName}
+            onChange={onchange}
+            value={value}
             autoComplete="off"
             placeholder={placeholder}/>
     </div>
