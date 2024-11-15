@@ -33,7 +33,7 @@ export default function Connexion() {
         onSubmit: async (data, { resetForm }) => {
             const userData: UserData = {
                 user: {
-                    email: data.phone_number,
+                    phone_number: data.phone_number,
                     password: data.password,
                 }
             };
@@ -58,7 +58,7 @@ export default function Connexion() {
                     inputBorder="border-gray-500"
                     className='mb-4'
                     placeholder='Entrer votre nurero'
-                    fieldName="email"
+                    fieldName="phone_number"
                     onchange={formik.handleChange}
                     value={formik.values.phone_number}
                     label='Numero télé'
