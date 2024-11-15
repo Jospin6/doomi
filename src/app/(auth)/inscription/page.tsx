@@ -5,13 +5,14 @@ import { MainButton } from "@/components/MainButton"
 import { SelectInput } from "@/components/SelectInput"
 import { VerifAccount } from "@/components/VerifAccount"
 import { useState } from "react";
-import { AppDispatch, RootState } from '@/features/store'
+import { AppDispatch } from '@/features/store'
 import { useDispatch } from 'react-redux'
 import { siginUser } from '@/features/users/userApi'
 import * as Yup from 'yup'
 import { UserData } from '@/helpers/types'
 import { useFormik } from "formik"
 import { SubmitBtn } from "@/components/SubmitBtn"
+import { setUser } from "@/features/users/userSlice"
 
 export default function Inscription() {
     const dispatch = useDispatch<AppDispatch>()
@@ -67,6 +68,7 @@ export default function Inscription() {
             const resultAction = await dispatch(siginUser(userData));
             if (siginUser.fulfilled.match(resultAction)) {
                 alert('Inscription réussie !');
+                dispatch(setUser(resultAction));
             } else {
                 alert('Erreur lors de l\'inscription');
                 console.error(resultAction.error);

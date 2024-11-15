@@ -5,18 +5,18 @@ import { UserData, CompteConfirmationData } from '@/helpers/types'
 export const siginUser = createAsyncThunk("user/siginUser", async (data: UserData, {rejectWithValue}) => {
     try {
         const response = await axios.post('http://localhost:3000/users', {data});
-        return response.data.user; // Retourne l'utilisateur
+        return response.data.user; 
     } catch (error: any) {
-        return rejectWithValue(error.response.data); // Gérer les erreurs
+        return rejectWithValue(error.response.data); 
     }
 })
 
 export const loginUser = createAsyncThunk("user/loginUser", async (data: UserData, { rejectWithValue }) => {
     try {
         const response = await axios.post('http://localhost:3000/users/sign_in', {data});
-        return response.data.user; // Retourne l'utilisateur
+        return response.data.user; 
     } catch (error: any) {
-        return rejectWithValue(error.response.data); // Gérer les erreurs
+        return rejectWithValue(error.response.data); 
     }
 })
 

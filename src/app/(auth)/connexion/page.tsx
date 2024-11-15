@@ -11,6 +11,7 @@ import * as Yup from 'yup'
 import { UserData } from '@/helpers/types'
 import { SubmitBtn } from '@/components/SubmitBtn'
 import { useNavigate } from "react-router-dom"
+import { setUser } from '@/features/users/userSlice'
 
 
 export default function Connexion() {
@@ -41,6 +42,7 @@ export default function Connexion() {
             const resultAction = await dispatch(loginUser(userData));
             if (loginUser.fulfilled.match(resultAction)) {
                 alert('Connexion réussie !');
+                dispatch(setUser(resultAction));
                 navigate("/")
             } else {
                 alert('Erreur lors de la connexion');
