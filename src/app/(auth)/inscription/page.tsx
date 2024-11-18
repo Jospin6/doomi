@@ -6,16 +6,33 @@ import { SelectInput } from "@/components/SelectInput"
 import { VerifAccount } from "@/components/VerifAccount"
 import { useState } from "react";
 import { AppDispatch } from '@/features/store'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { siginUser } from '@/features/users/userApi'
 import * as Yup from 'yup'
 import { UserData } from '@/helpers/types'
 import { useFormik } from "formik"
 import { SubmitBtn } from "@/components/SubmitBtn"
 import { setUser } from "@/features/users/userSlice"
+import Select from 'react-select'
+import { fetchCities, setSelectedCity } from '@/features/citySlice';
+import { City } from '@/helpers/types';
 
 export default function Inscription() {
     const dispatch = useDispatch<AppDispatch>()
+    const { cities, selectedCity, pays, loading } = useSelector((state: any) => state.cities)
+    const [error, setError] = useState<string | null>(null)
+
+    const handleCityChange = (selectedOption: City | null) => {
+        if (selectedOption) {
+            dispatch(setSelectedCity(selectedOption));
+        }
+    }
+
+    const handleInputChange = async (inputValue: string) => {
+        if (inputValue) {
+            dispatch(fetchCities(inputValue));
+        }
+    }
 
     const [step, setStep] = useState(1)
     const personel = "particulier"
@@ -41,6 +58,15 @@ export default function Inscription() {
         lat_lon: Yup.string().required('Latitude et longitude requises'),
     });
 
+    const handleContinue = () => {
+        if (!selectedCity) {
+            setError('Veuillez choisir une ville avant de continuer.');
+        } else {
+            continueStep
+            console.log('Ville sélectionnée :', selectedCity);
+        }
+    };
+
     const continueStep = () => {
         if (step > 3) {
             setStep(1)
@@ -60,9 +86,9 @@ export default function Inscription() {
                     password: data.password,
                     type_account: personel,
                 },
-                ville: data.ville,
-                pays: data.pays,
-                lat_lon: data.lat_lon,
+                ville: selectedCity.ville,
+                pays: selectedCity.pays,
+                lat_lon: selectedCity.lat_lon,
             };
             resetForm()
             const resultAction = await dispatch(siginUser(userData));
@@ -84,8 +110,21 @@ export default function Inscription() {
                     <form onSubmit={formik.handleSubmit} encType="multipart/form-data">
                         {step === 1 && (
                             <div className="px-4 pt-[80px]">
-                                <SelectInput id="address" borderColor="border-gray-400" label="Ville (ou village)" name="Address" />
-                                <MainButton text="Continuer" className="w-full py-[5px] mt-4" onclick={continueStep} />
+                                <Select
+                                    options={cities}
+                                    onChange={handleCityChange}
+                                    onInputChange={handleInputChange}
+                                    placeholder="Tapez le nom de votre ville..."
+                                    isClearable
+                                />
+                                {loading && <p>Chargement...</p>}
+                                {error && <p className="text-red-500">{error}</p>}
+                                {selectedCity && (
+                                    <h2 className="text-white">
+                                        Ville: {selectedCity.ville}, Pays: {pays}
+                                    </h2>
+                                )}
+                                <MainButton text="Continuer" className="w-full py-[5px] mt-4" onclick={handleContinue} />
                             </div>
                         )}
                         {step === 2 && (
@@ -141,7 +180,7 @@ export default function Inscription() {
                     </form>
 
                     {step === 3 && (
-                        <VerifAccount id={3}/>
+                        <VerifAccount id={3} />
                     )}
                 </>
             </AuthComp>

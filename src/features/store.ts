@@ -1,12 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit'
 import navbarReducer from './navbarSlice'
-import geoNamesReducer from './geoNamesSlice'
+import cityReducer  from './citySlice'
 import userReducer from './users/userSlice'
 
 export const store = configureStore({
     reducer: {
         navbar: navbarReducer,
-        geoNames: geoNamesReducer,
+        cities: cityReducer ,
         user: userReducer
     }
 })

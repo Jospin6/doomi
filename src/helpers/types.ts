@@ -22,8 +22,23 @@ interface CompteConfirmationData {
     confirmation_code: string
 }
 
+interface City {
+    ville: string;
+    pays: string;
+    lat_lon: string;
+}
+  
+interface CityState {
+    cities: City[];
+    selectedCity: City | null;
+    pays: string;
+    loading: boolean;
+    error: string | null;
+}
 export type {
     UserData,
     CompteConfirmationData,
-    userId
+    userId,
+    City,
+    CityState
 }
