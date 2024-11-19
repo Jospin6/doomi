@@ -84,7 +84,7 @@ export default function Connexion() {
                     <span className='text-[10px] text-blue-500'>mot de passe oublié</span>
                     <Checkbox id='stay' label='Rester connecté' />
                 </div>
-                <SubmitBtn text="Connexion"/>
+                <SubmitBtn text="Connexion" />
             </form>
         </div>
         <div className='absolute left-0 bottom-0 text-center pb-4 w-full text-[12px]'>
