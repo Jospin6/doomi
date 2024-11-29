@@ -19,8 +19,8 @@ const ImmobilierDetails: React.FC<ImmobilierDetailsProps> = ({ formik, getErrorM
         fieldName={"immobilier.type_de_bien"}
         onchange={formik.handleChange}
         value={formik.values.immobilier.type_de_bien} />
-      {getErrorMessage('immobilier.type_de_bien') && (
-        <div className="error">{getErrorMessage('immobilier.type_de_bien')}</div>
+      {getErrorMessage('immobilier.type_de_bien', formik) && (
+        <div className="error">{getErrorMessage('immobilier.type_de_bien', formik)}</div>
       )}
     </div>
 
@@ -34,8 +34,8 @@ const ImmobilierDetails: React.FC<ImmobilierDetailsProps> = ({ formik, getErrorM
         fieldName={"immobilier.adresse"}
         onchange={formik.handleChange}
         value={formik.values.immobilier.adresse} />
-      {getErrorMessage('immobilier.adresse') && (
-        <div className="error">{getErrorMessage('immobilier.adresse')}</div>
+      {getErrorMessage('immobilier.adresse', formik) && (
+        <div className="error">{getErrorMessage('immobilier.adresse', formik)}</div>
       )}
     </div>
 
@@ -49,8 +49,8 @@ const ImmobilierDetails: React.FC<ImmobilierDetailsProps> = ({ formik, getErrorM
         fieldName={"immobilier.surface_habitable"}
         onchange={formik.handleChange}
         value={formik.values.immobilier.surface_habitable} />
-      {getErrorMessage('immobilier.surface_habitable') && (
-        <div className="error">{getErrorMessage('immobilier.surface_habitable')}</div>
+      {getErrorMessage('immobilier.surface_habitable', formik) && (
+        <div className="error">{getErrorMessage('immobilier.surface_habitable', formik)}</div>
       )}
     </div>
 
@@ -64,8 +64,8 @@ const ImmobilierDetails: React.FC<ImmobilierDetailsProps> = ({ formik, getErrorM
         fieldName={"immobilier.nombre_chambres"}
         onchange={formik.handleChange}
         value={formik.values.immobilier.nombre_chambres} />
-      {getErrorMessage('immobilier.nombre_chambres') && (
-        <div className="error">{getErrorMessage('immobilier.nombre_chambres')}</div>
+      {getErrorMessage('immobilier.nombre_chambres', formik) && (
+        <div className="error">{getErrorMessage('immobilier.nombre_chambres', formik)}</div>
       )}
     </div>
 
@@ -79,8 +79,8 @@ const ImmobilierDetails: React.FC<ImmobilierDetailsProps> = ({ formik, getErrorM
         fieldName={"immobilier.nombre_pieces"}
         onchange={formik.handleChange}
         value={formik.values.immobilier.nombre_pieces} />
-      {getErrorMessage('immobilier.nombre_pieces') && (
-        <div className="error">{getErrorMessage('immobilier.nombre_pieces')}</div>
+      {getErrorMessage('immobilier.nombre_pieces', formik) && (
+        <div className="error">{getErrorMessage('immobilier.nombre_pieces', formik)}</div>
       )}
     </div>
   </>;

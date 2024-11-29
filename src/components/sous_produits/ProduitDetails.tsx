@@ -31,8 +31,8 @@ const ProduitDetails: React.FC<ProduitDetailsProps> = ({ formik, getErrorMessage
                 fieldName={"titre"}
                 onchange={formik.handleChange}
                 value={formik.values.titre} />
-            {getErrorMessage('titre') && (
-                <div className="error">{getErrorMessage('titre')}</div>
+            {getErrorMessage('titre', formik) && (
+                <div className="error">{getErrorMessage('titre', formik)}</div>
             )}
         </div>
         <div>
@@ -45,8 +45,8 @@ const ProduitDetails: React.FC<ProduitDetailsProps> = ({ formik, getErrorMessage
                 fieldName={"prix"}
                 onchange={formik.handleChange}
                 value={formik.values.prix} />
-            {getErrorMessage('prix') && (
-                <div className="error">{getErrorMessage('prix')}</div>
+            {getErrorMessage('prix', formik) && (
+                <div className="error">{getErrorMessage('prix', formik)}</div>
             )}
         </div>
 
@@ -57,8 +57,8 @@ const ProduitDetails: React.FC<ProduitDetailsProps> = ({ formik, getErrorMessage
                 onChange={formik.handleChange}
                 value={formik.values.description}
             />
-            {getErrorMessage('description') && (
-                <div className="error">{getErrorMessage('description')}</div>
+            {getErrorMessage('description',formik) && (
+                <div className="error">{getErrorMessage('description', formik)}</div>
             )}
         </div>
 
@@ -72,8 +72,8 @@ const ProduitDetails: React.FC<ProduitDetailsProps> = ({ formik, getErrorMessage
                 fieldName={"devise"}
                 onchange={formik.handleChange}
                 value={formik.values.devise} />
-            {getErrorMessage('devise') && (
-                <div className="error">{getErrorMessage('devise')}</div>
+            {getErrorMessage('devise', formik) && (
+                <div className="error">{getErrorMessage('devise', formik)}</div>
             )}
         </div>
 
@@ -87,8 +87,8 @@ const ProduitDetails: React.FC<ProduitDetailsProps> = ({ formik, getErrorMessage
                 fieldName={"localisation"}
                 onchange={formik.handleChange}
                 value={formik.values.localisation} />
-            {getErrorMessage('localisation') && (
-                <div className="error">{getErrorMessage('localisation')}</div>
+            {getErrorMessage('localisation', formik) && (
+                <div className="error">{getErrorMessage('localisation', formik)}</div>
             )}
         </div>
 
@@ -108,8 +108,8 @@ const ProduitDetails: React.FC<ProduitDetailsProps> = ({ formik, getErrorMessage
                 <option value="6">Autres Produits</option>
                 <option value="7">Services</option>
             </select>
-            {getErrorMessage('sub_categorie_produit_id') && (
-                <div className="error">{getErrorMessage('sub_categorie_produit_id')}</div>
+            {getErrorMessage('sub_categorie_produit_id', formik) && (
+                <div className="error">{getErrorMessage('sub_categorie_produit_id', formik)}</div>
             )}
         </div>
 
@@ -123,8 +123,8 @@ const ProduitDetails: React.FC<ProduitDetailsProps> = ({ formik, getErrorMessage
                 }}
                 multiple
             />
-            {getErrorMessage('images') && (
-                <div className="error">{getErrorMessage('images')}</div>
+            {getErrorMessage('images', formik) && (
+                <div className="error">{getErrorMessage('images', formik)}</div>
             )}
         </div>
     </>;

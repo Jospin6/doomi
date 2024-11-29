@@ -19,8 +19,8 @@ const EvenementDetails: React.FC<EvenementDetailsProps> = ({ formik, getErrorMes
         fieldName={"evenement.date_evenement"}
         onchange={formik.handleChange}
         value={formik.values.evenement.date_evenement} />
-      {getErrorMessage('evenement.date_evenement') && (
-        <div className="error">{getErrorMessage('evenement.date_evenement')}</div>
+      {getErrorMessage('evenement.date_evenement', formik) && (
+        <div className="error">{getErrorMessage('evenement.date_evenement', formik)}</div>
       )}
     </div>
 
@@ -34,8 +34,8 @@ const EvenementDetails: React.FC<EvenementDetailsProps> = ({ formik, getErrorMes
         fieldName={"evenement.lieu"}
         onchange={formik.handleChange}
         value={formik.values.evenement.lieu} />
-      {getErrorMessage('evenement.lieu') && (
-        <div className="error">{getErrorMessage('evenement.lieu')}</div>
+      {getErrorMessage('evenement.lieu', formik) && (
+        <div className="error">{getErrorMessage('evenement.lieu', formik)}</div>
       )}
     </div>
 
@@ -49,8 +49,8 @@ const EvenementDetails: React.FC<EvenementDetailsProps> = ({ formik, getErrorMes
         fieldName={"evenement.type_prix"}
         onchange={formik.handleChange}
         value={formik.values.evenement.type_prix} />
-      {getErrorMessage('evenement.type_prix') && (
-        <div className="error">{getErrorMessage('evenement.type_prix')}</div>
+      {getErrorMessage('evenement.type_prix', formik) && (
+        <div className="error">{getErrorMessage('evenement.type_prix', formik)}</div>
       )}
     </div>
 
@@ -64,8 +64,8 @@ const EvenementDetails: React.FC<EvenementDetailsProps> = ({ formik, getErrorMes
         fieldName={"evenement.site_web"}
         onchange={formik.handleChange}
         value={formik.values.evenement.site_web} />
-      {getErrorMessage('evenement.site_web') && (
-        <div className="error">{getErrorMessage('evenement.site_web')}</div>
+      {getErrorMessage('evenement.site_web', formik) && (
+        <div className="error">{getErrorMessage('evenement.site_web', formik)}</div>
       )}
     </div>
   </>;

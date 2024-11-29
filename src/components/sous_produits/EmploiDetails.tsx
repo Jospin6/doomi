@@ -19,8 +19,8 @@ const EmploiDetails: React.FC<EmploiDetailsProps> = ({ formik, getErrorMessage }
         fieldName={"emploi.type_contrat"}
         onchange={formik.handleChange}
         value={formik.values.emploi.type_contrat} />
-      {getErrorMessage('emploi.type_contrat') && (
-        <div className="error">{getErrorMessage('emploi.type_contrat')}</div>
+      {getErrorMessage('emploi.type_contrat', formik) && (
+        <div className="error">{getErrorMessage('emploi.type_contrat', formik)}</div>
       )}
     </div>
 
@@ -34,8 +34,8 @@ const EmploiDetails: React.FC<EmploiDetailsProps> = ({ formik, getErrorMessage }
         fieldName={"emploi.lieu"}
         onchange={formik.handleChange}
         value={formik.values.emploi.lieu} />
-      {getErrorMessage('emploi.lieu') && (
-        <div className="error">{getErrorMessage('emploi.lieu')}</div>
+      {getErrorMessage('emploi.lieu', formik) && (
+        <div className="error">{getErrorMessage('emploi.lieu', formik)}</div>
       )}
     </div>
 
@@ -49,8 +49,8 @@ const EmploiDetails: React.FC<EmploiDetailsProps> = ({ formik, getErrorMessage }
         fieldName={"emploi.secteur_activite"}
         onchange={formik.handleChange}
         value={formik.values.emploi.secteur_activite} />
-      {getErrorMessage('emploi.secteur_activite') && (
-        <div className="error">{getErrorMessage('emploi.secteur_activite')}</div>
+      {getErrorMessage('emploi.secteur_activite', formik) && (
+        <div className="error">{getErrorMessage('emploi.secteur_activite', formik)}</div>
       )}
     </div>
 
@@ -64,8 +64,8 @@ const EmploiDetails: React.FC<EmploiDetailsProps> = ({ formik, getErrorMessage }
         fieldName={"emploi.niveau_experience"}
         onchange={formik.handleChange}
         value={formik.values.emploi.niveau_experience} />
-      {getErrorMessage('emploi.niveau_experience') && (
-        <div className="error">{getErrorMessage('emploi.niveau_experience')}</div>
+      {getErrorMessage('emploi.niveau_experience', formik) && (
+        <div className="error">{getErrorMessage('emploi.niveau_experience', formik)}</div>
       )}
     </div>
 
@@ -79,8 +79,8 @@ const EmploiDetails: React.FC<EmploiDetailsProps> = ({ formik, getErrorMessage }
         fieldName={"emploi.date_limite"}
         onchange={formik.handleChange}
         value={formik.values.emploi.date_limite} />
-      {getErrorMessage('emploi.date_limite') && (
-        <div className="error">{getErrorMessage('emploi.date_limite')}</div>
+      {getErrorMessage('emploi.date_limite', formik) && (
+        <div className="error">{getErrorMessage('emploi.date_limite', formik)}</div>
       )}
     </div>
 
@@ -94,8 +94,8 @@ const EmploiDetails: React.FC<EmploiDetailsProps> = ({ formik, getErrorMessage }
         fieldName={"emploi.site_web"}
         onchange={formik.handleChange}
         value={formik.values.emploi.site_web} />
-      {getErrorMessage('emploi.site_web') && (
-        <div className="error">{getErrorMessage('emploi.site_web')}</div>
+      {getErrorMessage('emploi.site_web', formik) && (
+        <div className="error">{getErrorMessage('emploi.site_web', formik)}</div>
       )}
     </div>
 
@@ -109,8 +109,8 @@ const EmploiDetails: React.FC<EmploiDetailsProps> = ({ formik, getErrorMessage }
         fieldName={"emploi.formation_requise"}
         onchange={formik.handleChange}
         value={formik.values.emploi.formation_requise} />
-      {getErrorMessage('emploi.formation_requise') && (
-        <div className="error">{getErrorMessage('emploi.formation_requise')}</div>
+      {getErrorMessage('emploi.formation_requise', formik) && (
+        <div className="error">{getErrorMessage('emploi.formation_requise', formik)}</div>
       )}
     </div>
   </>;

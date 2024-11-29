@@ -1,3 +1,4 @@
+"use client"
 import React from 'react';
 import { FormikProps, useFormik } from "formik";
 import { useState } from "react";
@@ -10,7 +11,6 @@ import VetementChaussuresDetails from './sous_produits/VetementChaussuresDetails
 import AutreProduitDetails from './sous_produits/AutreProduitDetails';
 import ServicesDetails from './sous_produits/ServicesDetails';
 import { initialValues, validationSchema } from '@/helpers/produits'
-import ProduitDetails from './sous_produits/produitDetails';
 import { 
     VIHICULE,
     IMMOBILIER,
@@ -20,10 +20,10 @@ import {
     AUTRE_PRODUIT,
     SERVICE } from '@/helpers/constants'
 import { AppDispatch, RootState } from '@/features/store';
+import ProduitDetails from './sous_produits/ProduitDetails';
 
 const ProduitForm = () => {
 
-    const dispatch = useDispatch<AppDispatch>();
     const subCategory = useSelector((state: RootState) => state.subCategory.currentSubCategory)
 
     const formik = useFormik({

@@ -19,8 +19,8 @@ const VehicleDetails: React.FC<VehicleDetailsProps> = ({ formik, getErrorMessage
         fieldName={"vehicule.modele"}
         onchange={formik.handleChange}
         value={formik.values.vehicule.modele} />
-      {getErrorMessage('vehicule.modele') && (
-        <div className="error">{getErrorMessage('vehicule.modele')}</div>
+      {getErrorMessage('vehicule.modele', formik) && (
+        <div className="error">{getErrorMessage('vehicule.modele', formik)}</div>
       )}
     </div>
 
@@ -34,8 +34,8 @@ const VehicleDetails: React.FC<VehicleDetailsProps> = ({ formik, getErrorMessage
         fieldName={"vehicule.annee"}
         onchange={formik.handleChange}
         value={formik.values.vehicule.annee} />
-      {getErrorMessage('vehicule.annee') && (
-        <div className="error">{getErrorMessage('vehicule.annee')}</div>
+      {getErrorMessage('vehicule.annee', formik) && (
+        <div className="error">{getErrorMessage('vehicule.annee', formik)}</div>
       )}
     </div>
 
@@ -49,8 +49,8 @@ const VehicleDetails: React.FC<VehicleDetailsProps> = ({ formik, getErrorMessage
         fieldName={"vehicule.kilometrage"}
         onchange={formik.handleChange}
         value={formik.values.vehicule.kilometrage} />
-      {getErrorMessage('vehicule.kilometrage') && (
-        <div className="error">{getErrorMessage('vehicule.kilometrage')}</div>
+      {getErrorMessage('vehicule.kilometrage', formik) && (
+        <div className="error">{getErrorMessage('vehicule.kilometrage', formik)}</div>
       )}
     </div>
 
@@ -64,8 +64,8 @@ const VehicleDetails: React.FC<VehicleDetailsProps> = ({ formik, getErrorMessage
         fieldName={"vehicule.type_vehicule"}
         onchange={formik.handleChange}
         value={formik.values.vehicule.type_vehicule} />
-      {getErrorMessage('vehicule.type_vehicule') && (
-        <div className="error">{getErrorMessage('vehicule.type_vehicule')}</div>
+      {getErrorMessage('vehicule.type_vehicule', formik) && (
+        <div className="error">{getErrorMessage('vehicule.type_vehicule', formik)}</div>
       )}
     </div>
 
@@ -79,8 +79,8 @@ const VehicleDetails: React.FC<VehicleDetailsProps> = ({ formik, getErrorMessage
         fieldName={"vehicule.couleur"}
         onchange={formik.handleChange}
         value={formik.values.vehicule.couleur} />
-      {getErrorMessage('vehicule.couleur') && (
-        <div className="error">{getErrorMessage('vehicule.couleur')}</div>
+      {getErrorMessage('vehicule.couleur', formik) && (
+        <div className="error">{getErrorMessage('vehicule.couleur', formik)}</div>
       )}
     </div>
 
@@ -94,8 +94,8 @@ const VehicleDetails: React.FC<VehicleDetailsProps> = ({ formik, getErrorMessage
         fieldName={"vehicule.carburant"}
         onchange={formik.handleChange}
         value={formik.values.vehicule.carburant} />
-      {getErrorMessage('vehicule.carburant') && (
-        <div className="error">{getErrorMessage('vehicule.carburant')}</div>
+      {getErrorMessage('vehicule.carburant', formik) && (
+        <div className="error">{getErrorMessage('vehicule.carburant', formik)}</div>
       )}
     </div>
 
@@ -109,8 +109,8 @@ const VehicleDetails: React.FC<VehicleDetailsProps> = ({ formik, getErrorMessage
         fieldName={"vehicule.transmission"}
         onchange={formik.handleChange}
         value={formik.values.vehicule.transmission} />
-      {getErrorMessage('vehicule.transmission') && (
-        <div className="error">{getErrorMessage('vehicule.transmission')}</div>
+      {getErrorMessage('vehicule.transmission', formik) && (
+        <div className="error">{getErrorMessage('vehicule.transmission', formik)}</div>
       )}
     </div>
 
@@ -124,8 +124,8 @@ const VehicleDetails: React.FC<VehicleDetailsProps> = ({ formik, getErrorMessage
         fieldName={"vehicule.nombre_portes"}
         onchange={formik.handleChange}
         value={formik.values.vehicule.nombre_portes} />
-      {getErrorMessage('vehicule.nombre_portes') && (
-        <div className="error">{getErrorMessage('vehicule.nombre_portes')}</div>
+      {getErrorMessage('vehicule.nombre_portes', formik) && (
+        <div className="error">{getErrorMessage('vehicule.nombre_portes', formik)}</div>
       )}
     </div>
 
@@ -139,8 +139,8 @@ const VehicleDetails: React.FC<VehicleDetailsProps> = ({ formik, getErrorMessage
         fieldName={"vehicule.nombre_places"}
         onchange={formik.handleChange}
         value={formik.values.vehicule.nombre_places} />
-      {getErrorMessage('vehicule.nombre_places') && (
-        <div className="error">{getErrorMessage('vehicule.nombre_places')}</div>
+      {getErrorMessage('vehicule.nombre_places', formik) && (
+        <div className="error">{getErrorMessage('vehicule.nombre_places', formik)}</div>
       )}
     </div>
 
@@ -154,8 +154,8 @@ const VehicleDetails: React.FC<VehicleDetailsProps> = ({ formik, getErrorMessage
         fieldName={"vehicule.plan_de_paiement"}
         onchange={formik.handleChange}
         value={formik.values.vehicule.plan_de_paiement} />
-      {getErrorMessage('vehicule.plan_de_paiement') && (
-        <div className="error">{getErrorMessage('vehicule.plan_de_paiement')}</div>
+      {getErrorMessage('vehicule.plan_de_paiement', formik) && (
+        <div className="error">{getErrorMessage('vehicule.plan_de_paiement', formik)}</div>
       )}
     </div>
 
@@ -169,8 +169,8 @@ const VehicleDetails: React.FC<VehicleDetailsProps> = ({ formik, getErrorMessage
         fieldName={"vehicule.disponibilite"}
         onchange={formik.handleChange}
         value={formik.values.vehicule.disponibilite} />
-      {getErrorMessage('vehicule.disponibilite') && (
-        <div className="error">{getErrorMessage('vehicule.disponibilite')}</div>
+      {getErrorMessage('vehicule.disponibilite', formik) && (
+        <div className="error">{getErrorMessage('vehicule.disponibilite', formik)}</div>
       )}
     </div>
   </>;

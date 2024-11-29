@@ -19,8 +19,8 @@ const VetementChaussuresDetails: React.FC<VetementChaussuresDetailsProps> = ({ f
         fieldName={"vetement_chaussures.type"}
         onchange={formik.handleChange}
         value={formik.values.vetement_chaussures.type} />
-      {getErrorMessage('vetement_chaussures.type') && (
-        <div className="error">{getErrorMessage('vetement_chaussures.type')}</div>
+      {getErrorMessage('vetement_chaussures.type', formik) && (
+        <div className="error">{getErrorMessage('vetement_chaussures.type', formik)}</div>
       )}
     </div>
 
@@ -34,8 +34,8 @@ const VetementChaussuresDetails: React.FC<VetementChaussuresDetailsProps> = ({ f
         fieldName={"vetement_chaussures.taille"}
         onchange={formik.handleChange}
         value={formik.values.vetement_chaussures.taille} />
-      {getErrorMessage('vetement_chaussures.taille') && (
-        <div className="error">{getErrorMessage('vetement_chaussures.taille')}</div>
+      {getErrorMessage('vetement_chaussures.taille', formik) && (
+        <div className="error">{getErrorMessage('vetement_chaussures.taille', formik)}</div>
       )}
     </div>
 
@@ -49,8 +49,8 @@ const VetementChaussuresDetails: React.FC<VetementChaussuresDetailsProps> = ({ f
         fieldName={"vetement_chaussures.matiere"}
         onchange={formik.handleChange}
         value={formik.values.vetement_chaussures.matiere} />
-      {getErrorMessage('vetement_chaussures.matiere') && (
-        <div className="error">{getErrorMessage('vetement_chaussures.matiere')}</div>
+      {getErrorMessage('vetement_chaussures.matiere', formik) && (
+        <div className="error">{getErrorMessage('vetement_chaussures.matiere', formik)}</div>
       )}
     </div>
   </>;
