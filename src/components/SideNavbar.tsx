@@ -29,7 +29,7 @@ export const SideNavbar = () => {
         <Link href={"/messages"}><MenuItem title="Messages"><IoChatboxOutline /></MenuItem></Link>
         <Link href={"/evenements"}><MenuItem title="Evenements"><IoCalendarOutline /></MenuItem></Link>
         <Link href={"/emplois"}><MenuItem title="Emplois"><IoBriefcaseOutline /></MenuItem></Link>
-        <Link href={"/ma_vitrine"}><MenuItem title="Mon e-vitrine"><IoStorefrontOutline /></MenuItem></Link>       
+        <Link href={"/ma_vitrine"}><MenuItem title="Ma vitrine"><IoStorefrontOutline /></MenuItem></Link>       
         <Link href={"/nouveau"}><MainButton text="Publier" className="py-2 mt-4 w-full text-[12px]" /></Link>
         <Link href={"/compte"}>
             <ListTile className=" mt-8 hover:bg-[#121212]" titre="Bahati" sousTitre="personnel" />

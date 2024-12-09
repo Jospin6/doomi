@@ -28,11 +28,11 @@ const ProduitDetails: React.FC<ProduitDetailsProps> = ({ formik, getErrorMessage
                 inputBorder="border-[#121212]"
                 placeholder="Entrer le titre"
                 label="Quel est le titre ?"
-                fieldName={"titre"}
+                fieldName={"produit.titre"}
                 onchange={formik.handleChange}
-                value={formik.values.titre} />
-            {getErrorMessage('titre', formik) && (
-                <div className="error">{getErrorMessage('titre', formik)}</div>
+                value={formik.values.produit.titre} />
+            {getErrorMessage('produit.titre', formik) && (
+                <div className="error">{getErrorMessage('produit.titre', formik)}</div>
             )}
         </div>
         <div>
@@ -42,23 +42,23 @@ const ProduitDetails: React.FC<ProduitDetailsProps> = ({ formik, getErrorMessage
                 inputBorder="border-[#121212]"
                 placeholder="Entrer le prix"
                 label="Quel est le prix ?"
-                fieldName={"prix"}
+                fieldName={"produit.prix"}
                 onchange={formik.handleChange}
-                value={formik.values.prix} />
-            {getErrorMessage('prix', formik) && (
-                <div className="error">{getErrorMessage('prix', formik)}</div>
+                value={formik.values.produit.prix} />
+            {getErrorMessage('produit.prix', formik) && (
+                <div className="error">{getErrorMessage('produit.prix', formik)}</div>
             )}
         </div>
 
         <div>
             <label>Description</label><br></br>
             <textarea
-                name="description"
+                name="produit.description"
                 onChange={formik.handleChange}
-                value={formik.values.description}
+                value={formik.values.produit.description}
             />
-            {getErrorMessage('description',formik) && (
-                <div className="error">{getErrorMessage('description', formik)}</div>
+            {getErrorMessage('produit.description',formik) && (
+                <div className="error">{getErrorMessage('produit.description', formik)}</div>
             )}
         </div>
 
@@ -69,11 +69,11 @@ const ProduitDetails: React.FC<ProduitDetailsProps> = ({ formik, getErrorMessage
                 inputBorder="border-[#121212]"
                 placeholder="Entrer le devise"
                 label="Quel est le devise ?"
-                fieldName={"devise"}
+                fieldName={"produit.devise"}
                 onchange={formik.handleChange}
-                value={formik.values.devise} />
-            {getErrorMessage('devise', formik) && (
-                <div className="error">{getErrorMessage('devise', formik)}</div>
+                value={formik.values.produit.devise} />
+            {getErrorMessage('produit.devise', formik) && (
+                <div className="error">{getErrorMessage('produit.devise', formik)}</div>
             )}
         </div>
 
@@ -84,11 +84,11 @@ const ProduitDetails: React.FC<ProduitDetailsProps> = ({ formik, getErrorMessage
                 inputBorder="border-[#121212]"
                 placeholder="Entrer la Localisation"
                 label="Quel est ta Localisation ?"
-                fieldName={"localisation"}
+                fieldName={"produit.localisation"}
                 onchange={formik.handleChange}
-                value={formik.values.localisation} />
-            {getErrorMessage('localisation', formik) && (
-                <div className="error">{getErrorMessage('localisation', formik)}</div>
+                value={formik.values.produit.localisation} />
+            {getErrorMessage('produit.localisation', formik) && (
+                <div className="error">{getErrorMessage('produit.localisation', formik)}</div>
             )}
         </div>
 
@@ -108,8 +108,8 @@ const ProduitDetails: React.FC<ProduitDetailsProps> = ({ formik, getErrorMessage
                 <option value="6">Autres Produits</option>
                 <option value="7">Services</option>
             </select>
-            {getErrorMessage('sub_categorie_produit_id', formik) && (
-                <div className="error">{getErrorMessage('sub_categorie_produit_id', formik)}</div>
+            {getErrorMessage('produit.sub_categorie_produit_id', formik) && (
+                <div className="error">{getErrorMessage('produit.sub_categorie_produit_id', formik)}</div>
             )}
         </div>
 
@@ -117,14 +117,14 @@ const ProduitDetails: React.FC<ProduitDetailsProps> = ({ formik, getErrorMessage
             <label>Images</label>
             <input
                 type="file"
-                name="images"
+                name="produit.images"
                 onChange={(event) => {
                     formik.setFieldValue("images", event.currentTarget.files);
                 }}
                 multiple
             />
-            {getErrorMessage('images', formik) && (
-                <div className="error">{getErrorMessage('images', formik)}</div>
+            {getErrorMessage('produit.images', formik) && (
+                <div className="error">{getErrorMessage('produit.images', formik)}</div>
             )}
         </div>
     </>;

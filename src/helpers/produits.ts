@@ -1,13 +1,15 @@
 import * as Yup from 'yup'
 
 const initialValues = {
-    titre: '',
-    prix: '',
-    description: '',
-    devise: '',
-    localisation: '',
-    sub_categorie_produit_id: '',
-    images: [],
+    produit: {
+        titre: '',
+        prix: '',
+        description: '',
+        devise: '',
+        localisation: '',
+        sub_categorie_produit_id: '',
+        images: [],
+    },
     vehicule: {
         modele: '',
         annee: '',
@@ -60,13 +62,15 @@ const initialValues = {
 }
 
 const validationSchema = Yup.object({
-    titre: Yup.string().required('Titre requis'),
-    prix: Yup.number().required('Prix requis').positive(),
-    description: Yup.string().required('Description requise'),
-    devise: Yup.string().required('Devise requise'),
-    localisation: Yup.string().required('Localisation requise'),
-    sub_categorie_produit_id: Yup.number().required('Sous-catégorie requise'),
-    images: Yup.array().required('Images requises'),
+    produit: Yup.object().shape({
+        titre: Yup.string().required('Titre requis'),
+        prix: Yup.number().required('Prix requis').positive(),
+        description: Yup.string().required('Description requise'),
+        devise: Yup.string().required('Devise requise'),
+        localisation: Yup.string().required('Localisation requise'),
+        sub_categorie_produit_id: Yup.number().required('Sous-catégorie requise'),
+        images: Yup.array().required('Images requises'),
+    }),
     vehicule: Yup.object().shape({
         modele: Yup.string().required('Modèle requis'),
         annee: Yup.number().required('Année requise'),

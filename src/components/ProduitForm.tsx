@@ -21,22 +21,21 @@ import {
     SERVICE } from '@/helpers/constants'
 import { AppDispatch, RootState } from '@/features/store';
 import ProduitDetails from './sous_produits/ProduitDetails';
+import {postProduit} from '@/features/produits/produitsApi'
+import { useNavigate } from 'react-router-dom';
 
 const ProduitForm = () => {
-
+    const dispatch = useDispatch<AppDispatch>()
     const subCategory = useSelector((state: RootState) => state.subCategory.currentSubCategory)
+    const navigate = useNavigate()
 
     const formik = useFormik({
         initialValues,
         validationSchema,
-        onSubmit: async (values) => {
-            //   try {
-            //     const response = await axios.post('/api/produits', { produit: values });
-            //     dispatch(setProduct(response.data));
-            //     alert('Produit ajouté avec succès!');
-            //   } catch (error) {
-            //     console.error('Erreur lors de l\'ajout du produit:', error);
-            //   }
+        onSubmit: async (values, { resetForm }) => {
+            dispatch(postProduit(values))
+            resetForm()
+            navigate("/")
         },
     });
 
