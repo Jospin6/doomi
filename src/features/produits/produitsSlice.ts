@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import {fetchProduits, fetchProduitsById} from './produitsApi'
 
 type initialState = {
@@ -25,13 +25,13 @@ const produitsSlice = createSlice({
                 state.loading = true
                 state.error = ""
             })
-            .addCase(fetchProduits.fulfilled, (state, action) => {
+            .addCase(fetchProduits.fulfilled, (state, action: PayloadAction<any>) => {
                 state.loading= false
                 state.produits = action.payload
             })
-            .addCase(fetchProduits.rejected, (state, action) => {
+            .addCase(fetchProduits.rejected, (state, action: PayloadAction<any>) => {
                 state.loading = false
-                state.error = action.error.message || "Erreur lors de la récupération des produits";
+                state.error = action.payload || "Erreur lors de la récupération des produits";
             })
         
         builder
@@ -39,13 +39,13 @@ const produitsSlice = createSlice({
                 state.loading = true
                 state.error = ""
             })
-            .addCase(fetchProduitsById.fulfilled, (state, action) => {
+            .addCase(fetchProduitsById.fulfilled, (state, action: PayloadAction<any>) => {
                 state.loading= false
                 state.singleProduct = action.payload
             })
-            .addCase(fetchProduitsById.rejected, (state, action) => {
+            .addCase(fetchProduitsById.rejected, (state, action: PayloadAction<any>) => {
                 state.loading = false
-                state.error = action.error.message || "Erreur lors de la récupération du produit";
+                state.error = action.payload || "Erreur lors de la récupération du produit";
             })
     }
 })

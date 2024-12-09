@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { fetchCategories, fetchCategoryById } from './categoriesApi';
 
 type initialState = {
@@ -27,13 +27,13 @@ const categoriesSlice = createSlice({
                 state.loading = true;
                 state.error = "";
             })
-            .addCase(fetchCategories.fulfilled, (state, action) => {
+            .addCase(fetchCategories.fulfilled, (state, action: PayloadAction<any>) => {
                 state.loading = false;
                 state.categories = action.payload;
             })
-            .addCase(fetchCategories.rejected, (state, action) => {
+            .addCase(fetchCategories.rejected, (state, action: PayloadAction<any>) => {
                 state.loading = false;
-                state.error = action.error.message || "Erreur lors de la récupération des catégories";
+                state.error = action.payload || "Erreur lors de la récupération des catégories";
             });
 
         // Gestion de la récupération d'une catégorie par ID
@@ -42,13 +42,13 @@ const categoriesSlice = createSlice({
                 state.loading = true;
                 state.error = "";
             })
-            .addCase(fetchCategoryById.fulfilled, (state, action) => {
+            .addCase(fetchCategoryById.fulfilled, (state, action: PayloadAction<any>) => {
                 state.loading = false;
                 state.category = action.payload;
             })
-            .addCase(fetchCategoryById.rejected, (state, action) => {
+            .addCase(fetchCategoryById.rejected, (state, action: PayloadAction<any>) => {
                 state.loading = false;
-                state.error = action.error.message || "Erreur lors de la récupération de la catégorie";
+                state.error = action.payload || "Erreur lors de la récupération de la catégorie";
             });
     }
 });
