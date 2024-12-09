@@ -13,6 +13,12 @@ export const fetchProduitsById= createAsyncThunk("produits/fetchProduitsById", a
         .catch(error => error.message)
 })
 
+export const fetchUserProduits= createAsyncThunk("produits/fetchUserProduits", async (user_id: number) => {
+    return await axios.get(`http://localhost:3000/api/v1/produits/user_produits/${user_id}`)
+        .then(respons => respons.data)
+        .catch(error => error.message)
+})
+
 export const postProduit= createAsyncThunk("produits/fetchProduits", async (data: object) => {
     return await axios.post("http://localhost:3000/api/v1/produits", data)
         .then(respons => respons.data)

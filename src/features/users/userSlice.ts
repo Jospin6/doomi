@@ -1,15 +1,22 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { siginUser, loginUser } from './userApi'
+
+type userAttributes = {
+    id: number
+}
+
 type initialState = {
     token: string,
     loading: boolean,
-    user: object,
+    user: userAttributes,
     error: null
 }
 
 const initialState: initialState = {
     token: '',
-    user: {},
+    user: {
+        id: 0
+    },
     loading: false,
     error: null,
 }
@@ -23,7 +30,7 @@ const userSlice = createSlice({
             state.token = action.payload.token;
         },
         clearUser: (state) => {
-            state.user = {};
+            state.user = state.user;
             state.token = '';
         },
     },

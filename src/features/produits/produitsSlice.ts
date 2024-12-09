@@ -1,10 +1,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import {fetchProduits, fetchProduitsById} from './produitsApi'
+import {fetchProduits, fetchProduitsById, fetchUserProduits} from './produitsApi'
 
 type initialState = {
     loading: boolean,
     produits: any[],
     singleProduct: any | null,
+    userProducts: any[],
     error: string
 }
 
@@ -12,6 +13,7 @@ const initialState: initialState = {
     loading: false,
     produits: [],
     singleProduct: null,
+    userProducts: [],
     error: ""
 }
 
@@ -46,6 +48,20 @@ const produitsSlice = createSlice({
             .addCase(fetchProduitsById.rejected, (state, action: PayloadAction<any>) => {
                 state.loading = false
                 state.error = action.payload || "Erreur lors de la récupération du produit";
+            })
+
+        builder
+            .addCase(fetchUserProduits.pending, (state) => {
+                state.loading = true
+                state.error = ""
+            })
+            .addCase(fetchUserProduits.fulfilled, (state, action: PayloadAction<any>) => {
+                state.loading= false
+                state.userProducts = action.payload
+            })
+            .addCase(fetchUserProduits.rejected, (state, action: PayloadAction<any>) => {
+                state.loading = false
+                state.error = action.payload || "Erreur lors de la récupération des produits";
             })
     }
 })
