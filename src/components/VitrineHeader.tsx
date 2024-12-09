@@ -1,8 +1,20 @@
 import { IoMenu, IoStar, IoStarOutline } from "react-icons/io5"
 import { CategoryItem } from "./CategoryItem"
 import { MainButton } from "./MainButton"
+import {categoriItems} from "@/helpers/vitrine"
+import { useDispatch, useSelector } from "react-redux"
+import { AppDispatch, RootState } from "@/features/store"
+import {setActiveIndex} from '@/features/vitrines/vitrineSubNavbarSlice'
 
 export const VitrineHeader = () => {
+
+    const dispatch = useDispatch<AppDispatch>()
+    const {index} = useSelector((state: RootState) => state.vitrineSubNavbar)
+
+    const handleClick = (index: number) => {
+        dispatch(setActiveIndex(index))
+    };
+
     return <div className="border-b-[1px] h-auto border-[#121212]">
         <div className={`flex justify-between text-white items-center p-2`}>
             <span className="text-[20px] font-[500]"> E-vitrine </span>
@@ -43,11 +55,18 @@ export const VitrineHeader = () => {
             </div>
 
             <div className="w-full border-t-[1px] flex justify-between h-[40px] pt-[6px] border-[#121212] px-2">
-                <CategoryItem title="Publications" className="mr-4" />
-                <CategoryItem title="Services" className="mr-4" />
-                <CategoryItem title="Achats" className="mr-4" />
-                <CategoryItem title="Ventes" className="mr-4" />
-                <CategoryItem title="A propos"  />
+                {categoriItems.map((title, index) => (
+                    <CategoryItem
+                        key={index}
+                        title={title}
+                        isActive={index === index}
+                        className="mr-4"
+                        onClick={() => handleClick(index)}
+                    />
+                ))}
+                <div>
+                    
+                </div>
             </div>
         </div>
     </div>

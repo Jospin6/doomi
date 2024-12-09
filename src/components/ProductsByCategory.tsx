@@ -2,7 +2,7 @@
 import { MainItem } from "./MainItem"
 
 type ProductsByCategoryProps = {
-    category: object,
+    category: object | undefined,
 }
 
 export const ProductsByCategory = ({category}: ProductsByCategoryProps) => {

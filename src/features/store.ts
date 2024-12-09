@@ -5,6 +5,7 @@ import userReducer from './users/userSlice'
 import subCategoriesReducer from './sub_categories/subCategoriesSlice'
 import categoriesReducer from './categories/categoriesSlice'
 import produitsReducer from './produits/produitsSlice'
+import vitrineSubNavbarReducer from './vitrines/vitrineSubNavbarSlice'
 
 export const store = configureStore({
     reducer: {
@@ -14,6 +15,7 @@ export const store = configureStore({
         categories: categoriesReducer,
         subCategory: subCategoriesReducer,
         produits: produitsReducer,
+        vitrineSubNavbar: vitrineSubNavbarReducer
     }
 })
 
