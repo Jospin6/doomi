@@ -1,14 +1,15 @@
+"use client"
+import { MainItem } from "./MainItem"
 
 type ProductsByCategoryProps = {
-    titre: string,
-    children: React.ReactNode;
+    category: object,
 }
 
-export const ProductsByCategory = ({titre, children}: ProductsByCategoryProps) => {
+export const ProductsByCategory = ({category}: ProductsByCategoryProps) => {
     return <>
-        <div className="px-2 text-white font-[500]"> {titre} </div>
+        <div className="px-2 text-white font-[500]"> {'titre'} </div>
         <div className="w-full px-4 flex h-auto pb-2">
-            {children}
+            {/* <MainItem/> */}
         </div>
     </>
 }
