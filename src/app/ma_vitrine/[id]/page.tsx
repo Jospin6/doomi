@@ -7,23 +7,23 @@ import { Ventes } from "@/components/user/ventes";
 import { VitrineHeader } from "@/components/VitrineHeader";
 import { VitrineIntro } from "@/components/VitrineIntro";
 import { RootState } from "@/features/store";
-import {categoriItems} from "@/helpers/vitrine"
+import { categoriItems, PUBLICATIONS, SERVICES, ACHATS, VENTES, APROPOS } from "@/helpers/vitrine"
 import { useSelector } from "react-redux";
 
 export default function MaVitrine() {
-    const {index} = useSelector((state: RootState) => state.vitrineSubNavbar)
+    const { index } = useSelector((state: RootState) => state.vitrineSubNavbar)
 
     const renderActiveComponent = () => {
         switch (categoriItems[index!]) {
-            case "Publications":
+            case PUBLICATIONS:
                 return <Publications />;
-            case "Services":
+            case SERVICES:
                 return <Services />;
-            case "Achats":
+            case ACHATS:
                 return <Achats />;
-            case "Ventes":
+            case VENTES:
                 return <Ventes />;
-            case "A propos":
+            case APROPOS:
                 return <Apropos />;
             default:
                 return null;
@@ -33,13 +33,13 @@ export default function MaVitrine() {
     return <div className=" flex w-full text-white">
         <div className="w-[70%] min-h-[100vh] h-auto border-x-[1px] border-[#121212]">
             <VitrineHeader />
-            
-            <div className="flex flex-wrap px-[90px]">
-                
-            {renderActiveComponent()}
 
-            {/* <SalesChart /> */}
-            {/* <ServicesChart /> */}
+            <div className="flex flex-wrap px-[90px]">
+
+                {renderActiveComponent()}
+
+                {/* <SalesChart /> */}
+                {/* <ServicesChart /> */}
             </div>
         </div>
 

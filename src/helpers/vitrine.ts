@@ -1,6 +1,18 @@
 
-const categoriItems = ["Publications", "Services", "Achats", "Ventes", "A propos"]
+const PUBLICATIONS = "Publications"
+const SERVICES = "Services"
+const ACHATS ="Achats"
+const VENTES = "Ventes"
+const APROPOS = "A propos"
+
+
+const categoriItems = [PUBLICATIONS, SERVICES, ACHATS, VENTES, APROPOS]
 
 export {
-    categoriItems
+    categoriItems,
+    PUBLICATIONS,
+    SERVICES,
+    ACHATS,
+    VENTES,
+    APROPOS,
 }
