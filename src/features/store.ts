@@ -3,13 +3,17 @@ import navbarReducer from './navbarSlice'
 import cityReducer  from './citySlice'
 import userReducer from './users/userSlice'
 import subCategoriesReducer from './sub_categories/subCategoriesSlice'
+import categoriesReducer from './categories/categoriesSlice'
+import produitsReducer from './produits/produitsSlice'
 
 export const store = configureStore({
     reducer: {
         navbar: navbarReducer,
         cities: cityReducer ,
         user: userReducer,
+        categories: categoriesReducer,
         subCategory: subCategoriesReducer,
+        produits: produitsReducer,
     }
 })
 
