@@ -1,14 +1,18 @@
 import { createSlice } from '@reduxjs/toolkit'
+import { fetchCategories, fetchCategoryById } from './categoriesApi';
 
 type initialState = {
     loading: boolean,
     categories: any[],
+    category: any | null,
     error: string
 }
 
+// État initial
 const initialState: initialState = {
     loading: false,
     categories: [],
+    category: null,
     error: ""
 }
 
@@ -17,8 +21,36 @@ const categoriesSlice = createSlice({
     initialState,
     reducers: {},
     extraReducers: (builder) => {
-        
+        // Gestion de la récupération de toutes les catégories
+        builder
+            .addCase(fetchCategories.pending, (state) => {
+                state.loading = true;
+                state.error = "";
+            })
+            .addCase(fetchCategories.fulfilled, (state, action) => {
+                state.loading = false;
+                state.categories = action.payload;
+            })
+            .addCase(fetchCategories.rejected, (state, action) => {
+                state.loading = false;
+                state.error = action.error.message || "Erreur lors de la récupération des catégories";
+            });
+
+        // Gestion de la récupération d'une catégorie par ID
+        builder
+            .addCase(fetchCategoryById.pending, (state) => {
+                state.loading = true;
+                state.error = "";
+            })
+            .addCase(fetchCategoryById.fulfilled, (state, action) => {
+                state.loading = false;
+                state.category = action.payload;
+            })
+            .addCase(fetchCategoryById.rejected, (state, action) => {
+                state.loading = false;
+                state.error = action.error.message || "Erreur lors de la récupération de la catégorie";
+            });
     }
-})
+});
 
 export default categoriesSlice.reducer

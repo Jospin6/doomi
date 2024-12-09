@@ -9,7 +9,7 @@ export const store = configureStore({
         navbar: navbarReducer,
         cities: cityReducer ,
         user: userReducer,
-        subCategory: subCategoriesReducer
+        subCategory: subCategoriesReducer,
     }
 })
 
