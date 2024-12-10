@@ -71,5 +71,6 @@ export type {
     City,
     CityState,
     CategorieProduit,
-    Produit
+    Produit,
+    SubCategorieProduit
 }
