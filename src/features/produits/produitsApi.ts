@@ -19,6 +19,12 @@ export const fetchUserProduits= createAsyncThunk("produits/fetchUserProduits", a
         .catch(error => error.message)
 })
 
+export const searchProduits= createAsyncThunk("produits/searchProduits", async (title: string) => {
+    return await axios.get(`http://localhost:3000/api/v1/produits/search_products/${title}`)
+        .then(respons => respons.data)
+        .catch(error => error.message)
+})
+
 export const postProduit= createAsyncThunk("produits/fetchProduits", async (data: object) => {
     return await axios.post("http://localhost:3000/api/v1/produits", data)
         .then(respons => respons.data)

@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import {fetchProduits, fetchProduitsById, fetchUserProduits} from './produitsApi'
+import {fetchProduits, fetchProduitsById, fetchUserProduits, searchProduits} from './produitsApi'
 import {CategorieProduit, Produit} from '@/helpers/types'
 
 type initialState = {
@@ -7,6 +7,7 @@ type initialState = {
     produits: CategorieProduit[],
     singleProduct: Produit | null,
     userProducts: CategorieProduit[],
+    searchedProducts: Produit[]
     error: string
 }
 
@@ -15,6 +16,7 @@ const initialState: initialState = {
     produits: [],
     singleProduct: null,
     userProducts: [],
+    searchedProducts: [],
     error: ""
 }
 
@@ -63,6 +65,20 @@ const produitsSlice = createSlice({
             .addCase(fetchUserProduits.rejected, (state, action: PayloadAction<any>) => {
                 state.loading = false
                 state.error = action.payload || "Erreur lors de la récupération des produits";
+            })
+
+        builder
+            .addCase(searchProduits.pending, (state) =>{
+                state.loading = true
+                state.error = ""
+            })
+            .addCase(searchProduits.fulfilled, (state, action: PayloadAction<any>) =>{
+                state.loading = false
+                state.searchedProducts = action.payload
+            })
+            .addCase(searchProduits.rejected, (state, action: PayloadAction<any>) => {
+                state.loading = false
+                state.error = action.payload
             })
     }
 })

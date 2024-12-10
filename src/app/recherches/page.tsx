@@ -1,6 +1,11 @@
+import { MainItem } from "@/components/MainItem";
 import { SearchBar } from "@/components/SearchBar";
+import { RootState } from "@/features/store";
+import { useSelector } from "react-redux";
 
 export default function MesRecherches() {
+    const {searchedProducts} = useSelector((state: RootState) => state.produits)
+
     return <div className=" flex w-full text-white">
         <div className="w-[70%] min-h-[100vh] h-auto border-x-[1px] border-[#121212]">
             <SearchBar isHidden={true} />
@@ -19,6 +24,22 @@ export default function MesRecherches() {
                     <div className="pl-2">
                         <button className="py-[3px] rounded-full border-[1px] border-[#121212] px-[10px] text-gray-500 text-[12px]">chambre a louer</button>
                     </div>
+                </div>
+
+                <div className="mt-4">
+                    {
+                        searchedProducts.map(produit => (
+                            <>
+                                <MainItem 
+                                    key={produit.id} 
+                                    titre={produit.titre} 
+                                    vendeur={produit.vendeur} 
+                                    image={produit.image} 
+                                    location={produit.location} 
+                                />
+                            </>
+                          ))
+                    }
                 </div>
             </div>
         </div>
