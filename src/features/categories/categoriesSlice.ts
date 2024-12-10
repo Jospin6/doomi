@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { fetchCategories, fetchCategoryById } from './categoriesApi';
-import {CategorieProduit, Produit} from '@/helpers/types'
+import {CategorieProduit} from '@/helpers/types'
 
 
 

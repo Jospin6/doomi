@@ -3,15 +3,15 @@ import { useDispatch, useSelector } from "react-redux"
 import { MainItemOutline } from "../MainItemOutline"
 import { ProductsByCategory } from "../ProductsByCategory"
 import { SecondButton } from "../SecondButton"
-import {fetchUserProduits} from '@/features/produits/produitsApi'
+import { fetchUserProduits } from '@/features/produits/produitsApi'
 import { AppDispatch, RootState } from "@/features/store"
 import { useEffect } from "react"
 
 export const Publications = () => {
 
     const dispatch = useDispatch<AppDispatch>()
-    const {userProducts, loading, error} = useSelector((state: RootState) => state.produits)
-    const {user} = useSelector((state: RootState) => state.user)
+    const { userProducts, loading, error } = useSelector((state: RootState) => state.produits)
+    const { user } = useSelector((state: RootState) => state.user)
 
     useEffect(() => {
         dispatch(fetchUserProduits(user.id))
@@ -26,7 +26,9 @@ export const Publications = () => {
         </div>
 
         <div className="px-[90px]">
-            <MainItemOutline className="w-full" entreprise={""} description={""} poste={""} />
+            {
+                userProducts.map(produit => (<ProductsByCategory key={produit.id} category={produit} />))
+            }
         </div>
 
         {/* <ProductsByCategory category={undefined} /> */}

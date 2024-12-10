@@ -7,6 +7,7 @@ const initialValues = {
         description: '',
         devise: '',
         localisation: '',
+        user_id: '',
         sub_categorie_produit_id: '',
         images: [],
     },

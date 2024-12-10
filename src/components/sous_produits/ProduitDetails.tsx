@@ -14,6 +14,7 @@ const ProduitDetails: React.FC<ProduitDetailsProps> = ({ formik, getErrorMessage
 
     const dispatch = useDispatch<AppDispatch>();
     const subCategory = useSelector((state: RootState) => state.subCategory.currentSubCategory)
+    const user_id = useSelector((state: RootState) => state.user.user.id)
 
     const handleSubCategoryChange = (event: { target: { value: SetStateAction<string>; }; }) => {
         dispatch(setcurrentSubCategory(`${event.target.value}`))
@@ -21,6 +22,7 @@ const ProduitDetails: React.FC<ProduitDetailsProps> = ({ formik, getErrorMessage
     };
 
     return <>
+        <input type="number" name='produit.user_id' value={user_id} className='hidden' />
         <div>
             <Input
                 type="text"
