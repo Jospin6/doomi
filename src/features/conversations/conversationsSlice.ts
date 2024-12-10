@@ -1,4 +1,5 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { fetchUserConversations } from './conversationsApi'
 
 type initialState = {
     loading: boolean,
@@ -17,7 +18,19 @@ const conversationsSlice = createSlice({
     initialState,
     reducers: {},
     extraReducers: (builder) => {
-        
+        builder
+            .addCase(fetchUserConversations.pending, (state) => {
+                state.loading = true
+                state.error = ""
+            })
+            .addCase(fetchUserConversations.fulfilled, (state, action: PayloadAction<any>) => {
+                state.loading = false
+                state.conversations = action.payload
+            })
+            .addCase(fetchUserConversations.rejected, (state, action: PayloadAction<any>) => {
+                state.loading = false
+                state.error = action.payload
+            })
     }
 })
 

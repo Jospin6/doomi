@@ -1,9 +1,20 @@
+"use client"
 import { ListTile } from "@/components/ListTile";
 import { MessageHeader } from "@/components/MessageHeader";
 import { IoPaperPlaneOutline, IoSearchOutline } from "react-icons/io5";
 import Image from "next/image"
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "@/features/store";
+import { useEffect } from "react";
+import {fetchUserConversations} from '@/features/conversations/conversationsApi'
 
 export default function Messages() {
+    const dispatch = useDispatch<AppDispatch>()
+    const {loading, conversations, error} = useSelector((state: RootState) => state.conversations)
+
+    useEffect(() => {
+        dispatch(fetchUserConversations())
+    }, [])
     return <div className=" flex w-full text-white">
         <div className="w-[30%] min-h-[100vh] h-auto border-x-[1px] border-[#121212] p-2">
             <div className="flex justify-between h-[45px] items-center text-white">
@@ -12,7 +23,9 @@ export default function Messages() {
             </div>
 
             <div className="mt-4">
-                <ListTile titre="LA MANNE" sousTitre="entreprise"/>
+                {
+                    conversations.map(conversation => (<ListTile titre="LA MANNE" sousTitre="entreprise"/>))
+                }
             </div>
 
         </div>
@@ -20,8 +33,7 @@ export default function Messages() {
         <div className="w-[70%] relative">
             <MessageHeader />
 
-            <div>
-                {/* Messages */}
+            {/* <div>
                 <div className="flex justify-end h-auto px-4 pt-4">
                     <div className="w-[150px] h-[200px] pb-2 rounded-lg bg-[#121212]">
                         <div>
@@ -45,6 +57,10 @@ export default function Messages() {
                         Bonjour cher client nous vendons un T-shirt à $2 quand c'est une vente en gros
                     </span>
                 </div>
+            </div> */}
+
+            <div>
+                {/* MESSAGES */}
             </div>
             
             <div className="w-full absolute bottom-0 right-0 h-[80px] px-4">
