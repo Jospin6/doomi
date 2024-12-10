@@ -35,10 +35,30 @@ interface CityState {
     loading: boolean;
     error: string | null;
 }
+
+interface Produit {
+    id: number;
+    titre: string;
+    vendeur: string;
+    image: string;
+    location: string;
+    description: string;
+}
+
+interface SubCategorieProduit {
+    produits: Produit[];
+}
+
+interface CategorieProduit {
+    id: number;
+    titre: string;
+    sub_categorie_produits: SubCategorieProduit[];
+}
 export type {
     UserData,
     CompteConfirmationData,
     userId,
     City,
-    CityState
+    CityState,
+    CategorieProduit
 }

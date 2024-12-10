@@ -1,9 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { fetchCategories, fetchCategoryById } from './categoriesApi';
+import {CategorieProduit} from '@/helpers/types'
+
+
 
 type initialState = {
     loading: boolean,
-    categories: any[],
+    categories: CategorieProduit[],
     category: any | null,
     error: string
 }

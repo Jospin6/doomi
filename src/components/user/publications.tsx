@@ -29,7 +29,7 @@ export const Publications = () => {
             <MainItemOutline className="w-full" entreprise={""} description={""} poste={""} />
         </div>
 
-        <ProductsByCategory category={undefined} />
+        {/* <ProductsByCategory category={undefined} /> */}
 
     </>
 }

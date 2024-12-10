@@ -23,7 +23,7 @@ export default function Home() {
         <SearchBar />
         <div>
           {
-            categories.map(category => (<ProductsByCategory category={category} />))
+            categories.map(category => (<ProductsByCategory key={category.id} category={category} />))
           }
         </div>
         <div>
