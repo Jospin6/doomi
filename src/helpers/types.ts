@@ -36,13 +36,23 @@ interface CityState {
     error: string | null;
 }
 
+interface user {
+    id: number,
+    username: string,
+    image: string
+}
+
 interface Produit {
     id: number;
     titre: string;
+    prix: number,
+    devise: string,
     vendeur: string;
     image: string;
     location: string;
     description: string;
+    date: string;
+    user: user
 }
 
 interface SubCategorieProduit {
@@ -60,5 +70,6 @@ export type {
     userId,
     City,
     CityState,
-    CategorieProduit
+    CategorieProduit,
+    Produit
 }

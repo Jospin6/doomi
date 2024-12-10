@@ -6,6 +6,7 @@ import subCategoriesReducer from './sub_categories/subCategoriesSlice'
 import categoriesReducer from './categories/categoriesSlice'
 import produitsReducer from './produits/produitsSlice'
 import vitrineSubNavbarReducer from './vitrines/vitrineSubNavbarSlice'
+import vitrinesReducer from './vitrines/vitrinesSlice'
 
 export const store = configureStore({
     reducer: {
@@ -15,7 +16,8 @@ export const store = configureStore({
         categories: categoriesReducer,
         subCategory: subCategoriesReducer,
         produits: produitsReducer,
-        vitrineSubNavbar: vitrineSubNavbarReducer
+        vitrineSubNavbar: vitrineSubNavbarReducer,
+        vitrines: vitrinesReducer
     }
 })
 

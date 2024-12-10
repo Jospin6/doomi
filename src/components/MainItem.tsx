@@ -4,7 +4,7 @@ import { IoHeartOutline } from "react-icons/io5"
 type MainItemProps = {
     titre: string,
     vendeur: string,
-    prix?: string,
+    prix?: number,
     image: string,
     location: string
 }

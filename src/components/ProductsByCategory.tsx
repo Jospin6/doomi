@@ -13,7 +13,13 @@ export const ProductsByCategory = ({category}: ProductsByCategoryProps) => {
         {category?.sub_categorie_produits.map(subCategory => (
           subCategory.produits.map(produit => (
             <>
-                <MainItem key={produit.id} titre={""} vendeur={""} image={""} location={""} />
+                <MainItem 
+                    key={produit.id} 
+                    titre={produit.titre} 
+                    vendeur={produit.vendeur} 
+                    image={produit.image} 
+                    location={produit.location} 
+                />
             </>
           ))
         ))}
