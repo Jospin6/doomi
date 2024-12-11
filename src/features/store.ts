@@ -8,6 +8,7 @@ import produitsReducer from './produits/produitsSlice'
 import vitrineSubNavbarReducer from './vitrines/vitrineSubNavbarSlice'
 import vitrinesReducer from './vitrines/vitrinesSlice'
 import conversationsReducer from './conversations/conversationsSlice'
+import messagesReducer from './messages/messagesSlice'
 
 export const store = configureStore({
     reducer: {
@@ -19,7 +20,8 @@ export const store = configureStore({
         produits: produitsReducer,
         vitrineSubNavbar: vitrineSubNavbarReducer,
         vitrines: vitrinesReducer,
-        conversations: conversationsReducer
+        conversations: conversationsReducer,
+        messages: messagesReducer
     }
 })
 

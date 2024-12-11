@@ -11,6 +11,7 @@ import {fetchUserConversations} from '@/features/conversations/conversationsApi'
 export default function Messages() {
     const dispatch = useDispatch<AppDispatch>()
     const {loading, conversations, error} = useSelector((state: RootState) => state.conversations)
+    const {} = useSelector((state: RootState)=> state.messages)
 
     useEffect(() => {
         dispatch(fetchUserConversations())
