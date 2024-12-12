@@ -145,14 +145,14 @@ export default function Inscription() {
                                 {error && <p className="text-red-500">{error}</p>}
 
                                 {/* Affichage des détails de la ville sélectionnée */}
-                                {selectedCity && (
+                                {/* {selectedCity && (
                                     <div className="mt-4 p-4 border rounded shadow text-white">
                                         <h3 className="font-bold">Détails de la ville :</h3>
                                         <p><strong>Ville :</strong> {selectedCity.ville}</p>
                                         <p><strong>Pays :</strong> {selectedCity.pays}</p>
                                         <p><strong>Coordonnées :</strong> {selectedCity.lat_lon}</p>
                                     </div>
-                                )}
+                                )} */}
                                 <MainButton text="Continuer" className="w-full py-[5px] mt-4" onclick={continueStep} />
                             </div>
                         )}
