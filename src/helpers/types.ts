@@ -23,6 +23,8 @@ interface CompteConfirmationData {
 }
 
 interface City {
+    value: number;
+    label: string;
     ville: string;
     pays: string;
     lat_lon: string;

@@ -22,10 +22,12 @@ export const fetchCities = createAsyncThunk<City[], string>(
       },
     });
     return response.data.geonames.map((city: any) => ({
+      value: city.geonameId,
+      label: `${city.name}, ${city.countryName}`,
       ville: city.name,
       pays: city.countryName,
       lat_lon: `${city.lat}_${city.lng}`
-    }));
+  }));
   }
 );
 
@@ -34,7 +36,7 @@ const citySlice = createSlice({
   name: 'cities',
   initialState,
   reducers: {
-    setSelectedCity(state, action) {
+    setSelectedCity(state, action: PayloadAction<any>) {
       state.selectedCity = action.payload;
       state.pays = action.payload.country;
     },

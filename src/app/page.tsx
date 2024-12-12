@@ -21,18 +21,18 @@ export default function Home() {
 
       <div className="w-[70%] min-h-[100vh] h-auto border-x-[1px] border-[#121212]">
         <SearchBar />
-        <div>
+        {/* <div>
           {
             categories.map(category => (<ProductsByCategory key={category.id} category={category} />))
           }
-        </div>
+        </div> */}
         <div>
           <div className="p-2 text-white font-[500]">Explorer nos categories</div>
-          <div className="w-full flex m-auto px-6">
+          {/* <div className="w-full flex m-auto px-6">
             {
               categories.map(category => (<CategoryItemWithImg category={category} />))
             }
-          </div>
+          </div> */}
         </div>
       </div>
 

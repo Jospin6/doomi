@@ -10,13 +10,13 @@ import { useFormik } from "formik"
 import * as Yup from 'yup'
 import { UserData } from '@/helpers/types'
 import { SubmitBtn } from '@/components/SubmitBtn'
-import { useNavigate } from "react-router-dom"
+import { useRouter } from 'next/navigation';
 import { setUser } from '@/features/users/userSlice'
 
 
 export default function Connexion() {
     const dispatch = useDispatch<AppDispatch>()
-    const navigate = useNavigate()
+    const router = useRouter()
 
     const initialValues = {
         phone_number: '',
@@ -43,7 +43,7 @@ export default function Connexion() {
             if (loginUser.fulfilled.match(resultAction)) {
                 alert('Connexion réussie !');
                 dispatch(setUser(resultAction));
-                navigate("/")
+                router.push("/")
             } else {
                 alert('Erreur lors de la connexion');
                 console.error(resultAction.error);

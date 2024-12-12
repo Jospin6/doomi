@@ -4,8 +4,8 @@ import { Input } from "@/components/Input"
 import { MainButton } from "@/components/MainButton"
 import { SelectInput } from "@/components/SelectInput"
 import { VerifAccount } from "@/components/VerifAccount"
-import { useState } from "react";
-import { AppDispatch } from '@/features/store'
+import { useEffect, useState } from "react";
+import { AppDispatch, RootState } from '@/features/store'
 import { useDispatch, useSelector } from 'react-redux'
 import { siginUser } from '@/features/users/userApi'
 import * as Yup from 'yup'
@@ -18,21 +18,53 @@ import { fetchCities, setSelectedCity } from '@/features/citySlice';
 import { City } from '@/helpers/types';
 
 export default function Inscription() {
-    const dispatch = useDispatch<AppDispatch>()
-    const { cities, selectedCity, pays, loading } = useSelector((state: any) => state.cities)
-    const [error, setError] = useState<string | null>(null)
+    const dispatch = useDispatch<AppDispatch>();
+    const selectedCity = useSelector((state: RootState) => state.cities.selectedCity); // Récupération de la ville sélectionnée depuis Redux
+    const cities = useSelector((state: RootState) => state.cities.cities); // Récupération des villes depuis Redux
+    const loading = useSelector((state: RootState) => state.cities.loading); // État de chargement
+    const error = useSelector((state: RootState) => state.cities.error); // État d'erreur
+    const [inputValue, setInputValue] = useState<string>('');
+
+    // Utilisation de useEffect pour appeler la thunk lors du changement d'inputValue
+    useEffect(() => {
+        if (inputValue) {
+            dispatch(fetchCities(inputValue)); // Appel de la thunk
+        }
+    }, [inputValue, dispatch]);
+
+    const handleInputChange = (value: string) => {
+        setInputValue(value);
+    };
 
     const handleCityChange = (selectedOption: City | null) => {
+        dispatch(setSelectedCity(selectedOption)); // Met à jour la ville sélectionnée dans Redux
         if (selectedOption) {
-            dispatch(setSelectedCity(selectedOption));
+            console.log('Ville sélectionnée:', selectedOption);
         }
-    }
+    };
 
-    const handleInputChange = async (inputValue: string) => {
-        if (inputValue) {
-            dispatch(fetchCities(inputValue));
-        }
-    }
+    const customStyles = {
+        control: (provided: any) => ({
+            ...provided,
+            borderColor: 'lightgray',
+            boxShadow: 'none',
+            '&:hover': {
+                borderColor: 'blue',
+            },
+        }),
+        menu: (provided: any) => ({
+            ...provided,
+            zIndex: 9999,
+        }),
+        option: (provided: any, state: any) => ({
+            ...provided,
+            backgroundColor: state.isSelected ? 'blue' : state.isFocused ? 'lightgray' : 'white',
+            color: state.isSelected ? 'white' : 'black',
+        }),
+    };
+
+
+
 
     const [step, setStep] = useState(1)
     const personel = "particulier"
@@ -58,15 +90,6 @@ export default function Inscription() {
         lat_lon: Yup.string().required('Latitude et longitude requises'),
     });
 
-    const handleContinue = () => {
-        if (!selectedCity) {
-            setError('Veuillez choisir une ville avant de continuer.');
-        } else {
-            continueStep
-            console.log('Ville sélectionnée :', selectedCity);
-        }
-    };
-
     const continueStep = () => {
         if (step > 3) {
             setStep(1)
@@ -86,9 +109,9 @@ export default function Inscription() {
                     password: data.password,
                     type_account: personel,
                 },
-                ville: selectedCity.ville,
-                pays: selectedCity.pays,
-                lat_lon: selectedCity.lat_lon,
+                ville: selectedCity?.ville,
+                pays: selectedCity?.pays,
+                lat_lon: selectedCity?.lat_lon,
             };
             resetForm()
             const resultAction = await dispatch(siginUser(userData));
@@ -116,15 +139,21 @@ export default function Inscription() {
                                     onInputChange={handleInputChange}
                                     placeholder="Tapez le nom de votre ville..."
                                     isClearable
+                                    isLoading={loading}
+                                    styles={customStyles}
                                 />
-                                {loading && <p>Chargement...</p>}
                                 {error && <p className="text-red-500">{error}</p>}
+
+                                {/* Affichage des détails de la ville sélectionnée */}
                                 {selectedCity && (
-                                    <h2 className="text-white">
-                                        Ville: {selectedCity.ville}, Pays: {pays}
-                                    </h2>
+                                    <div className="mt-4 p-4 border rounded shadow text-white">
+                                        <h3 className="font-bold">Détails de la ville :</h3>
+                                        <p><strong>Ville :</strong> {selectedCity.ville}</p>
+                                        <p><strong>Pays :</strong> {selectedCity.pays}</p>
+                                        <p><strong>Coordonnées :</strong> {selectedCity.lat_lon}</p>
+                                    </div>
                                 )}
-                                <MainButton text="Continuer" className="w-full py-[5px] mt-4" onclick={handleContinue} />
+                                <MainButton text="Continuer" className="w-full py-[5px] mt-4" onclick={continueStep} />
                             </div>
                         )}
                         {step === 2 && (
