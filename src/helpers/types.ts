@@ -28,6 +28,8 @@ interface City {
     ville: string;
     pays: string;
     lat_lon: string;
+    flag: string;
+    countryCode: string
 }
   
 interface CityState {

@@ -13,9 +13,20 @@ import { UserData } from '@/helpers/types'
 import { useFormik } from "formik"
 import { SubmitBtn } from "@/components/SubmitBtn"
 import { setUser } from "@/features/users/userSlice"
-import Select from 'react-select'
+import Select, { components } from 'react-select'
 import { fetchCities, setSelectedCity } from '@/features/citySlice';
 import { City } from '@/helpers/types';
+import Image from "next/image"
+
+// const CustomOption = (props: any) => {
+//     const { data } = props;
+//     return (
+//         <components.Option {...props}>
+//             <Image src={data.flag} alt={`${data.pays} flag`} className="mr-2"  width={"30"} height={"30"}/>
+//             {data.label}
+//         </components.Option>
+//     );
+// };
 
 export default function Inscription() {
     const dispatch = useDispatch<AppDispatch>();
@@ -149,7 +160,7 @@ export default function Inscription() {
                                     <div className="mt-4 p-4 border rounded shadow text-white">
                                         <h3 className="font-bold">Détails de la ville :</h3>
                                         <p><strong>Ville :</strong> {selectedCity.ville}</p>
-                                        <p><strong>Pays :</strong> {selectedCity.pays}</p>
+                                        <p><strong>Pays :</strong> {selectedCity.pays} (Code: {selectedCity.countryCode})</p>
                                         <p><strong>Coordonnées :</strong> {selectedCity.lat_lon}</p>
                                     </div>
                                 )} */}
