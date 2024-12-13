@@ -33,10 +33,8 @@ export default function Connexion() {
         validationSchema,
         onSubmit: async (data, { resetForm }) => {
             const userData: UserData = {
-                user: {
-                    phone_number: data.phone_number,
-                    password: data.password,
-                }
+                phone_number: data.phone_number,
+                password: data.password,
             };
             resetForm()
             const resultAction = await dispatch(loginUser(userData));

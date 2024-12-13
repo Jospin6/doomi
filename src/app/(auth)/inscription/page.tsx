@@ -78,27 +78,17 @@ export default function Inscription() {
 
 
     const [step, setStep] = useState(1)
-    const personel = "particulier"
 
     const initialValues = {
         username: '',
-        email: '',
         phone_number: '',
-        password: '',
-        type_account: 'particulier',
-        ville: '',
-        pays: '',
-        lat_lon: '',
+        password: ''
     };
 
     const validationSchema = Yup.object({
         username: Yup.string().required('Nom d\'utilisateur requis'),
-        email: Yup.string().email('Email invalide').required('Email requis'),
         phone_number: Yup.string().required('Numéro de téléphone requis'),
         password: Yup.string().min(8, 'Le mot de passe doit contenir au moins 8 caractères').required('Mot de passe requis'),
-        ville: Yup.string().required('Ville requise'),
-        pays: Yup.string().required('Pays requis'),
-        lat_lon: Yup.string().required('Latitude et longitude requises'),
     });
 
     const continueStep = () => {
@@ -113,26 +103,25 @@ export default function Inscription() {
         validationSchema,
         onSubmit: async (data, { resetForm }) => {
             const userData: UserData = {
-                user: {
-                    username: data.username,
-                    email: `${data.username}.${data.phone_number}@doomi.com`,
-                    phone_number: data.phone_number,
-                    password: data.password,
-                    type_account: personel,
-                },
-                ville: selectedCity?.ville,
-                pays: selectedCity?.pays,
-                lat_lon: selectedCity?.lat_lon,
+                username: data.username,
+                phone_number: data.phone_number,
+                password: data.password,
+                ville: selectedCity?.ville ?? "",
+                pays: selectedCity?.pays ?? "",
+                lat_lon: selectedCity?.lat_lon ?? "",
             };
-            resetForm()
-            const resultAction = await dispatch(siginUser(userData));
-            if (siginUser.fulfilled.match(resultAction)) {
-                alert('Inscription réussie !');
-                dispatch(setUser(resultAction));
-            } else {
-                alert('Erreur lors de l\'inscription');
-                console.error(resultAction.error);
+
+            try {
+                const resultAction = await dispatch(siginUser(userData));
+                if (siginUser.fulfilled.match(resultAction)) {
+                    dispatch(setUser(resultAction));
+                } else {
+                    console.error(resultAction.error);
+                }
+            } catch (error) {
+                console.error("Erreur lors de la soumission :", error);
             }
+            resetForm();
         }
     })
 
@@ -141,22 +130,21 @@ export default function Inscription() {
         {step != 3 && (
             <AuthComp>
                 <>
-                    <form onSubmit={formik.handleSubmit} encType="multipart/form-data">
-                        {step === 1 && (
-                            <div className="px-4 pt-[80px]">
-                                <Select
-                                    options={cities}
-                                    onChange={handleCityChange}
-                                    onInputChange={handleInputChange}
-                                    placeholder="Tapez le nom de votre ville..."
-                                    isClearable
-                                    isLoading={loading}
-                                    styles={customStyles}
-                                />
-                                {error && <p className="text-red-500">{error}</p>}
+                    {step === 1 && (
+                        <div className="px-4 pt-[80px]">
+                            <Select
+                                options={cities}
+                                onChange={handleCityChange}
+                                onInputChange={handleInputChange}
+                                placeholder="Tapez le nom de votre ville..."
+                                isClearable
+                                isLoading={loading}
+                                styles={customStyles}
+                            />
+                            {error && <p className="text-red-500">{error}</p>}
 
-                                {/* Affichage des détails de la ville sélectionnée */}
-                                {/* {selectedCity && (
+                            {/* Affichage des détails de la ville sélectionnée */}
+                            {/* {selectedCity && (
                                     <div className="mt-4 p-4 border rounded shadow text-white">
                                         <h3 className="font-bold">Détails de la ville :</h3>
                                         <p><strong>Ville :</strong> {selectedCity.ville}</p>
@@ -164,10 +152,11 @@ export default function Inscription() {
                                         <p><strong>Coordonnées :</strong> {selectedCity.lat_lon}</p>
                                     </div>
                                 )} */}
-                                <MainButton text="Continuer" className="w-full py-[5px] mt-4" onclick={continueStep} />
-                            </div>
-                        )}
-                        {step === 2 && (
+                            <MainButton text="Continuer" className="w-full py-[5px] mt-4" onclick={continueStep} />
+                        </div>
+                    )}
+                    {step === 2 && (
+                        <form onSubmit={formik.handleSubmit} encType="multipart/form-data">
                             <div className="px-4 pb-4">
                                 <Input
                                     id='username'
@@ -216,8 +205,9 @@ export default function Inscription() {
                                 </p>
                                 <SubmitBtn text="S'inscrire" />
                             </div>
-                        )}
-                    </form>
+                        </form>
+                    )}
+
 
                     {step === 3 && (
                         <VerifAccount id={3} />

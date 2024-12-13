@@ -26,7 +26,7 @@ const userSlice = createSlice({
     initialState,
     reducers: {
         setUser: (state, action: PayloadAction<any>) => {
-            state.user = action.payload;
+            state.user = action.payload.data;
             state.token = action.payload.token;
         },
         clearUser: (state) => {
@@ -42,8 +42,12 @@ const userSlice = createSlice({
             })
             .addCase(siginUser.fulfilled, (state, action: PayloadAction<any>) => {
                 state.loading = false;
-                state.user = action.payload;
-                localStorage.setItem('token', action.payload.token);
+                // Extraire les données de l'utilisateur et le token
+                state.user = action.payload.data; // Assurez-vous d'accéder à action.payload.data
+                if (action.payload.token) {
+                    state.token = action.payload.token;
+                    localStorage.setItem('token', action.payload.token);
+                }
             })
             .addCase(siginUser.rejected, (state, action: PayloadAction<any>) => {
                 state.loading = false;
@@ -57,8 +61,10 @@ const userSlice = createSlice({
             .addCase(loginUser.fulfilled, (state, action: PayloadAction<any>) => {
                 state.loading = false;
                 state.user = action.payload;
-                state.token = action.payload.token; 
-                localStorage.setItem('token', action.payload.token); 
+                if (action.payload.token) {
+                    state.token = action.payload.token;
+                    localStorage.setItem('token', action.payload.token);
+                }
             })
             .addCase(loginUser.rejected, (state, action: PayloadAction<any>) => {
                 state.loading = false;

@@ -26,7 +26,7 @@ export const fetchCities = createAsyncThunk<City[], string>(
       label: `${city.name}, ${city.countryName}`,
       ville: city.name,
       pays: city.countryName,
-      lat_lon: `${city.lat}_${city.lng}`,
+      lat_lon: `${city.lat},${city.lng}`,
       flag: `https://flagcdn.com/${city.countryCode.toLowerCase()}.png`,
       countryCode: city.countryCode
     }));

@@ -4,10 +4,19 @@ import { UserData, CompteConfirmationData } from '@/helpers/types'
 
 export const siginUser = createAsyncThunk("user/siginUser", async (data: UserData, {rejectWithValue}) => {
     try {
-        const response = await axios.post('http://localhost:3000/users', {data});
-        return response.data.user; 
+        const response = await axios.post('http://localhost:3000/users', {
+            user: {
+                username: data.username,
+                phone_number: data.phone_number,
+                password: data.password,
+            },
+            ville: data.ville, 
+            pays: data.pays,   
+            lat_lon: data.lat_lon
+        });
+        return response; 
     } catch (error: any) {
-        return rejectWithValue(error.response.data); 
+        return rejectWithValue(error.response); 
     }
 })
 

@@ -1,13 +1,8 @@
-interface User {
-    username?: string;
-    email?: string;
-    phone_number?: string;
-    password?: string;
-    type_account?: 'particulier' | 'entreprise'; 
-}
 
 interface UserData {
-    user: User;
+    username?: string;
+    phone_number?: string;
+    password?: string;
     ville?: string;
     pays?: string;
     lat_lon?: string;
