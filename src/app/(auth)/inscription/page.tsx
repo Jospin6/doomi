@@ -117,6 +117,7 @@ export default function Inscription() {
                 const resultAction = await dispatch(siginUser(userData));
                 if (siginUser.fulfilled.match(resultAction)) {
                     dispatch(setUser(resultAction));
+                    resetForm();
                     router.push("/")
                 } else {
                     console.error(resultAction.error);
@@ -124,7 +125,6 @@ export default function Inscription() {
             } catch (error) {
                 console.error("Erreur lors de la soumission :", error);
             }
-            resetForm();
         }
     })
 
