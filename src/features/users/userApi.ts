@@ -29,6 +29,15 @@ export const loginUser = createAsyncThunk("user/loginUser", async (data: UserDat
     }
 })
 
+export const currentUser = createAsyncThunk("user/currentUser", async () => {
+    try {
+        const response = await axios.get('http://localhost:3000/api/v1/current_user');
+        return response.data; 
+    } catch (error: any) {
+        console.log(error.response.data); 
+    }
+})
+
 export const confirmUser = createAsyncThunk("user/confirmUser", async (data: CompteConfirmationData, { rejectWithValue }) => {
     try {
         const response = await axios.post('http://localhost:3000/api/v1/compte_infos', {data});

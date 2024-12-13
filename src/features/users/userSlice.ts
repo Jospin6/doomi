@@ -1,22 +1,21 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { siginUser, loginUser } from './userApi'
+import { siginUser, loginUser, currentUser } from './userApi'
 
 type userAttributes = {
     id: number
+    username: string
 }
 
 type initialState = {
     token: string,
     loading: boolean,
-    user: userAttributes,
+    user: userAttributes | null,
     error: null
 }
 
 const initialState: initialState = {
     token: '',
-    user: {
-        id: 0
-    },
+    user: null,
     loading: false,
     error: null,
 }
@@ -44,16 +43,15 @@ const userSlice = createSlice({
                 state.loading = false;
                 // Extraire les données de l'utilisateur et le token
                 state.user = action.payload.data; // Assurez-vous d'accéder à action.payload.data
-                if (action.payload.token) {
-                    state.token = action.payload.token;
-                    localStorage.setItem('token', action.payload.token);
-                }
+                state.token = action.payload.token;
+                localStorage.setItem('token', action.payload.token);
             })
             .addCase(siginUser.rejected, (state, action: PayloadAction<any>) => {
                 state.loading = false;
                 state.error = action.payload;
             })
-            // connexion
+        // connexion
+        builder
             .addCase(loginUser.pending, (state) => {
                 state.loading = true;
                 state.error = null;
@@ -61,15 +59,29 @@ const userSlice = createSlice({
             .addCase(loginUser.fulfilled, (state, action: PayloadAction<any>) => {
                 state.loading = false;
                 state.user = action.payload;
-                if (action.payload.token) {
-                    state.token = action.payload.token;
-                    localStorage.setItem('token', action.payload.token);
-                }
+                state.token = action.payload.token;
+                localStorage.setItem('token', action.payload.token);
             })
             .addCase(loginUser.rejected, (state, action: PayloadAction<any>) => {
                 state.loading = false;
                 state.error = action.payload;
             });
+
+        // current user
+        builder
+            .addCase(currentUser.pending, (state) => {
+                state.loading = true;
+                state.error = null;
+            })
+            .addCase(currentUser.fulfilled, (state, action: PayloadAction<any>) => {
+                state.loading = false
+                state.user = action.payload
+            })
+            .addCase(currentUser.rejected, (state, action: PayloadAction<any>) => {
+                state.loading = false
+                state.error = action.payload
+            })
+
     }
 })
 
