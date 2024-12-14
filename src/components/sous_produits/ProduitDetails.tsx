@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '@/features/store';
 import { setcurrentSubCategory } from '@/features/sub_categories/subCategoriesSlice';
 import { fetchSubCategories } from '@/features/sub_categories/subCategoriesApi';
+import {currentUser} from '@/features/users/userApi'
 
 interface ProduitDetailsProps {
     formik: FormikProps<any>;
@@ -24,7 +25,8 @@ const ProduitDetails: React.FC<ProduitDetailsProps> = ({ formik, getErrorMessage
 
     useEffect(() => {
         dispatch(fetchSubCategories());
-    }, [dispatch]);
+        dispatch(currentUser())
+    }, []);
 
     const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const files = event.currentTarget.files;

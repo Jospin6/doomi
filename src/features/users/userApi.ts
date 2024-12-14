@@ -31,12 +31,27 @@ export const loginUser = createAsyncThunk("user/loginUser", async (data: UserDat
 
 export const currentUser = createAsyncThunk("user/currentUser", async () => {
     try {
-        const response = await axios.get('http://localhost:3000/api/v1/current_user');
-        return response.data; 
+        const response = await axios.get('http://localhost:3000/api/v1/current_user', {
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem("token")}`, // Récupération du token
+                'Content-Type': 'application/json'
+            }
+        });
+        return response.data; // Retourne les données de l'utilisateur
     } catch (error: any) {
-        console.log(error.response.data); 
+        // Vérification si l'erreur contient une réponse
+        if (error.response) {
+            console.error('Erreur lors de la récupération de l’utilisateur :', error.response.data);
+            throw error.response.data; // Lance l'erreur pour être gérée dans le slice
+        } else if (error.request) {
+            console.error('Aucune réponse reçue :', error.request);
+            throw new Error('Aucune réponse du serveur.');
+        } else {
+            console.error('Erreur:', error.message);
+            throw new Error('Erreur lors de la requête.');
+        }
     }
-})
+});
 
 export const confirmUser = createAsyncThunk("user/confirmUser", async (data: CompteConfirmationData, { rejectWithValue }) => {
     try {

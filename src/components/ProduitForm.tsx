@@ -29,6 +29,9 @@ const ProduitForm = () => {
     const dispatch = useDispatch<AppDispatch>();
     const subCategory = useSelector((state: RootState) => state.subCategory.currentSubCategory);
     const router = useRouter();
+    const user_id = useSelector((state: RootState) => state.user.user?.id);
+
+    console.log(user_id)
 
     const formik = useFormik({
         initialValues,
@@ -49,65 +52,76 @@ const ProduitForm = () => {
             };
 
             // Ajouter les données spécifiques à la sous-catégorie
-            if (subCategory === VIHICULE) {
-                produitData.vehicule = {
-                    modele: values.vehicule.modele,
-                    annee: values.vehicule.annee,
-                    kilometrage: values.vehicule.kilometrage,
-                    type_vehicule: values.vehicule.type_vehicule,
-                    couleur: values.vehicule.couleur,
-                    carburant: values.vehicule.carburant,
-                    transmission: values.vehicule.transmission,
-                    nombre_portes: values.vehicule.nombre_portes,
-                    nombre_places: values.vehicule.nombre_places,
-                    plan_de_paiement: values.vehicule.plan_de_paiement,
-                    disponibilite: values.vehicule.disponibilite,
-                };
-            } else if (subCategory === IMMOBILIER) {
-                produitData.immobilier = {
-                    type_de_bien: values.immobilier.type_de_bien,
-                    adresse: values.immobilier.adresse,
-                    surface_habitable: values.immobilier.surface_habitable,
-                    nombre_chambres: values.immobilier.nombre_chambres,
-                    nombre_pieces: values.immobilier.nombre_pieces,
-                };
-            } else if (subCategory === EMPLOI) {
-                produitData.emploi = {
-                    type_contrat: values.emploi.type_contrat,
-                    lieu: values.emploi.lieu,
-                    secteur_activite: values.emploi.secteur_activite,
-                    niveau_experience: values.emploi.niveau_experience,
-                    date_limite: values.emploi.date_limite,
-                    site_web: values.emploi.site_web,
-                    formation_requise: values.emploi.formation_requise,
-                    etat_offre: values.emploi.etat_offre,
-                };
-            } else if (subCategory === EVENEMENT) {
-                produitData.evenement = {
-                    date_evenement: values.evenement.date_evenement,
-                    lieu: values.evenement.lieu,
-                    type_prix: values.evenement.type_prix,
-                    site_web: values.evenement.site_web,
-                    etat_evenement: values.evenement.etat_evenement,
-                };
-            } else if (subCategory === VETEMENT_CHAUSSURES) {
-                produitData.vetement_chaussures = {
-                    type: values.vetement_chaussures.type,
-                    taille: values.vetement_chaussures.taille,
-                    matiere: values.vetement_chaussures.matiere,
-                };
-            } else if (subCategory === AUTRE_PRODUIT) {
-                produitData.autre_produit = {
-                    etat: values.autre_produit.etat,
-                    marque: values.autre_produit.marque,
-                };
-            } else if (subCategory === SERVICE) {
-                produitData.service = {
-                    statut: values.service.statut,
-                };
+            switch (subCategory) {
+                case VIHICULE:
+                    produitData.vehicule = {
+                        modele: values.vehicule.modele,
+                        annee: values.vehicule.annee,
+                        kilometrage: values.vehicule.kilometrage,
+                        type_vehicule: values.vehicule.type_vehicule,
+                        couleur: values.vehicule.couleur,
+                        carburant: values.vehicule.carburant,
+                        transmission: values.vehicule.transmission,
+                        nombre_portes: values.vehicule.nombre_portes,
+                        nombre_places: values.vehicule.nombre_places,
+                        plan_de_paiement: values.vehicule.plan_de_paiement,
+                        disponibilite: values.vehicule.disponibilite,
+                    };
+                    break;
+                case IMMOBILIER:
+                    produitData.immobilier = {
+                        type_de_bien: values.immobilier.type_de_bien,
+                        adresse: values.immobilier.adresse,
+                        surface_habitable: values.immobilier.surface_habitable,
+                        nombre_chambres: values.immobilier.nombre_chambres,
+                        nombre_pieces: values.immobilier.nombre_pieces,
+                    };
+                    break;
+                case EMPLOI:
+                    produitData.emploi = {
+                        type_contrat: values.emploi.type_contrat,
+                        lieu: values.emploi.lieu,
+                        secteur_activite: values.emploi.secteur_activite,
+                        niveau_experience: values.emploi.niveau_experience,
+                        date_limite: values.emploi.date_limite,
+                        site_web: values.emploi.site_web,
+                        formation_requise: values.emploi.formation_requise,
+                        etat_offre: values.emploi.etat_offre,
+                    };
+                    break;
+                case EVENEMENT:
+                    produitData.evenement = {
+                        date_evenement: values.evenement.date_evenement,
+                        lieu: values.evenement.lieu,
+                        type_prix: values.evenement.type_prix,
+                        site_web: values.evenement.site_web,
+                        etat_evenement: values.evenement.etat_evenement,
+                    };
+                    break;
+                case VETEMENT_CHAUSSURES:
+                    produitData.vetement_chaussures = {
+                        type: values.vetement_chaussures.type,
+                        taille: values.vetement_chaussures.taille,
+                        matiere: values.vetement_chaussures.matiere,
+                    };
+                    break;
+                case AUTRE_PRODUIT:
+                    produitData.autre_produit = {
+                        etat: values.autre_produit.etat,
+                        marque: values.autre_produit.marque,
+                    };
+                    break;
+                case SERVICE:
+                    produitData.service = {
+                        statut: values.service.statut,
+                    };
+                    break;
+                default:
+                    break;
             }
-
+        
             try {
+                console.log("Données à envoyer: ", produitData);
                 await dispatch(postProduit(produitData)); // Envoyer les données à l'API
                 resetForm(); // Réinitialiser le formulaire
                 router.push("/"); // Rediriger après l'envoi

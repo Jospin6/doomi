@@ -25,8 +25,17 @@ export const searchProduits= createAsyncThunk("produits/searchProduits", async (
         .catch(error => error.message)
 })
 
-export const postProduit= createAsyncThunk("produits/fetchProduits", async (data: object) => {
-    return await axios.post("http://localhost:3000/api/v1/produits", data)
-        .then(respons => respons.data)
-        .catch(error => error.message)
+export const postProduit= createAsyncThunk("produits/postProduit", async (data: object) => {
+    return await axios.post("http://localhost:3000/api/v1/produits", data, {
+        headers: {
+            'Authorization': `Bearer ${localStorage.getItem("token")}`, // Récupération du token
+            'Content-Type': 'application/json'
+        }
+    })
+        .then(respons => {
+            console.log(respons.data)
+        })
+        .catch(error => {
+            console.log(error.message)
+        })
 })
