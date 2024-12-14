@@ -1,15 +1,21 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { fetchSubCategories } from './subCategoriesApi'
 
+
+type subCategory = {
+    id: number
+    titre: string
+}
 type initialState = {
     loading: boolean,
-    subCategories: any[],
+    subCategories: subCategory[] | null,
     currentSubCategory: string,
     error: string
 }
 
 const initialState: initialState = {
     loading: false,
-    subCategories: [],
+    subCategories: null,
     currentSubCategory: '0',
     error: ""
 }
@@ -23,7 +29,19 @@ const subCategoriesSlice = createSlice({
         }
     },
     extraReducers: (builder) => {
-        
+        builder
+            .addCase(fetchSubCategories.pending, (state) => {
+                state.loading = true
+                state.error = ""
+            })
+            .addCase(fetchSubCategories.fulfilled, (state, action: PayloadAction<any>) => {
+                state.loading = false
+                state.subCategories = action.payload
+            })
+            .addCase(fetchSubCategories.rejected, (state, action: PayloadAction<any>)=>{
+                state.loading = false
+                state.error = action.payload
+            })
     }
 })
 
