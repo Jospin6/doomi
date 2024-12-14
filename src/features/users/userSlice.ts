@@ -1,22 +1,19 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { siginUser, loginUser, currentUser } from './userApi'
-
-type userAttributes = {
-    id: number
-    username: string
-}
+import { siginUser, loginUser, logout } from './userApi'
+import { User } from '@/helpers/types'
+import { getLocalStorageItem } from '@/helpers/users'
 
 type initialState = {
-    token: string,
-    loading: boolean,
-    user: userAttributes | null,
-    error: null
+    user: User | null;
+    token: string | null;
+    status: 'idle' | 'loading' | 'succeeded' | 'failed';
+    error: string | null;
 }
 
 const initialState: initialState = {
-    token: '',
-    user: null,
-    loading: false,
+    user: JSON.parse(getLocalStorageItem('user') || 'null'),
+    token: getLocalStorageItem('token'),
+    status: 'idle',
     error: null,
 }
 
@@ -24,66 +21,56 @@ const userSlice = createSlice({
     name: "user",
     initialState,
     reducers: {
-        setUser: (state, action: PayloadAction<any>) => {
-            state.user = action.payload.data;
-            state.token = action.payload.token;
-        },
-        clearUser: (state) => {
-            state.user = state.user;
-            state.token = '';
+        clearCredentials: (state) => {
+            state.user = null;
+            state.token = null;
         },
     },
     extraReducers: (builder) => {
         builder
-            .addCase(siginUser.pending, (state) => {
-                state.loading = true;
-                state.error = null;
-            })
-            .addCase(siginUser.fulfilled, (state, action: PayloadAction<any>) => {
-                state.loading = false;
-                // Extraire les données de l'utilisateur et le token
-                state.user = action.payload.data; // Assurez-vous d'accéder à action.payload.data
-                state.token = action.payload.token;
-                localStorage.setItem('token', action.payload.token);
-            })
-            .addCase(siginUser.rejected, (state, action: PayloadAction<any>) => {
-                state.loading = false;
-                state.error = action.payload;
-            })
-        // connexion
         builder
-            .addCase(loginUser.pending, (state) => {
-                state.loading = true;
-                state.error = null;
-            })
-            .addCase(loginUser.fulfilled, (state, action: PayloadAction<any>) => {
-                state.loading = false;
-                state.user = action.payload;
+            .addCase(siginUser.fulfilled, (state, action) => {
+                state.user = action.payload.data;
                 state.token = action.payload.token;
-                localStorage.setItem('token', action.payload.token);
+                if (typeof window !== 'undefined') {
+                    localStorage.setItem('token', action.payload.token);
+                    localStorage.setItem('user', JSON.stringify(action.payload.data)); // Stocker l'utilisateur
+                }
+                state.status = 'succeeded';
             })
-            .addCase(loginUser.rejected, (state, action: PayloadAction<any>) => {
-                state.loading = false;
-                state.error = action.payload;
+            .addCase(loginUser.fulfilled, (state, action) => {
+                state.user = action.payload.data;
+                state.token = action.payload.token;
+                if (typeof window !== 'undefined') {
+                    localStorage.setItem('token', action.payload.token);
+                    localStorage.setItem('user', JSON.stringify(action.payload.data)); // Stocker l'utilisateur
+                }
+                state.status = 'succeeded';
+            })
+            .addCase(logout.fulfilled, (state) => {
+                state.user = null;
+                state.token = null;
+                if (typeof window !== 'undefined') {
+                    localStorage.removeItem('token');
+                    localStorage.removeItem('user'); // Supprimer l'utilisateur
+                }
+                state.status = 'succeeded';
+            })
+
+            .addCase(siginUser.rejected, (state, action) => {
+                state.status = 'failed';
+                state.error = action.error.message || 'Erreur lors de l\'inscription';
+            })
+            .addCase(loginUser.rejected, (state, action) => {
+                state.status = 'failed';
+                state.error = action.error.message || 'Erreur lors de la connexion';
+            })
+            .addCase(logout.rejected, (state, action) => {
+                state.status = 'failed';
+                state.error = action.error.message || 'Erreur lors de la déconnexion';
             });
-
-        // current user
-        builder
-            .addCase(currentUser.pending, (state) => {
-                state.loading = true;
-                state.error = null;
-            })
-            .addCase(currentUser.fulfilled, (state, action: PayloadAction<any>) => {
-                state.loading = false
-                state.user = action.payload
-            })
-            .addCase(currentUser.rejected, (state, action: PayloadAction<any>) => {
-                state.loading = false
-                state.error = action.payload
-            })
-
     }
 })
 
-export const { clearUser, setUser } = userSlice.actions;
+export const { clearCredentials } = userSlice.actions;
 export default userSlice.reducer

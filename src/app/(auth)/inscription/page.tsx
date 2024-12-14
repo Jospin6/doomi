@@ -12,12 +12,12 @@ import * as Yup from 'yup'
 import { UserData } from '@/helpers/types'
 import { useFormik } from "formik"
 import { SubmitBtn } from "@/components/SubmitBtn"
-import { setUser } from "@/features/users/userSlice"
 import Select, { components } from 'react-select'
 import { fetchCities, setSelectedCity } from '@/features/citySlice';
 import { City } from '@/helpers/types';
 import Image from "next/image"
 import { useRouter } from 'next/navigation';
+import useCurrentUser from "@/hooks/useCurrentUser"
 
 // const CustomOption = (props: any) => {
 //     const { data } = props;
@@ -37,6 +37,7 @@ export default function Inscription() {
     const error = useSelector((state: RootState) => state.cities.error); // État d'erreur
     const [inputValue, setInputValue] = useState<string>('');
     const router = useRouter()
+    const user = useCurrentUser()
 
     // Utilisation de useEffect pour appeler la thunk lors du changement d'inputValue
     useEffect(() => {
@@ -75,10 +76,7 @@ export default function Inscription() {
             color: state.isSelected ? 'white' : 'black',
         }),
     };
-
-
-
-
+    
     const [step, setStep] = useState(1)
 
     const initialValues = {
@@ -103,7 +101,7 @@ export default function Inscription() {
     const formik = useFormik({
         initialValues,
         validationSchema,
-        onSubmit: async (data, { resetForm }) => {
+        onSubmit: (data, { resetForm }) => {
             const userData: UserData = {
                 username: data.username,
                 phone_number: data.phone_number,
@@ -113,17 +111,10 @@ export default function Inscription() {
                 lat_lon: selectedCity?.lat_lon ?? "",
             };
 
-            try {
-                const resultAction = await dispatch(siginUser(userData));
-                if (siginUser.fulfilled.match(resultAction)) {
-                    dispatch(setUser(resultAction));
-                    resetForm();
-                    router.push("/")
-                } else {
-                    console.error(resultAction.error);
-                }
-            } catch (error) {
-                console.error("Erreur lors de la soumission :", error);
+            dispatch(siginUser(userData));
+            if (user != null) {
+                resetForm()
+                router.push("/")   
             }
         }
     })

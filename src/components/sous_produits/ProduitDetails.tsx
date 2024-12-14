@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '@/features/store';
 import { setcurrentSubCategory } from '@/features/sub_categories/subCategoriesSlice';
 import { fetchSubCategories } from '@/features/sub_categories/subCategoriesApi';
-import {currentUser} from '@/features/users/userApi'
+import useCurrentUser from "@/hooks/useCurrentUser"
 
 interface ProduitDetailsProps {
     formik: FormikProps<any>;
@@ -16,7 +16,7 @@ const ProduitDetails: React.FC<ProduitDetailsProps> = ({ formik, getErrorMessage
     const dispatch = useDispatch<AppDispatch>();
     const subCategory = useSelector((state: RootState) => state.subCategory.currentSubCategory);
     const { loading, subCategories, error } = useSelector((state: RootState) => state.subCategory);
-    const user_id = useSelector((state: RootState) => state.user.user?.id);
+    const user = useCurrentUser();
 
     const handleSubCategoryChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         dispatch(setcurrentSubCategory(event.target.value));
@@ -25,7 +25,6 @@ const ProduitDetails: React.FC<ProduitDetailsProps> = ({ formik, getErrorMessage
 
     useEffect(() => {
         dispatch(fetchSubCategories());
-        dispatch(currentUser())
     }, []);
 
     const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -57,7 +56,7 @@ const ProduitDetails: React.FC<ProduitDetailsProps> = ({ formik, getErrorMessage
 
     return (
         <>
-            <input type="hidden" name='produit.user_id' value={user_id} />
+            <input type="hidden" name='produit.user_id' value={user?.id} />
             <div>
                 <Input
                     type="text"

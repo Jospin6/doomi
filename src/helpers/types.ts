@@ -125,6 +125,12 @@ interface ProduitData {
         statut: string;
     };
 }
+
+type User = {
+    id: number
+    username: string
+}
+
 export type {
     UserData,
     CompteConfirmationData,
@@ -134,5 +140,6 @@ export type {
     CategorieProduit,
     Produit,
     SubCategorieProduit,
-    ProduitData
+    ProduitData,
+    User
 }

@@ -4,19 +4,20 @@ import { Checkbox } from '@/components/Checkbox'
 import Link from 'next/link'
 import { AuthComp } from '@/components/AuthComp'
 import { loginUser } from '@/features/users/userApi'
-import { AppDispatch } from '@/features/store'
-import { useDispatch } from 'react-redux'
+import { AppDispatch, RootState } from '@/features/store'
+import { useDispatch, useSelector } from 'react-redux'
 import { useFormik } from "formik"
 import * as Yup from 'yup'
-import { UserData } from '@/helpers/types'
 import { SubmitBtn } from '@/components/SubmitBtn'
 import { useRouter } from 'next/navigation';
-import { setUser } from '@/features/users/userSlice'
+import useCurrentUser from '@/hooks/useCurrentUser'
 
 
 export default function Connexion() {
     const dispatch = useDispatch<AppDispatch>()
+    const { status } = useSelector((state: RootState) => state.user)
     const router = useRouter()
+    const user = useCurrentUser()
 
     const initialValues = {
         phone_number: '',
@@ -32,19 +33,25 @@ export default function Connexion() {
         initialValues,
         validationSchema,
         onSubmit: async (data, { resetForm }) => {
-            const userData: UserData = {
+            const userData: {
+                phone_number: string;
+                password: string;
+            } = {
                 phone_number: data.phone_number,
                 password: data.password,
             };
-            resetForm()
-            const resultAction = await dispatch(loginUser(userData));
-            if (loginUser.fulfilled.match(resultAction)) {
-                alert('Connexion réussie !');
-                dispatch(setUser(resultAction));
-                router.push("/")
-            } else {
-                alert('Erreur lors de la connexion');
-                console.error(resultAction.error);
+
+            try {
+                const resultAction = await dispatch(loginUser(userData));
+                if (loginUser.fulfilled.match(resultAction)) {
+                    resetForm()
+                    router.push("/")
+                } else {
+                    // Connexion échouée
+                    console.error('Erreur de connexion:', resultAction.error.message);
+                }
+            } catch (error) {
+                console.error('Erreur lors de la tentative de connexion:', error);
             }
         }
     })
