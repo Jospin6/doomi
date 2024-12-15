@@ -134,13 +134,13 @@ const ProduitForm = () => {
             <form onSubmit={formik.handleSubmit}>
                 <ProduitDetails formik={formik} />
 
-                {subCategory === VIHICULE && <VehicleDetails formik={formik} getErrorMessage={getErrorMessage} />}
-                {subCategory === IMMOBILIER && <ImmobilierDetails formik={formik} getErrorMessage={getErrorMessage} />}
-                {subCategory === EMPLOI && <EmploiDetails formik={formik} getErrorMessage={getErrorMessage} />}
-                {subCategory === EVENEMENT && <EvenementDetails formik={formik} getErrorMessage={getErrorMessage} />}
-                {subCategory === VETEMENT_CHAUSSURES && <VetementChaussuresDetails formik={formik} getErrorMessage={getErrorMessage} />}
-                {subCategory === AUTRE_PRODUIT && <AutreProduitDetails formik={formik} getErrorMessage={getErrorMessage} />}
-                {subCategory === SERVICE && <ServicesDetails formik={formik} getErrorMessage={getErrorMessage} />}
+                {subCategory === VIHICULE && <VehicleDetails formik={formik} />}
+                {subCategory === IMMOBILIER && <ImmobilierDetails formik={formik} />}
+                {subCategory === EMPLOI && <EmploiDetails formik={formik} />}
+                {subCategory === EVENEMENT && <EvenementDetails formik={formik} />}
+                {subCategory === VETEMENT_CHAUSSURES && <VetementChaussuresDetails formik={formik} />}
+                {subCategory === AUTRE_PRODUIT && <AutreProduitDetails formik={formik} />}
+                {subCategory === SERVICE && <ServicesDetails formik={formik} />}
 
                 <div>
                     <button type="submit" className="bg-blue-500 rounded-lg text-[14px] px-[10px] py-[3px]">Publier</button>
