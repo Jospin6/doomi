@@ -73,7 +73,7 @@ interface ProduitData {
         description: string;
         localisation: string;
         sub_categorie_produit_id: string;
-        images: string[]; // ou un autre type selon vos besoins
+        images: any[]; // ou un autre type selon vos besoins
     };
     vehicule?: {
         modele: string;

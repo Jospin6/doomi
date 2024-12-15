@@ -1,13 +1,13 @@
 import React from 'react';
-import { FormikProps } from 'formik';
+import { FormikErrors, FormikProps } from 'formik';
 import { Input } from '../Input';
+import { initialValues } from '@/helpers/produits';
 
 interface EmploiDetailsProps {
   formik: FormikProps<any>;
-  getErrorMessage: any
 }
 
-const EmploiDetails: React.FC<EmploiDetailsProps> = ({ formik, getErrorMessage }) => {
+const EmploiDetails: React.FC<EmploiDetailsProps> = ({ formik }) => {
   return <>
     <div>
       <Input
@@ -19,8 +19,8 @@ const EmploiDetails: React.FC<EmploiDetailsProps> = ({ formik, getErrorMessage }
         fieldName={"emploi.type_contrat"}
         onchange={formik.handleChange}
         value={formik.values.emploi.type_contrat} />
-      {getErrorMessage('emploi.type_contrat', formik) && (
-        <div className="error">{getErrorMessage('emploi.type_contrat', formik)}</div>
+      {formik.errors.produit && (formik.errors.produit as FormikErrors<typeof initialValues.emploi>).type_contrat && (
+        <div>{(formik.errors.produit as FormikErrors<typeof initialValues.emploi>).type_contrat}</div>
       )}
     </div>
 
@@ -34,8 +34,8 @@ const EmploiDetails: React.FC<EmploiDetailsProps> = ({ formik, getErrorMessage }
         fieldName={"emploi.lieu"}
         onchange={formik.handleChange}
         value={formik.values.emploi.lieu} />
-      {getErrorMessage('emploi.lieu', formik) && (
-        <div className="error">{getErrorMessage('emploi.lieu', formik)}</div>
+      {formik.errors.produit && (formik.errors.produit as FormikErrors<typeof initialValues.emploi>).lieu && (
+        <div>{(formik.errors.produit as FormikErrors<typeof initialValues.emploi>).lieu}</div>
       )}
     </div>
 
@@ -49,8 +49,8 @@ const EmploiDetails: React.FC<EmploiDetailsProps> = ({ formik, getErrorMessage }
         fieldName={"emploi.secteur_activite"}
         onchange={formik.handleChange}
         value={formik.values.emploi.secteur_activite} />
-      {getErrorMessage('emploi.secteur_activite', formik) && (
-        <div className="error">{getErrorMessage('emploi.secteur_activite', formik)}</div>
+      {formik.errors.produit && (formik.errors.produit as FormikErrors<typeof initialValues.emploi>).secteur_activite && (
+        <div>{(formik.errors.produit as FormikErrors<typeof initialValues.emploi>).secteur_activite}</div>
       )}
     </div>
 
@@ -64,8 +64,8 @@ const EmploiDetails: React.FC<EmploiDetailsProps> = ({ formik, getErrorMessage }
         fieldName={"emploi.niveau_experience"}
         onchange={formik.handleChange}
         value={formik.values.emploi.niveau_experience} />
-      {getErrorMessage('emploi.niveau_experience', formik) && (
-        <div className="error">{getErrorMessage('emploi.niveau_experience', formik)}</div>
+      {formik.errors.produit && (formik.errors.produit as FormikErrors<typeof initialValues.emploi>).niveau_experience && (
+        <div>{(formik.errors.produit as FormikErrors<typeof initialValues.emploi>).niveau_experience}</div>
       )}
     </div>
 
@@ -79,8 +79,8 @@ const EmploiDetails: React.FC<EmploiDetailsProps> = ({ formik, getErrorMessage }
         fieldName={"emploi.date_limite"}
         onchange={formik.handleChange}
         value={formik.values.emploi.date_limite} />
-      {getErrorMessage('emploi.date_limite', formik) && (
-        <div className="error">{getErrorMessage('emploi.date_limite', formik)}</div>
+      {formik.errors.produit && (formik.errors.produit as FormikErrors<typeof initialValues.emploi>).date_limite && (
+        <div>{(formik.errors.produit as FormikErrors<typeof initialValues.emploi>).date_limite}</div>
       )}
     </div>
 
@@ -94,8 +94,8 @@ const EmploiDetails: React.FC<EmploiDetailsProps> = ({ formik, getErrorMessage }
         fieldName={"emploi.site_web"}
         onchange={formik.handleChange}
         value={formik.values.emploi.site_web} />
-      {getErrorMessage('emploi.site_web', formik) && (
-        <div className="error">{getErrorMessage('emploi.site_web', formik)}</div>
+      {formik.errors.produit && (formik.errors.produit as FormikErrors<typeof initialValues.emploi>).site_web && (
+        <div>{(formik.errors.produit as FormikErrors<typeof initialValues.emploi>).site_web}</div>
       )}
     </div>
 
@@ -109,8 +109,8 @@ const EmploiDetails: React.FC<EmploiDetailsProps> = ({ formik, getErrorMessage }
         fieldName={"emploi.formation_requise"}
         onchange={formik.handleChange}
         value={formik.values.emploi.formation_requise} />
-      {getErrorMessage('emploi.formation_requise', formik) && (
-        <div className="error">{getErrorMessage('emploi.formation_requise', formik)}</div>
+      {formik.errors.produit && (formik.errors.produit as FormikErrors<typeof initialValues.emploi>).formation_requise && (
+        <div>{(formik.errors.produit as FormikErrors<typeof initialValues.emploi>).formation_requise}</div>
       )}
     </div>
   </>;

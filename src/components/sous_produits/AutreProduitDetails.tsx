@@ -1,13 +1,13 @@
 import React from 'react';
-import { FormikProps } from 'formik';
+import { FormikErrors, FormikProps } from 'formik';
 import { Input } from '../Input';
+import { initialValues } from '@/helpers/produits';
 
 interface AutreProduitDetailsProps {
     formik: FormikProps<any>;
-    getErrorMessage: any
 }
 
-const AutreProduitDetails: React.FC<AutreProduitDetailsProps> = ({ formik, getErrorMessage }) => {
+const AutreProduitDetails: React.FC<AutreProduitDetailsProps> = ({ formik }) => {
     return <>
         <div>
             <Input
@@ -19,8 +19,8 @@ const AutreProduitDetails: React.FC<AutreProduitDetailsProps> = ({ formik, getEr
                 fieldName={"autre_produit.etat"}
                 onchange={formik.handleChange}
                 value={formik.values.autre_produit.etat} />
-            {getErrorMessage('autre_produit.etat', formik) && (
-                <div className="error">{getErrorMessage('autre_produit.etat', formik)}</div>
+            {formik.errors.produit && (formik.errors.produit as FormikErrors<typeof initialValues.autre_produit>).etat && (
+                <div>{(formik.errors.produit as FormikErrors<typeof initialValues.autre_produit>).etat}</div>
             )}
         </div>
         <div>
@@ -33,8 +33,8 @@ const AutreProduitDetails: React.FC<AutreProduitDetailsProps> = ({ formik, getEr
                 fieldName={"autre_produit.marque"}
                 onchange={formik.handleChange}
                 value={formik.values.autre_produit.marque} />
-            {getErrorMessage('autre_produit.marque', formik) && (
-                <div className="error">{getErrorMessage('autre_produit.marque', formik)}</div>
+            {formik.errors.produit && (formik.errors.produit as FormikErrors<typeof initialValues.autre_produit>).marque && (
+                <div>{(formik.errors.produit as FormikErrors<typeof initialValues.autre_produit>).marque}</div>
             )}
         </div>
     </>;

@@ -11,15 +11,15 @@ import AutreProduitDetails from './sous_produits/AutreProduitDetails';
 import ServicesDetails from './sous_produits/ServicesDetails';
 import { initialValues, validationSchema } from '@/helpers/produits';
 import { useRouter } from 'next/navigation';
-import {ProduitData} from '@/helpers/types'
-import { 
+import { ProduitData } from '@/helpers/types'
+import {
     VIHICULE,
     IMMOBILIER,
     EVENEMENT,
     EMPLOI,
     VETEMENT_CHAUSSURES,
     AUTRE_PRODUIT,
-    SERVICE 
+    SERVICE
 } from '@/helpers/constants';
 import { AppDispatch, RootState } from '@/features/store';
 import ProduitDetails from './sous_produits/ProduitDetails';
@@ -29,14 +29,11 @@ const ProduitForm = () => {
     const dispatch = useDispatch<AppDispatch>();
     const subCategory = useSelector((state: RootState) => state.subCategory.currentSubCategory);
     const router = useRouter();
-    const user_id = useSelector((state: RootState) => state.user.user?.id);
-
-    console.log(user_id)
 
     const formik = useFormik({
         initialValues,
         validationSchema,
-        onSubmit: async (values, { resetForm }) => {
+        onSubmit: (values, { resetForm }) => {
             // Créer un objet avec la structure attendue par l'API
             const produitData: ProduitData = {
                 produit: {
@@ -119,15 +116,11 @@ const ProduitForm = () => {
                 default:
                     break;
             }
-        
-            try {
-                console.log("Données à envoyer: ", produitData);
-                await dispatch(postProduit(produitData)); // Envoyer les données à l'API
-                resetForm(); // Réinitialiser le formulaire
-                router.push("/"); // Rediriger après l'envoi
-            } catch (error) {
-                console.error("Erreur lors de l'envoi des données :", error);
-            }
+
+            console.log("Données à envoyer: ", produitData);
+            dispatch(postProduit(produitData));
+            resetForm();
+            router.push("/");
         },
     });
 
@@ -139,7 +132,7 @@ const ProduitForm = () => {
     return (
         <>
             <form onSubmit={formik.handleSubmit}>
-                <ProduitDetails formik={formik} getErrorMessage={getErrorMessage} />
+                <ProduitDetails formik={formik} />
 
                 {subCategory === VIHICULE && <VehicleDetails formik={formik} getErrorMessage={getErrorMessage} />}
                 {subCategory === IMMOBILIER && <ImmobilierDetails formik={formik} getErrorMessage={getErrorMessage} />}

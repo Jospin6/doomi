@@ -1,13 +1,13 @@
 import React from 'react';
-import { FormikProps } from 'formik';
+import { FormikErrors, FormikProps } from 'formik';
 import { Input } from '../Input';
+import { initialValues } from '@/helpers/produits';
 
 interface VehicleDetailsProps {
   formik: FormikProps<any>;
-  getErrorMessage: any
 }
 
-const VehicleDetails: React.FC<VehicleDetailsProps> = ({ formik, getErrorMessage }) => {
+const VehicleDetails: React.FC<VehicleDetailsProps> = ({ formik }) => {
   return <>
     <div>
       <Input
@@ -19,8 +19,8 @@ const VehicleDetails: React.FC<VehicleDetailsProps> = ({ formik, getErrorMessage
         fieldName={"vehicule.modele"}
         onchange={formik.handleChange}
         value={formik.values.vehicule.modele} />
-      {getErrorMessage('vehicule.modele', formik) && (
-        <div className="error">{getErrorMessage('vehicule.modele', formik)}</div>
+      {formik.errors.produit && (formik.errors.produit as FormikErrors<typeof initialValues.vehicule>).modele && (
+        <div>{(formik.errors.produit as FormikErrors<typeof initialValues.vehicule>).modele}</div>
       )}
     </div>
 
@@ -34,8 +34,8 @@ const VehicleDetails: React.FC<VehicleDetailsProps> = ({ formik, getErrorMessage
         fieldName={"vehicule.annee"}
         onchange={formik.handleChange}
         value={formik.values.vehicule.annee} />
-      {getErrorMessage('vehicule.annee', formik) && (
-        <div className="error">{getErrorMessage('vehicule.annee', formik)}</div>
+      {formik.errors.produit && (formik.errors.produit as FormikErrors<typeof initialValues.vehicule>).annee && (
+        <div>{(formik.errors.produit as FormikErrors<typeof initialValues.vehicule>).annee}</div>
       )}
     </div>
 
@@ -49,8 +49,8 @@ const VehicleDetails: React.FC<VehicleDetailsProps> = ({ formik, getErrorMessage
         fieldName={"vehicule.kilometrage"}
         onchange={formik.handleChange}
         value={formik.values.vehicule.kilometrage} />
-      {getErrorMessage('vehicule.kilometrage', formik) && (
-        <div className="error">{getErrorMessage('vehicule.kilometrage', formik)}</div>
+      {formik.errors.produit && (formik.errors.produit as FormikErrors<typeof initialValues.vehicule>).kilometrage && (
+        <div>{(formik.errors.produit as FormikErrors<typeof initialValues.vehicule>).kilometrage}</div>
       )}
     </div>
 
@@ -64,8 +64,8 @@ const VehicleDetails: React.FC<VehicleDetailsProps> = ({ formik, getErrorMessage
         fieldName={"vehicule.type_vehicule"}
         onchange={formik.handleChange}
         value={formik.values.vehicule.type_vehicule} />
-      {getErrorMessage('vehicule.type_vehicule', formik) && (
-        <div className="error">{getErrorMessage('vehicule.type_vehicule', formik)}</div>
+      {formik.errors.produit && (formik.errors.produit as FormikErrors<typeof initialValues.vehicule>).type_vehicule && (
+        <div>{(formik.errors.produit as FormikErrors<typeof initialValues.vehicule>).type_vehicule}</div>
       )}
     </div>
 
@@ -79,8 +79,8 @@ const VehicleDetails: React.FC<VehicleDetailsProps> = ({ formik, getErrorMessage
         fieldName={"vehicule.couleur"}
         onchange={formik.handleChange}
         value={formik.values.vehicule.couleur} />
-      {getErrorMessage('vehicule.couleur', formik) && (
-        <div className="error">{getErrorMessage('vehicule.couleur', formik)}</div>
+      {formik.errors.produit && (formik.errors.produit as FormikErrors<typeof initialValues.vehicule>).couleur && (
+        <div>{(formik.errors.produit as FormikErrors<typeof initialValues.vehicule>).couleur}</div>
       )}
     </div>
 
@@ -94,8 +94,8 @@ const VehicleDetails: React.FC<VehicleDetailsProps> = ({ formik, getErrorMessage
         fieldName={"vehicule.carburant"}
         onchange={formik.handleChange}
         value={formik.values.vehicule.carburant} />
-      {getErrorMessage('vehicule.carburant', formik) && (
-        <div className="error">{getErrorMessage('vehicule.carburant', formik)}</div>
+      {formik.errors.produit && (formik.errors.produit as FormikErrors<typeof initialValues.vehicule>).carburant && (
+        <div>{(formik.errors.produit as FormikErrors<typeof initialValues.vehicule>).carburant}</div>
       )}
     </div>
 
@@ -109,8 +109,8 @@ const VehicleDetails: React.FC<VehicleDetailsProps> = ({ formik, getErrorMessage
         fieldName={"vehicule.transmission"}
         onchange={formik.handleChange}
         value={formik.values.vehicule.transmission} />
-      {getErrorMessage('vehicule.transmission', formik) && (
-        <div className="error">{getErrorMessage('vehicule.transmission', formik)}</div>
+      {formik.errors.produit && (formik.errors.produit as FormikErrors<typeof initialValues.vehicule>).transmission && (
+        <div>{(formik.errors.produit as FormikErrors<typeof initialValues.vehicule>).transmission}</div>
       )}
     </div>
 
@@ -124,8 +124,8 @@ const VehicleDetails: React.FC<VehicleDetailsProps> = ({ formik, getErrorMessage
         fieldName={"vehicule.nombre_portes"}
         onchange={formik.handleChange}
         value={formik.values.vehicule.nombre_portes} />
-      {getErrorMessage('vehicule.nombre_portes', formik) && (
-        <div className="error">{getErrorMessage('vehicule.nombre_portes', formik)}</div>
+      {formik.errors.produit && (formik.errors.produit as FormikErrors<typeof initialValues.vehicule>).nombre_portes && (
+        <div>{(formik.errors.produit as FormikErrors<typeof initialValues.vehicule>).nombre_portes}</div>
       )}
     </div>
 
@@ -139,8 +139,8 @@ const VehicleDetails: React.FC<VehicleDetailsProps> = ({ formik, getErrorMessage
         fieldName={"vehicule.nombre_places"}
         onchange={formik.handleChange}
         value={formik.values.vehicule.nombre_places} />
-      {getErrorMessage('vehicule.nombre_places', formik) && (
-        <div className="error">{getErrorMessage('vehicule.nombre_places', formik)}</div>
+      {formik.errors.produit && (formik.errors.produit as FormikErrors<typeof initialValues.vehicule>).nombre_places && (
+        <div>{(formik.errors.produit as FormikErrors<typeof initialValues.vehicule>).nombre_places}</div>
       )}
     </div>
 
@@ -154,8 +154,8 @@ const VehicleDetails: React.FC<VehicleDetailsProps> = ({ formik, getErrorMessage
         fieldName={"vehicule.plan_de_paiement"}
         onchange={formik.handleChange}
         value={formik.values.vehicule.plan_de_paiement} />
-      {getErrorMessage('vehicule.plan_de_paiement', formik) && (
-        <div className="error">{getErrorMessage('vehicule.plan_de_paiement', formik)}</div>
+      {formik.errors.produit && (formik.errors.produit as FormikErrors<typeof initialValues.vehicule>).plan_de_paiement && (
+        <div>{(formik.errors.produit as FormikErrors<typeof initialValues.vehicule>).plan_de_paiement}</div>
       )}
     </div>
 
@@ -169,8 +169,8 @@ const VehicleDetails: React.FC<VehicleDetailsProps> = ({ formik, getErrorMessage
         fieldName={"vehicule.disponibilite"}
         onchange={formik.handleChange}
         value={formik.values.vehicule.disponibilite} />
-      {getErrorMessage('vehicule.disponibilite', formik) && (
-        <div className="error">{getErrorMessage('vehicule.disponibilite', formik)}</div>
+      {formik.errors.produit && (formik.errors.produit as FormikErrors<typeof initialValues.vehicule>).disponibilite && (
+        <div>{(formik.errors.produit as FormikErrors<typeof initialValues.vehicule>).disponibilite}</div>
       )}
     </div>
   </>;

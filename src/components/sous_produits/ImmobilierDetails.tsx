@@ -1,13 +1,13 @@
 import React from 'react';
-import { FormikProps } from 'formik';
+import { FormikErrors, FormikProps } from 'formik';
 import { Input } from '../Input';
+import { initialValues } from '@/helpers/produits';
 
 interface ImmobilierDetailsProps {
   formik: FormikProps<any>;
-  getErrorMessage: any 
 }
 
-const ImmobilierDetails: React.FC<ImmobilierDetailsProps> = ({ formik, getErrorMessage }) => {
+const ImmobilierDetails: React.FC<ImmobilierDetailsProps> = ({ formik }) => {
   return <>
     <div>
       <Input
@@ -19,8 +19,8 @@ const ImmobilierDetails: React.FC<ImmobilierDetailsProps> = ({ formik, getErrorM
         fieldName={"immobilier.type_de_bien"}
         onchange={formik.handleChange}
         value={formik.values.immobilier.type_de_bien} />
-      {getErrorMessage('immobilier.type_de_bien', formik) && (
-        <div className="error">{getErrorMessage('immobilier.type_de_bien', formik)}</div>
+      {formik.errors.produit && (formik.errors.produit as FormikErrors<typeof initialValues.immobilier>).type_de_bien && (
+        <div>{(formik.errors.produit as FormikErrors<typeof initialValues.immobilier>).type_de_bien}</div>
       )}
     </div>
 
@@ -34,8 +34,8 @@ const ImmobilierDetails: React.FC<ImmobilierDetailsProps> = ({ formik, getErrorM
         fieldName={"immobilier.adresse"}
         onchange={formik.handleChange}
         value={formik.values.immobilier.adresse} />
-      {getErrorMessage('immobilier.adresse', formik) && (
-        <div className="error">{getErrorMessage('immobilier.adresse', formik)}</div>
+      {formik.errors.produit && (formik.errors.produit as FormikErrors<typeof initialValues.immobilier>).adresse && (
+        <div>{(formik.errors.produit as FormikErrors<typeof initialValues.immobilier>).adresse}</div>
       )}
     </div>
 
@@ -49,8 +49,8 @@ const ImmobilierDetails: React.FC<ImmobilierDetailsProps> = ({ formik, getErrorM
         fieldName={"immobilier.surface_habitable"}
         onchange={formik.handleChange}
         value={formik.values.immobilier.surface_habitable} />
-      {getErrorMessage('immobilier.surface_habitable', formik) && (
-        <div className="error">{getErrorMessage('immobilier.surface_habitable', formik)}</div>
+      {formik.errors.produit && (formik.errors.produit as FormikErrors<typeof initialValues.immobilier>).surface_habitable && (
+        <div>{(formik.errors.produit as FormikErrors<typeof initialValues.immobilier>).surface_habitable}</div>
       )}
     </div>
 
@@ -64,8 +64,8 @@ const ImmobilierDetails: React.FC<ImmobilierDetailsProps> = ({ formik, getErrorM
         fieldName={"immobilier.nombre_chambres"}
         onchange={formik.handleChange}
         value={formik.values.immobilier.nombre_chambres} />
-      {getErrorMessage('immobilier.nombre_chambres', formik) && (
-        <div className="error">{getErrorMessage('immobilier.nombre_chambres', formik)}</div>
+      {formik.errors.produit && (formik.errors.produit as FormikErrors<typeof initialValues.immobilier>).nombre_chambres && (
+        <div>{(formik.errors.produit as FormikErrors<typeof initialValues.immobilier>).nombre_chambres}</div>
       )}
     </div>
 
@@ -79,8 +79,8 @@ const ImmobilierDetails: React.FC<ImmobilierDetailsProps> = ({ formik, getErrorM
         fieldName={"immobilier.nombre_pieces"}
         onchange={formik.handleChange}
         value={formik.values.immobilier.nombre_pieces} />
-      {getErrorMessage('immobilier.nombre_pieces', formik) && (
-        <div className="error">{getErrorMessage('immobilier.nombre_pieces', formik)}</div>
+      {formik.errors.produit && (formik.errors.produit as FormikErrors<typeof initialValues.immobilier>).nombre_pieces && (
+        <div>{(formik.errors.produit as FormikErrors<typeof initialValues.immobilier>).nombre_pieces}</div>
       )}
     </div>
   </>;

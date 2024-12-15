@@ -1,18 +1,18 @@
 import React, { SetStateAction, useEffect } from 'react';
-import { FormikProps } from 'formik';
+import { FormikErrors, FormikProps } from 'formik';
 import { Input } from '../Input';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '@/features/store';
 import { setcurrentSubCategory } from '@/features/sub_categories/subCategoriesSlice';
 import { fetchSubCategories } from '@/features/sub_categories/subCategoriesApi';
 import useCurrentUser from "@/hooks/useCurrentUser"
+import { initialValues } from '@/helpers/produits';
 
 interface ProduitDetailsProps {
     formik: FormikProps<any>;
-    getErrorMessage: (field: string, formik: FormikProps<any>) => string | undefined;
 }
 
-const ProduitDetails: React.FC<ProduitDetailsProps> = ({ formik, getErrorMessage }) => {
+const ProduitDetails: React.FC<ProduitDetailsProps> = ({ formik }) => {
     const dispatch = useDispatch<AppDispatch>();
     const subCategory = useSelector((state: RootState) => state.subCategory.currentSubCategory);
     const { loading, subCategories, error } = useSelector((state: RootState) => state.subCategory);
@@ -41,10 +41,10 @@ const ProduitDetails: React.FC<ProduitDetailsProps> = ({ formik, getErrorMessage
                 <div className="image-previews">
                     {Array.from(images).map((file, index) => (
                         <div key={index} className="image-preview">
-                            <img 
+                            <img
                                 src={URL.createObjectURL(file as Blob)} // Cast to Blob
-                                alt={`Preview ${index}`} 
-                                className="w-32 h-32 object-cover" 
+                                alt={`Preview ${index}`}
+                                className="w-32 h-32 object-cover"
                             />
                         </div>
                     ))}
@@ -66,10 +66,11 @@ const ProduitDetails: React.FC<ProduitDetailsProps> = ({ formik, getErrorMessage
                     label="Quel est le titre ?"
                     fieldName={"produit.titre"}
                     onchange={formik.handleChange}
+                    onblur={formik.handleBlur}
                     value={formik.values.produit.titre}
                 />
-                {getErrorMessage('produit.titre', formik) && (
-                    <div className="error">{getErrorMessage('produit.titre', formik)}</div>
+                {formik.errors.produit && (formik.errors.produit as FormikErrors<typeof initialValues.produit>).titre && (
+                    <div>{(formik.errors.produit as FormikErrors<typeof initialValues.produit>).titre}</div>
                 )}
             </div>
             <div>
@@ -83,8 +84,8 @@ const ProduitDetails: React.FC<ProduitDetailsProps> = ({ formik, getErrorMessage
                     onchange={formik.handleChange}
                     value={formik.values.produit.prix}
                 />
-                {getErrorMessage('produit.prix', formik) && (
-                    <div className="error">{getErrorMessage('produit.prix', formik)}</div>
+                {formik.errors.produit && (formik.errors.produit as FormikErrors<typeof initialValues.produit>).prix && (
+                    <div>{(formik.errors.produit as FormikErrors<typeof initialValues.produit>).prix}</div>
                 )}
             </div>
 
@@ -96,8 +97,8 @@ const ProduitDetails: React.FC<ProduitDetailsProps> = ({ formik, getErrorMessage
                     value={formik.values.produit.description}
                     className='bg-black'
                 />
-                {getErrorMessage('produit.description', formik) && (
-                    <div className="error">{getErrorMessage('produit.description', formik)}</div>
+                {formik.errors.produit && (formik.errors.produit as FormikErrors<typeof initialValues.produit>).description && (
+                    <div>{(formik.errors.produit as FormikErrors<typeof initialValues.produit>).description}</div>
                 )}
             </div>
 
@@ -112,8 +113,8 @@ const ProduitDetails: React.FC<ProduitDetailsProps> = ({ formik, getErrorMessage
                     onchange={formik.handleChange}
                     value={formik.values.produit.devise}
                 />
-                {getErrorMessage('produit.devise', formik) && (
-                    <div className="error">{getErrorMessage('produit.devise', formik)}</div>
+                {formik.errors.produit && (formik.errors.produit as FormikErrors<typeof initialValues.produit>).devise && (
+                    <div>{(formik.errors.produit as FormikErrors<typeof initialValues.produit>).devise}</div>
                 )}
             </div>
 
@@ -128,8 +129,8 @@ const ProduitDetails: React.FC<ProduitDetailsProps> = ({ formik, getErrorMessage
                     onchange={formik.handleChange}
                     value={formik.values.produit.localisation}
                 />
-                {getErrorMessage('produit.localisation', formik) && (
-                    <div className="error">{getErrorMessage('produit.localisation', formik)}</div>
+                {formik.errors.produit && (formik.errors.produit as FormikErrors<typeof initialValues.produit>).localisation && (
+                    <div>{(formik.errors.produit as FormikErrors<typeof initialValues.produit>).localisation}</div>
                 )}
             </div>
 
@@ -148,8 +149,8 @@ const ProduitDetails: React.FC<ProduitDetailsProps> = ({ formik, getErrorMessage
                         </option>
                     ))}
                 </select>
-                {getErrorMessage('produit.sub_categorie_produit_id', formik) && (
-                    <div className="error">{getErrorMessage('produit.sub_categorie_produit_id', formik)}</div>
+                {formik.errors.produit && (formik.errors.produit as FormikErrors<typeof initialValues.produit>).sub_categorie_produit_id && (
+                    <div>{(formik.errors.produit as FormikErrors<typeof initialValues.produit>).sub_categorie_produit_id}</div>
                 )}
             </div>
 
@@ -161,12 +162,11 @@ const ProduitDetails: React.FC<ProduitDetailsProps> = ({ formik, getErrorMessage
                     onChange={handleFileChange}
                     multiple
                 />
-                {getErrorMessage('produit.images', formik) && (
-                    <div className="error">{getErrorMessage('produit.images', formik)}</div>
+                {formik.errors.produit && (formik.errors.produit as FormikErrors<typeof initialValues.produit>).images && (
+                    <div>{(formik.errors.produit as FormikErrors<typeof initialValues.produit>).images}</div>
                 )}
             </div>
 
-            {/* Affichage des prévisualisations des images */}
             {renderImagePreviews()}
         </>
     );

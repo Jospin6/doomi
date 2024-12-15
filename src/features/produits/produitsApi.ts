@@ -1,5 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import { getLocalStorageItem } from '@/helpers/users'
+import { ProduitData } from "@/helpers/types";
 
 export const fetchProduits= createAsyncThunk("produits/fetchProduits", async () => {
     return await axios.get("http://localhost:3000/api/v1/produits")
@@ -25,10 +27,10 @@ export const searchProduits= createAsyncThunk("produits/searchProduits", async (
         .catch(error => error.message)
 })
 
-export const postProduit= createAsyncThunk("produits/postProduit", async (data: object) => {
+export const postProduit= createAsyncThunk("produits/postProduit", async (data: ProduitData) => {
     return await axios.post("http://localhost:3000/api/v1/produits", data, {
         headers: {
-            'Authorization': `Bearer ${localStorage.getItem("token")}`, // Récupération du token
+            'Authorization': `Bearer ${getLocalStorageItem("token")}`,
             'Content-Type': 'application/json'
         }
     })

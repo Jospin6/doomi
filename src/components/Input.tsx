@@ -7,12 +7,13 @@ type InputProps = {
     className?: string,
     inputBorder: string,
     fieldName: string,
-    onchange: (event: React.ChangeEvent<HTMLInputElement>) => void
+    onchange: (event: React.ChangeEvent<HTMLInputElement>) => void,
+    onblur?: (event: React.ChangeEvent<HTMLInputElement>) => void,
     value: any
 
 }
 
-export const Input = ({type, id, placeholder, label, className, inputBorder, fieldName, onchange, value}: InputProps) => {
+export const Input = ({type, id, placeholder, label, className, inputBorder, fieldName, onchange, value, onblur}: InputProps) => {
     return <div className={`text-white ${className}`}>
         <label htmlFor={id} className="font-[500] text-[12px] block"> {label} </label>
         <input 
@@ -23,6 +24,7 @@ export const Input = ({type, id, placeholder, label, className, inputBorder, fie
             name={fieldName}
             onChange={onchange}
             value={value}
+            onBlur= {onblur}
             autoComplete="off"
             placeholder={placeholder}/>
     </div>

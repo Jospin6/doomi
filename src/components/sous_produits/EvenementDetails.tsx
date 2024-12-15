@@ -1,13 +1,13 @@
 import React from 'react';
-import { FormikProps } from 'formik';
+import { FormikErrors, FormikProps } from 'formik';
 import { Input } from '../Input';
+import { initialValues } from '@/helpers/produits';
 
 interface EvenementDetailsProps {
   formik: FormikProps<any>; 
-  getErrorMessage: any
 }
 
-const EvenementDetails: React.FC<EvenementDetailsProps> = ({ formik, getErrorMessage }) => {
+const EvenementDetails: React.FC<EvenementDetailsProps> = ({ formik }) => {
   return <>
     <div>
       <Input
@@ -19,8 +19,8 @@ const EvenementDetails: React.FC<EvenementDetailsProps> = ({ formik, getErrorMes
         fieldName={"evenement.date_evenement"}
         onchange={formik.handleChange}
         value={formik.values.evenement.date_evenement} />
-      {getErrorMessage('evenement.date_evenement', formik) && (
-        <div className="error">{getErrorMessage('evenement.date_evenement', formik)}</div>
+      {formik.errors.produit && (formik.errors.produit as FormikErrors<typeof initialValues.evenement>).date_evenement && (
+        <div>{(formik.errors.produit as FormikErrors<typeof initialValues.evenement>).date_evenement}</div>
       )}
     </div>
 
@@ -34,8 +34,8 @@ const EvenementDetails: React.FC<EvenementDetailsProps> = ({ formik, getErrorMes
         fieldName={"evenement.lieu"}
         onchange={formik.handleChange}
         value={formik.values.evenement.lieu} />
-      {getErrorMessage('evenement.lieu', formik) && (
-        <div className="error">{getErrorMessage('evenement.lieu', formik)}</div>
+      {formik.errors.produit && (formik.errors.produit as FormikErrors<typeof initialValues.evenement>).lieu && (
+        <div>{(formik.errors.produit as FormikErrors<typeof initialValues.evenement>).lieu}</div>
       )}
     </div>
 
@@ -49,8 +49,8 @@ const EvenementDetails: React.FC<EvenementDetailsProps> = ({ formik, getErrorMes
         fieldName={"evenement.type_prix"}
         onchange={formik.handleChange}
         value={formik.values.evenement.type_prix} />
-      {getErrorMessage('evenement.type_prix', formik) && (
-        <div className="error">{getErrorMessage('evenement.type_prix', formik)}</div>
+      {formik.errors.produit && (formik.errors.produit as FormikErrors<typeof initialValues.evenement>).type_prix && (
+        <div>{(formik.errors.produit as FormikErrors<typeof initialValues.evenement>).type_prix}</div>
       )}
     </div>
 
@@ -64,8 +64,8 @@ const EvenementDetails: React.FC<EvenementDetailsProps> = ({ formik, getErrorMes
         fieldName={"evenement.site_web"}
         onchange={formik.handleChange}
         value={formik.values.evenement.site_web} />
-      {getErrorMessage('evenement.site_web', formik) && (
-        <div className="error">{getErrorMessage('evenement.site_web', formik)}</div>
+      {formik.errors.produit && (formik.errors.produit as FormikErrors<typeof initialValues.evenement>).site_web && (
+        <div>{(formik.errors.produit as FormikErrors<typeof initialValues.evenement>).site_web}</div>
       )}
     </div>
   </>;

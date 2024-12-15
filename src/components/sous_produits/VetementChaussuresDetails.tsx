@@ -1,13 +1,13 @@
 import React from 'react';
-import { FormikProps } from 'formik';
+import { FormikErrors, FormikProps } from 'formik';
 import { Input } from '../Input';
+import { initialValues } from '@/helpers/produits';
 
 interface VetementChaussuresDetailsProps {
-  formik: FormikProps<any>; 
-  getErrorMessage: any
+  formik: FormikProps<any>;
 }
 
-const VetementChaussuresDetails: React.FC<VetementChaussuresDetailsProps> = ({ formik, getErrorMessage }) => {
+const VetementChaussuresDetails: React.FC<VetementChaussuresDetailsProps> = ({ formik }) => {
   return <>
     <div>
       <Input
@@ -19,8 +19,8 @@ const VetementChaussuresDetails: React.FC<VetementChaussuresDetailsProps> = ({ f
         fieldName={"vetement_chaussures.type"}
         onchange={formik.handleChange}
         value={formik.values.vetement_chaussures.type} />
-      {getErrorMessage('vetement_chaussures.type', formik) && (
-        <div className="error">{getErrorMessage('vetement_chaussures.type', formik)}</div>
+      {formik.errors.produit && (formik.errors.produit as FormikErrors<typeof initialValues.vetement_chaussures>).type && (
+        <div>{(formik.errors.produit as FormikErrors<typeof initialValues.vetement_chaussures>).type}</div>
       )}
     </div>
 
@@ -34,8 +34,8 @@ const VetementChaussuresDetails: React.FC<VetementChaussuresDetailsProps> = ({ f
         fieldName={"vetement_chaussures.taille"}
         onchange={formik.handleChange}
         value={formik.values.vetement_chaussures.taille} />
-      {getErrorMessage('vetement_chaussures.taille', formik) && (
-        <div className="error">{getErrorMessage('vetement_chaussures.taille', formik)}</div>
+      {formik.errors.produit && (formik.errors.produit as FormikErrors<typeof initialValues.vetement_chaussures>).taille && (
+        <div>{(formik.errors.produit as FormikErrors<typeof initialValues.vetement_chaussures>).taille}</div>
       )}
     </div>
 
@@ -49,8 +49,8 @@ const VetementChaussuresDetails: React.FC<VetementChaussuresDetailsProps> = ({ f
         fieldName={"vetement_chaussures.matiere"}
         onchange={formik.handleChange}
         value={formik.values.vetement_chaussures.matiere} />
-      {getErrorMessage('vetement_chaussures.matiere', formik) && (
-        <div className="error">{getErrorMessage('vetement_chaussures.matiere', formik)}</div>
+      {formik.errors.produit && (formik.errors.produit as FormikErrors<typeof initialValues.vetement_chaussures>).matiere && (
+        <div>{(formik.errors.produit as FormikErrors<typeof initialValues.vetement_chaussures>).matiere}</div>
       )}
     </div>
   </>;

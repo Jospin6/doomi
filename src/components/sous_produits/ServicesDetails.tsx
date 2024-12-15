@@ -1,12 +1,12 @@
 import React from 'react';
-import { FormikProps } from 'formik';
+import { FormikErrors, FormikProps } from 'formik';
+import { initialValues } from '@/helpers/produits';
 
 interface ServicesDetailsProps {
   formik: FormikProps<any>; 
-  getErrorMessage: any
 }
 
-const ServicesDetails: React.FC<ServicesDetailsProps> = ({ formik, getErrorMessage }) => {
+const ServicesDetails: React.FC<ServicesDetailsProps> = ({ formik }) => {
   return (
     <div className='hidden'>
       <input
@@ -17,6 +17,9 @@ const ServicesDetails: React.FC<ServicesDetailsProps> = ({ formik, getErrorMessa
         onChange={formik.handleChange}
         value={formik.values.service.statut}
       />
+      {formik.errors.produit && (formik.errors.produit as FormikErrors<typeof initialValues.service>).statut && (
+        <div>{(formik.errors.produit as FormikErrors<typeof initialValues.service>).statut}</div>
+      )}
     </div>
   );
 };
