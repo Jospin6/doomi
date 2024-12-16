@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '@/features/store';
 import { setcurrentSubCategory } from '@/features/sub_categories/subCategoriesSlice';
 import { fetchSubCategories } from '@/features/sub_categories/subCategoriesApi';
-import useCurrentUser from "@/hooks/useCurrentUser"
 import { initialValues } from '@/helpers/produits';
 
 interface ProduitDetailsProps {
@@ -16,7 +15,6 @@ const ProduitDetails: React.FC<ProduitDetailsProps> = ({ formik }) => {
     const dispatch = useDispatch<AppDispatch>();
     const subCategory = useSelector((state: RootState) => state.subCategory.currentSubCategory);
     const { loading, subCategories, error } = useSelector((state: RootState) => state.subCategory);
-    const user = useCurrentUser();
 
     const handleSubCategoryChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         dispatch(setcurrentSubCategory(event.target.value));
@@ -29,8 +27,12 @@ const ProduitDetails: React.FC<ProduitDetailsProps> = ({ formik }) => {
 
     const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const files = event.currentTarget.files;
+
         if (files) {
-            formik.setFieldValue("produit.images", files);
+            const fileArray = Array.from(files);
+            formik.setFieldValue("produit.images", fileArray);
+        } else {
+            formik.setFieldValue("produit.images", []);
         }
     };
 
@@ -56,7 +58,6 @@ const ProduitDetails: React.FC<ProduitDetailsProps> = ({ formik }) => {
 
     return (
         <>
-            <input type="hidden" name='produit.user_id' value={user?.id} />
             <div>
                 <Input
                     type="text"

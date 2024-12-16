@@ -11,33 +11,37 @@ import AutreProduitDetails from './sous_produits/AutreProduitDetails';
 import ServicesDetails from './sous_produits/ServicesDetails';
 import { initialValues, validationSchema } from '@/helpers/produits';
 import { useRouter } from 'next/navigation';
-import { ProduitData } from '@/helpers/types'
-import {
+import {ProduitData} from '@/helpers/types'
+import { 
     VIHICULE,
     IMMOBILIER,
     EVENEMENT,
     EMPLOI,
     VETEMENT_CHAUSSURES,
     AUTRE_PRODUIT,
-    SERVICE
+    SERVICE 
 } from '@/helpers/constants';
 import { AppDispatch, RootState } from '@/features/store';
 import ProduitDetails from './sous_produits/ProduitDetails';
 import { postProduit } from '@/features/produits/produitsApi';
+import useCurrentUser from '@/hooks/useCurrentUser';
 
 const ProduitForm = () => {
     const dispatch = useDispatch<AppDispatch>();
     const subCategory = useSelector((state: RootState) => state.subCategory.currentSubCategory);
     const router = useRouter();
+    const user_id = useCurrentUser();
+
+    console.log(user_id)
 
     const formik = useFormik({
         initialValues,
         validationSchema,
-        onSubmit: (values, { resetForm }) => {
+        onSubmit: async (values, { resetForm }) => {
             // Créer un objet avec la structure attendue par l'API
             const produitData: ProduitData = {
                 produit: {
-                    user_id: values.produit.user_id,
+                    user_id: Number(user_id),
                     titre: values.produit.titre,
                     prix: values.produit.prix,
                     devise: values.produit.devise,
@@ -116,11 +120,15 @@ const ProduitForm = () => {
                 default:
                     break;
             }
-
-            console.log("Données à envoyer: ", produitData);
-            dispatch(postProduit(produitData));
-            resetForm();
-            router.push("/");
+        
+            try {
+                console.log("Données à envoyer: ", produitData);
+                await dispatch(postProduit(produitData)); // Envoyer les données à l'API
+                resetForm(); // Réinitialiser le formulaire
+                router.push("/"); // Rediriger après l'envoi
+            } catch (error) {
+                console.error("Erreur lors de l'envoi des données :", error);
+            }
         },
     });
 
@@ -134,13 +142,13 @@ const ProduitForm = () => {
             <form onSubmit={formik.handleSubmit}>
                 <ProduitDetails formik={formik} />
 
-                {subCategory === VIHICULE && <VehicleDetails formik={formik} />}
-                {subCategory === IMMOBILIER && <ImmobilierDetails formik={formik} />}
-                {subCategory === EMPLOI && <EmploiDetails formik={formik} />}
-                {subCategory === EVENEMENT && <EvenementDetails formik={formik} />}
-                {subCategory === VETEMENT_CHAUSSURES && <VetementChaussuresDetails formik={formik} />}
-                {subCategory === AUTRE_PRODUIT && <AutreProduitDetails formik={formik} />}
-                {subCategory === SERVICE && <ServicesDetails formik={formik} />}
+                {subCategory === VIHICULE && <VehicleDetails formik={formik}  />}
+                {subCategory === IMMOBILIER && <ImmobilierDetails formik={formik}  />}
+                {subCategory === EMPLOI && <EmploiDetails formik={formik}  />}
+                {subCategory === EVENEMENT && <EvenementDetails formik={formik}  />}
+                {subCategory === VETEMENT_CHAUSSURES && <VetementChaussuresDetails formik={formik}  />}
+                {subCategory === AUTRE_PRODUIT && <AutreProduitDetails formik={formik}  />}
+                {subCategory === SERVICE && <ServicesDetails formik={formik}  />}
 
                 <div>
                     <button type="submit" className="bg-blue-500 rounded-lg text-[14px] px-[10px] py-[3px]">Publier</button>

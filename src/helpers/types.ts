@@ -66,7 +66,7 @@ interface CategorieProduit {
 
 interface ProduitData {
     produit: {
-        user_id: string;
+        user_id: number;
         titre: string;
         prix: string;
         devise: string;

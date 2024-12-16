@@ -8,7 +8,7 @@ interface ServicesDetailsProps {
 
 const ServicesDetails: React.FC<ServicesDetailsProps> = ({ formik }) => {
   return (
-    <div className='hidden'>
+    <div className=''>
       <input
         type="text"
         id="service.statut"
