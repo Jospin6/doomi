@@ -76,53 +76,53 @@ interface ProduitData {
         images: any[]; // ou un autre type selon vos besoins
     };
     vehicule?: {
-        modele: string;
-        annee: string;
-        kilometrage: string;
-        type_vehicule: string;
-        couleur: string;
-        carburant: string;
-        transmission: string;
-        nombre_portes: string;
-        nombre_places: string;
-        plan_de_paiement: string;
-        disponibilite: string;
+        modele: string | undefined;
+        annee: number | undefined;
+        kilometrage: string | undefined;
+        type_vehicule: string | undefined;
+        couleur: string | undefined;
+        carburant: string | undefined;
+        transmission: string | undefined;
+        nombre_portes: string | undefined;
+        nombre_places: string | undefined;
+        plan_de_paiement: string | undefined;
+        disponibilite: string | undefined;
     };
     immobilier?: {
-        type_de_bien: string;
-        adresse: string;
-        surface_habitable: string;
-        nombre_chambres: string;
-        nombre_pieces: string;
+        type_de_bien: string | undefined;
+        adresse: string | undefined;
+        surface_habitable: string | undefined;
+        nombre_chambres: number | undefined;
+        nombre_pieces: number | undefined;
     };
     emploi?: {
-        type_contrat: string;
-        lieu: string;
-        secteur_activite: string;
-        niveau_experience: string;
-        date_limite: string;
-        site_web: string;
-        formation_requise: string;
-        etat_offre: string;
+        type_contrat: string | undefined;
+        lieu: string | undefined;
+        secteur_activite: string | undefined;
+        niveau_experience: string | undefined;
+        date_limite: string | undefined;
+        site_web: string | undefined;
+        formation_requise: string | undefined;
+        etat_offre: string | undefined;
     };
     evenement?: {
-        date_evenement: string;
-        lieu: string;
-        type_prix: string;
-        site_web: string;
-        etat_evenement: string;
+        date_evenement: string | undefined;
+        lieu: string | undefined;
+        type_prix: string | undefined;
+        site_web: string | undefined;
+        etat_evenement: string | undefined;
     };
     vetement_chaussures?: {
-        type: string;
-        taille: string;
-        matiere: string;
+        type: string | undefined;
+        taille: string | undefined;
+        matiere: string | undefined;
     };
     autre_produit?: {
-        etat: string;
-        marque: string;
+        etat: string | undefined;
+        marque: string | undefined;
     };
     service?: {
-        statut: string;
+        statut: string | undefined;
     };
 }
 
@@ -146,6 +146,7 @@ export interface Category {
 
 export type Data = Category[];
 
+
 export type {
     UserData,
     CompteConfirmationData,
@@ -156,5 +157,5 @@ export type {
     Produit,
     SubCategorieProduit,
     ProduitData,
-    User
+    User,
 }
