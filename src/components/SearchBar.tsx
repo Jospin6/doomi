@@ -27,10 +27,10 @@ export const SearchBar = ({ isHidden = false }: SearchBarProps) => {
     return <div className="h-auto border-b-[1px] border-[#121212] w-full px-2">
         <div className="flex items-center h-[60px]">
             <div className="flex items-center mt-2 w-full rounded-lg bg-[#121212] h-[35px]">
-                <form onSubmit={formik.handleSubmit} >
+                <form onSubmit={formik.handleSubmit} className="w-full">
                     <input
                         type="text"
-                        className="w-[95%] outline-none mr-2 bg-transparent pl-2"
+                        className="w-[95%] text-gray-200 outline-none mr-2 bg-transparent pl-2"
                         placeholder="Rechercher sur doomi" />
                     <button><IoSearchOutline className="text-white cursor-pointer" /></button>
                 </form>

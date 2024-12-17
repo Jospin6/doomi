@@ -131,6 +131,21 @@ type User = {
     username: string
 }
 
+export interface Item {
+    titre: string;
+    username: string;
+    prix: string;
+    location: string;
+    date: string;
+    image: string;
+}
+
+export interface Category {
+    [key: string]: Item[];
+}
+
+export type Data = Category[];
+
 export type {
     UserData,
     CompteConfirmationData,
