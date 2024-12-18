@@ -1,12 +1,12 @@
 import * as Yup from 'yup'
-import { 
+import {
     VIHICULE,
     IMMOBILIER,
     EVENEMENT,
     EMPLOI,
     VETEMENT_CHAUSSURES,
     AUTRE_PRODUIT,
-    SERVICE 
+    SERVICE
 } from '@/helpers/constants';
 import { useSelector } from 'react-redux';
 import { RootState } from '@/features/store';
@@ -26,18 +26,18 @@ const initialValues = {
     },
     ...(subCategory === VIHICULE && {
         vehicule: {
-        modele: '',
-        annee: 2010,
-        kilometrage: '',
-        type_vehicule: '',
-        couleur: '',
-        carburant: '',
-        transmission: '',
-        nombre_portes: '',
-        nombre_places: '',
-        plan_de_paiement: '',
-        disponibilite: '',
-    },
+            modele: '',
+            annee: 2010,
+            kilometrage: '',
+            type_vehicule: '',
+            couleur: '',
+            carburant: '',
+            transmission: '',
+            nombre_portes: '',
+            nombre_places: '',
+            plan_de_paiement: '',
+            disponibilite: '',
+        },
     }),
     ...(subCategory === IMMOBILIER && {
         immobilier: {
