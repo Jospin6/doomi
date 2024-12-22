@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '@/features/store';
 import { setcurrentSubCategory } from '@/features/sub_categories/subCategoriesSlice';
 import { fetchSubCategories } from '@/features/sub_categories/subCategoriesApi';
-import { initialValues } from '@/helpers/produits';
 
 interface ProduitDetailsProps {
     formik: FormikProps<any>;
@@ -18,7 +17,7 @@ const ProduitDetails: React.FC<ProduitDetailsProps> = ({ formik }) => {
 
     const handleSubCategoryChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         dispatch(setcurrentSubCategory(event.target.value));
-        formik.setFieldValue('produit.sub_categorie_produit_id', event.target.value);
+        formik.setFieldValue('sub_categorie_produit_id', event.target.value);
     };
 
     useEffect(() => {
@@ -30,14 +29,14 @@ const ProduitDetails: React.FC<ProduitDetailsProps> = ({ formik }) => {
 
         if (files) {
             const fileArray = Array.from(files);
-            formik.setFieldValue("produit.images", fileArray);
+            formik.setFieldValue("images", fileArray);
         } else {
-            formik.setFieldValue("produit.images", []);
+            formik.setFieldValue("images", []);
         }
     };
 
     const renderImagePreviews = () => {
-        const images: FileList | undefined = formik.values.produit.images;
+        const images: FileList | undefined = formik.values.images;
         if (images && images.length > 0) {
             return (
                 <div className="image-previews">
@@ -65,14 +64,14 @@ const ProduitDetails: React.FC<ProduitDetailsProps> = ({ formik }) => {
                     inputBorder="border-[#121212]"
                     placeholder="Entrer le titre"
                     label="Quel est le titre ?"
-                    fieldName={"produit.titre"}
+                    fieldName={"titre"}
                     onchange={formik.handleChange}
                     onblur={formik.handleBlur}
-                    value={formik.values.produit.titre}
+                    value={formik.values.titre}
                 />
-                {formik.errors.produit && (formik.errors.produit as FormikErrors<typeof initialValues.produit>).titre && (
+                {/* {formik.errors.produit && (formik.errors.produit as FormikErrors<typeof initialValues.produit>).titre && (
                     <div>{(formik.errors.produit as FormikErrors<typeof initialValues.produit>).titre}</div>
-                )}
+                )} */}
             </div>
             <div>
                 <Input
@@ -81,26 +80,26 @@ const ProduitDetails: React.FC<ProduitDetailsProps> = ({ formik }) => {
                     inputBorder="border-[#121212]"
                     placeholder="Entrer le prix"
                     label="Quel est le prix ?"
-                    fieldName={"produit.prix"}
+                    fieldName={"prix"}
                     onchange={formik.handleChange}
-                    value={formik.values.produit.prix}
+                    value={formik.values.prix}
                 />
-                {formik.errors.produit && (formik.errors.produit as FormikErrors<typeof initialValues.produit>).prix && (
+                {/* {formik.errors.produit && (formik.errors.produit as FormikErrors<typeof initialValues.produit>).prix && (
                     <div>{(formik.errors.produit as FormikErrors<typeof initialValues.produit>).prix}</div>
-                )}
+                )} */}
             </div>
 
             <div>
                 <label>Description</label><br />
                 <textarea
-                    name="produit.description"
+                    name="description"
                     onChange={formik.handleChange}
-                    value={formik.values.produit.description}
+                    value={formik.values.description}
                     className='bg-black'
                 />
-                {formik.errors.produit && (formik.errors.produit as FormikErrors<typeof initialValues.produit>).description && (
+                {/* {formik.errors.produit && (formik.errors.produit as FormikErrors<typeof initialValues.produit>).description && (
                     <div>{(formik.errors.produit as FormikErrors<typeof initialValues.produit>).description}</div>
-                )}
+                )} */}
             </div>
 
             <div>
@@ -110,13 +109,13 @@ const ProduitDetails: React.FC<ProduitDetailsProps> = ({ formik }) => {
                     inputBorder="border-[#121212]"
                     placeholder="Entrer la devise"
                     label="Quel est la devise ?"
-                    fieldName={"produit.devise"}
+                    fieldName={"devise"}
                     onchange={formik.handleChange}
-                    value={formik.values.produit.devise}
+                    value={formik.values.devise}
                 />
-                {formik.errors.produit && (formik.errors.produit as FormikErrors<typeof initialValues.produit>).devise && (
+                {/* {formik.errors.produit && (formik.errors.produit as FormikErrors<typeof initialValues.produit>).devise && (
                     <div>{(formik.errors.produit as FormikErrors<typeof initialValues.produit>).devise}</div>
-                )}
+                )} */}
             </div>
 
             <div>
@@ -126,13 +125,13 @@ const ProduitDetails: React.FC<ProduitDetailsProps> = ({ formik }) => {
                     inputBorder="border-[#121212]"
                     placeholder="Entrer la Localisation"
                     label="Quel est ta Localisation ?"
-                    fieldName={"produit.localisation"}
+                    fieldName={"localisation"}
                     onchange={formik.handleChange}
-                    value={formik.values.produit.localisation}
+                    value={formik.values.localisation}
                 />
-                {formik.errors.produit && (formik.errors.produit as FormikErrors<typeof initialValues.produit>).localisation && (
+                {/* {formik.errors.produit && (formik.errors.produit as FormikErrors<typeof initialValues.produit>).localisation && (
                     <div>{(formik.errors.produit as FormikErrors<typeof initialValues.produit>).localisation}</div>
-                )}
+                )} */}
             </div>
 
             <div>
@@ -150,22 +149,22 @@ const ProduitDetails: React.FC<ProduitDetailsProps> = ({ formik }) => {
                         </option>
                     ))}
                 </select>
-                {formik.errors.produit && (formik.errors.produit as FormikErrors<typeof initialValues.produit>).sub_categorie_produit_id && (
+                {/* {formik.errors.produit && (formik.errors.produit as FormikErrors<typeof initialValues.produit>).sub_categorie_produit_id && (
                     <div>{(formik.errors.produit as FormikErrors<typeof initialValues.produit>).sub_categorie_produit_id}</div>
-                )}
+                )} */}
             </div>
 
             <div>
                 <label>Images</label>
                 <input
                     type="file"
-                    name="produit.images"
+                    name="images"
                     onChange={handleFileChange}
                     multiple
                 />
-                {formik.errors.produit && (formik.errors.produit as FormikErrors<typeof initialValues.produit>).images && (
+                {/* {formik.errors.produit && (formik.errors.produit as FormikErrors<typeof initialValues.produit>).images && (
                     <div>{(formik.errors.produit as FormikErrors<typeof initialValues.produit>).images}</div>
-                )}
+                )} */}
             </div>
 
             {renderImagePreviews()}

@@ -1,6 +1,5 @@
 import React from 'react';
 import { FormikErrors, FormikProps } from 'formik';
-import { initialValues } from '@/helpers/produits';
 
 interface ServicesDetailsProps {
   formik: FormikProps<any>; 
@@ -11,15 +10,15 @@ const ServicesDetails: React.FC<ServicesDetailsProps> = ({ formik }) => {
     <div className=''>
       <input
         type="text"
-        id="service.statut"
-        name="service.statut"
+        id="statut"
+        name="statut"
         className='hidden'
         onChange={formik.handleChange}
-        value={formik.values.service.statut}
+        value={formik.values.statut}
       />
-      {formik.errors.produit && (formik.errors.produit as FormikErrors<typeof initialValues.service>).statut && (
+      {/* {formik.errors.produit && (formik.errors.produit as FormikErrors<typeof initialValues.service>).statut && (
         <div>{(formik.errors.produit as FormikErrors<typeof initialValues.service>).statut}</div>
-      )}
+      )} */}
     </div>
   );
 };
