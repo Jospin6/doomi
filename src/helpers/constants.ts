@@ -1,11 +1,11 @@
 const geoUserName: string = 'jospin6'
-const VIHICULE = '1'
-const IMMOBILIER = '2'
-const EMPLOI = '3'
-const EVENEMENT = '4'
-const VETEMENT_CHAUSSURES = '5'
-const AUTRE_PRODUIT = '6'
-const SERVICE = '7'
+const VIHICULE: string = '1'
+const IMMOBILIER: string = '2'
+const EMPLOI: string = '3'
+const EVENEMENT: string = '4'
+const VETEMENT_CHAUSSURES: string = '5'
+const AUTRE_PRODUIT: string = '6'
+const SERVICE: string = '7'
 
 export {
     geoUserName,

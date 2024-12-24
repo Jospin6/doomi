@@ -27,7 +27,7 @@ export const searchProduits= createAsyncThunk("produits/searchProduits", async (
         .catch(error => error.message)
 })
 
-export const postProduit= createAsyncThunk("produits/postProduit", async (data: ProduitData) => {
+export const postProduit= createAsyncThunk("produits/postProduit", async (data: FormData) => {
     return await axios.post("http://localhost:3000/api/v1/produits", data, {
         headers: {
             'Authorization': `Bearer ${getLocalStorageItem("token")}`,

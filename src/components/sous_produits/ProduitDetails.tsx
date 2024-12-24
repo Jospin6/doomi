@@ -30,9 +30,7 @@ const ProduitDetails: React.FC<ProduitDetailsProps> = ({ formik }) => {
         if (files) {
             const fileArray = Array.from(files);
             formik.setFieldValue("images", fileArray);
-        } else {
-            formik.setFieldValue("images", []);
-        }
+        } 
     };
 
     const renderImagePreviews = () => {
