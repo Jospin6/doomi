@@ -107,7 +107,7 @@ interface ProduitData {
     // site_web?: string;
     etat_evenement?: string;
     // VETEMENTS
-    type?: string;
+    type_vetement?: string;
     taille?: string;
     matiere?: string;
     // AUTRES PRODUITS

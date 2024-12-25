@@ -3,11 +3,6 @@ import { FormikErrors, FormikProps } from 'formik';
 import { Input } from '../Input';
 
 
-interface values {
-    etat: string,
-    marque: string,
-}
-
 interface AutreProduitDetailsProps {
     formik: FormikProps<any>;
 }
@@ -21,9 +16,9 @@ const AutreProduitDetails: React.FC<AutreProduitDetailsProps> = ({ formik }) => 
                 inputBorder="border-[#121212]"
                 placeholder="Entrer le etat"
                 label="Quel est le etat ?"
-                fieldName={"autre_produit.etat"}
+                fieldName={"etat"}
                 onchange={formik.handleChange}
-                value={formik.values.autre_produit?.etat} />
+                value={formik.values.etat} />
             {/* {formik.errors.produit && (formik.errors.produit as FormikErrors<typeof initialValues>)?.etat && (
                 <div>{(formik.errors.produit as FormikErrors<typeof initialValues>)?.etat}</div>
             )} */}
@@ -35,9 +30,9 @@ const AutreProduitDetails: React.FC<AutreProduitDetailsProps> = ({ formik }) => 
                 inputBorder="border-[#121212]"
                 placeholder="Entrer le marque"
                 label="Quel est le marque ?"
-                fieldName={"autre_produit.marque"}
+                fieldName={"marque"}
                 onchange={formik.handleChange}
-                value={formik.values.autre_produit?.marque} />
+                value={formik.values.marque} />
             {/* {formik.errors.produit && (formik.errors.produit as FormikErrors<typeof initialValues>)?.marque && (
                 <div>{(formik.errors.produit as FormikErrors<typeof initialValues>)?.marque}</div>
             )} */}

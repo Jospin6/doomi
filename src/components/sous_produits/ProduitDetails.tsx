@@ -25,7 +25,7 @@ const ProduitDetails: React.FC<ProduitDetailsProps> = ({ formik }) => {
     }, []);
 
     const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const files = event.currentTarget.files;
+        const files = event.target.files;
 
         if (files) {
             const fileArray = Array.from(files);

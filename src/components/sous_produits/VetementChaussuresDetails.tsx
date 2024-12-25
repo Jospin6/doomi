@@ -15,9 +15,9 @@ const VetementChaussuresDetails: React.FC<VetementChaussuresDetailsProps> = ({ f
         inputBorder="border-[#121212]"
         placeholder="Entrer la type"
         label="Quel est ta type ?"
-        fieldName={"type"}
+        fieldName={"type_vetement"}
         onchange={formik.handleChange}
-        value={formik.values.type} />
+        value={formik.values.type_vetement} />
       {/* {formik.errors.produit && (formik.errors.produit as FormikErrors<typeof initialValues.vetement_chaussures>).type && (
         <div>{(formik.errors.produit as FormikErrors<typeof initialValues.vetement_chaussures>).type}</div>
       )} */}

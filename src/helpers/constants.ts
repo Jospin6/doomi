@@ -7,6 +7,15 @@ const VETEMENT_CHAUSSURES: string = '5'
 const AUTRE_PRODUIT: string = '6'
 const SERVICE: string = '7'
 
+const produitVehicule: string = 'vehicule'
+const produitImmobilier: string = 'immobilier'
+const produitEmploi: string = 'emploi'
+const produitEvenement: string = 'evenement'
+const produitVetement: string = 'vetement_chaussure'
+const produitAutres: string = 'autre_produit_attribut'
+const produitService: string = 'service'
+
+
 export {
     geoUserName,
     VIHICULE,
@@ -15,5 +24,12 @@ export {
     EMPLOI,
     VETEMENT_CHAUSSURES,
     AUTRE_PRODUIT,
-    SERVICE
+    SERVICE,
+    produitVehicule,
+    produitImmobilier,
+    produitEmploi,
+    produitEvenement,
+    produitVetement,
+    produitAutres,
+    produitService
 }

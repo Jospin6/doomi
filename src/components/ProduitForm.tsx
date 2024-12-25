@@ -1,5 +1,5 @@
 "use client";
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { FormikProps, useFormik } from "formik";
 import { useDispatch, useSelector } from "react-redux";
 import VehicleDetails from './sous_produits/VehicleDetails';
@@ -17,7 +17,14 @@ import {
     EMPLOI,
     VETEMENT_CHAUSSURES,
     AUTRE_PRODUIT,
-    SERVICE
+    SERVICE,
+    produitVehicule,
+    produitImmobilier,
+    produitEmploi,
+    produitEvenement,
+    produitVetement,
+    produitAutres,
+    produitService
 } from '@/helpers/constants';
 import { AppDispatch, RootState } from '@/features/store';
 import ProduitDetails from './sous_produits/ProduitDetails';
@@ -31,6 +38,44 @@ const ProduitForm = () => {
     const subCategory = useSelector((state: RootState) => state.subCategory.currentSubCategory);
     const router = useRouter();
     const user_id = useCurrentUser();
+
+    const [currentCategory, setCurrentCategory] = useState<string>('')
+
+    const handleCurrentCategory = (value: string) => {
+        setCurrentCategory(value)
+    }
+
+    useEffect(() => {
+        handeSubProduitChange()
+    }, [subCategory])
+
+    const handeSubProduitChange = () => {
+        switch (subCategory) {
+            case VIHICULE:
+                handleCurrentCategory(produitVehicule)
+                break;
+            case IMMOBILIER:
+                handleCurrentCategory(produitImmobilier)
+                break;
+            case EVENEMENT:
+                handleCurrentCategory(produitEvenement)
+                break;
+            case EMPLOI:
+                handleCurrentCategory(produitEmploi)
+                break;
+            case VETEMENT_CHAUSSURES:
+                handleCurrentCategory(produitVetement)
+                break;
+            case AUTRE_PRODUIT:
+                handleCurrentCategory(produitAutres)
+                break;
+            case SERVICE:
+                handleCurrentCategory(produitService)
+                break;
+            default:
+                break;
+        }
+    }
 
     const initialValues = {
         titre: '',
@@ -70,14 +115,15 @@ const ProduitForm = () => {
                 localisation: values.localisation,
                 sub_categorie_produit_id: values.sub_categorie_produit_id,
             }
-            values.images.forEach((image, _) => {
-                formData.append('images[]', image);
-            });
+            Array.from(values.images).forEach((image: File) => {
+                formData.append('images[]', image.name);
+            })
+
             const produitJson = JSON.stringify(produit)
             formData.append('produit', produitJson)
 
             const categoryAttributes = {
-                [VIHICULE]: {
+                [produitVehicule]: {
                     modele: values.modele,
                     annee: values.annee,
                     kilometrage: values.kilometrage,
@@ -90,14 +136,14 @@ const ProduitForm = () => {
                     plan_de_paiement: values.plan_de_paiement,
                     disponibilite: values.disponibilite,
                 },
-                [IMMOBILIER]: {
+                [produitImmobilier]: {
                     type_de_bien: values.type_de_bien,
                     adresse: values.adresse,
                     surface_habitable: values.surface_habitable,
                     nombre_chambres: values.nombre_chambres,
                     nombre_pieces: values.nombre_pieces,
                 },
-                [EMPLOI]: {
+                [produitEmploi]: {
                     type_contrat: values.type_contrat,
                     lieu: values.lieu,
                     secteur_activite: values.secteur_activite,
@@ -107,32 +153,35 @@ const ProduitForm = () => {
                     formation_requise: values.formation_requise,
                     etat_offre: values.etat_offre,
                 },
-                [EVENEMENT]: {
+                [produitEvenement]: {
                     date_evenement: values.date_evenement,
                     lieu: values.lieu,
                     type_prix: values.type_prix,
                     site_web: values.site_web,
                     etat_evenement: values.etat_evenement,
                 },
-                [VETEMENT_CHAUSSURES]: {
-                    type: values.type,
+                [produitVetement]: {
+                    type_vetement: values.type_vetement,
                     taille: values.taille,
                     matiere: values.matiere,
                 },
-                [AUTRE_PRODUIT]: {
+                [produitAutres]: {
                     etat: values.etat,
                     marque: values.marque,
                 },
-                [SERVICE]: {
+                [produitService]: {
                     statut: values.statut,
                 }
             }
 
-            if (categoryAttributes[values.sub_categorie_produit_id]) {
-                Object.entries(categoryAttributes[values.sub_categorie_produit_id]).forEach(([key, value]) => {
-                    formData.append(`${categoryAttributes[values.sub_categorie_produit_id]}_attributes[${key}]`, value as string)
-                })
+            if (categoryAttributes[currentCategory]) {
+                const subProduitJson = JSON.stringify(categoryAttributes[currentCategory])
+                formData.append(`${currentCategory}`, subProduitJson)
             }
+
+            formData.forEach((value, key) => {
+                console.log(`${key}: ${value}`)
+            })
 
             dispatch(postProduit(formData));
             resetForm();
