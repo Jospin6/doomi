@@ -31,7 +31,7 @@ export const postProduit= createAsyncThunk("produits/postProduit", async (data: 
     return await axios.post("http://localhost:3000/api/v1/produits", data, {
         headers: {
             'Authorization': `Bearer ${getLocalStorageItem("token")}`,
-            'Content-Type': 'application/json'
+            'Content-Type': 'multipart/form-data',
         }
     })
         .then(respons => {

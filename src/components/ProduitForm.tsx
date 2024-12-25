@@ -74,7 +74,7 @@ const ProduitForm = () => {
                     break;
             }
         }
-        
+
         handeSubProduitChange()
     }, [subCategory])
 
@@ -88,7 +88,7 @@ const ProduitForm = () => {
         localisation: '',
         user_id: 0,
         sub_categorie_produit_id: '',
-        images: [],
+        images: [] as File[],
     }
 
     const validationSchema = Yup.object().shape(
@@ -118,8 +118,8 @@ const ProduitForm = () => {
                 localisation: values.localisation,
                 sub_categorie_produit_id: values.sub_categorie_produit_id,
             }
-            Array.from(values.images).forEach((image: File) => {
-                formData.append('images[]', image.name);
+            values.images.forEach((image) => {
+                formData.append('images[]', image);
             })
 
             const produitJson = JSON.stringify(produit)

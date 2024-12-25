@@ -34,7 +34,7 @@ const ProduitDetails: React.FC<ProduitDetailsProps> = ({ formik }) => {
     };
 
     const renderImagePreviews = () => {
-        const images: FileList | undefined = formik.values.images;
+        const images: File[] | undefined = formik.values.images;
         if (images && images.length > 0) {
             return (
                 <div className="image-previews">
