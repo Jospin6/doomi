@@ -46,36 +46,39 @@ const ProduitForm = () => {
     }
 
     useEffect(() => {
+
+        const handeSubProduitChange = () => {
+            switch (subCategory) {
+                case VIHICULE:
+                    handleCurrentCategory(produitVehicule)
+                    break;
+                case IMMOBILIER:
+                    handleCurrentCategory(produitImmobilier)
+                    break;
+                case EVENEMENT:
+                    handleCurrentCategory(produitEvenement)
+                    break;
+                case EMPLOI:
+                    handleCurrentCategory(produitEmploi)
+                    break;
+                case VETEMENT_CHAUSSURES:
+                    handleCurrentCategory(produitVetement)
+                    break;
+                case AUTRE_PRODUIT:
+                    handleCurrentCategory(produitAutres)
+                    break;
+                case SERVICE:
+                    handleCurrentCategory(produitService)
+                    break;
+                default:
+                    break;
+            }
+        }
+        
         handeSubProduitChange()
     }, [subCategory])
 
-    const handeSubProduitChange = () => {
-        switch (subCategory) {
-            case VIHICULE:
-                handleCurrentCategory(produitVehicule)
-                break;
-            case IMMOBILIER:
-                handleCurrentCategory(produitImmobilier)
-                break;
-            case EVENEMENT:
-                handleCurrentCategory(produitEvenement)
-                break;
-            case EMPLOI:
-                handleCurrentCategory(produitEmploi)
-                break;
-            case VETEMENT_CHAUSSURES:
-                handleCurrentCategory(produitVetement)
-                break;
-            case AUTRE_PRODUIT:
-                handleCurrentCategory(produitAutres)
-                break;
-            case SERVICE:
-                handleCurrentCategory(produitService)
-                break;
-            default:
-                break;
-        }
-    }
+    
 
     const initialValues = {
         titre: '',
