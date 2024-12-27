@@ -7,7 +7,7 @@ import { Input } from "./Input"
 import {Produit} from '@/helpers/types'
 
 interface SingleItemProps {
-    produit: Produit
+    produit: Produit | null
 }
 
 export const SingleItem = ({produit}: SingleItemProps) => {
@@ -16,7 +16,7 @@ export const SingleItem = ({produit}: SingleItemProps) => {
     return <>
         <div className="px-[50px] pt-4">
             <div className="rounded-lg h-[350px] bg-green-700">
-                <Image src={produit.titre} alt="image" className="w-full h-[350px] rounded-lg" width={"180"} height={"220"} />
+                <Image src={produit!.titre} alt="image" className="w-full h-[350px] rounded-lg" width={"180"} height={"220"} />
             </div>
             <div className="text-xl py-4 text-white flex justify-between">
                 <span className="font-[500]">{"Maison à louer"}</span>
@@ -32,15 +32,15 @@ export const SingleItem = ({produit}: SingleItemProps) => {
                 <p>Salles de bain: 2 salles de bain</p>
                 <p>Cuisines: 1 cuisine</p>
             </div>
-            <div className="text-xl font-[500] mb-2 text-gray-300"> {produit.devise}{produit.prix} </div>
+            <div className="text-xl font-[500] mb-2 text-gray-300"> {produit?.devise}{produit?.prix} </div>
             <div className="text-[12px] text-gray-500">
-                {produit.date}
+                {produit?.date}
             </div>
             <div className="flex justify-between items-center pt-4">
                 <div>
                     <div className="flex h-[50px] items-center">
                         <div className="w-[40px] h-[40px] rounded-full bg-red-300 mr-2"></div>
-                        <div className="text-[14px]">{produit.user.username}</div>
+                        <div className="text-[14px]">{produit?.user.username}</div>
                     </div>
                     <div className="text-center text-gray-500 flex pl-[45px]">
                         <IoStar className="text-yellow-500" />
@@ -68,7 +68,7 @@ export const SingleItem = ({produit}: SingleItemProps) => {
             <div className="mt-4">
                 <h2 className="text-[16px] text-gray-300 mb-2">Description</h2>
                 <p className="text-[12px] text-gray-500">
-                    {produit.description}
+                    {produit?.description}
                 </p>
             </div>
         </div>

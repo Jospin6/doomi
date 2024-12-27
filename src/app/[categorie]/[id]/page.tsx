@@ -45,8 +45,9 @@ export default function Categorie({ params }: CategoriesProps) {
                             titre={produit.titre}
                             vendeur={produit.vendeur}
                             prix={produit.prix}
-                            image={produit.image}
+                            image={produit.image_urls[0]}
                             location={produit.location}
+                            created_at={produit.created_at}
                         />
                     ))
                 ))}

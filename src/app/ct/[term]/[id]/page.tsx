@@ -31,9 +31,9 @@ export default function Show({ params }: ShowProps) {
                 <h2 className="text-[16px] text-gray-300">Consulter aussi</h2>
                 <div className="w-full flex h-auto pb-2">
                     {/* PRODUITS */}
+                    {/* <MainItem titre="" vendeur="" prix="" image="" location="" />
                     <MainItem titre="" vendeur="" prix="" image="" location="" />
-                    <MainItem titre="" vendeur="" prix="" image="" location="" />
-                    <MainItem titre="" vendeur="" prix="" image="" location="" />
+                    <MainItem titre="" vendeur="" prix="" image="" location="" /> */}
                 </div>
             </div>
         </div>
