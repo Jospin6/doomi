@@ -16,9 +16,10 @@ export const ProductsByCategory = ({category}: ProductsByCategoryProps) => {
                 <MainItem 
                     key={produit.id} 
                     titre={produit.titre} 
-                    vendeur={produit.vendeur} 
-                    image={produit.image} 
-                    location={produit.location} 
+                    vendeur={produit.user.username} 
+                    image={produit.image_urls[0]} 
+                    location={produit.location}
+                    created_at={produit.created_at} 
                 />
             </>
           ))

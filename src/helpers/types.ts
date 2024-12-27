@@ -52,6 +52,7 @@ interface Produit {
     description: string;
     date: string;
     user: User;
+    created_at: string,
     vehicule?: Vehicule;
     vetement_chaussure?: Vetements;
     immobilier?: Immobilier;

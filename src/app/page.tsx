@@ -28,11 +28,11 @@ export default function Home() {
 
       <div className="w-[70%] min-h-[100vh] h-auto border-x-[1px] border-[#121212]">
         <SearchBar />
-        {/* <div>
+        <div>
           {
             categories.map(category => (<ProductsByCategory key={category.id} category={category} />))
           }
-        </div> */}
+        </div>
         <div>
           {/* <div>
             {data.map((category, index) => {

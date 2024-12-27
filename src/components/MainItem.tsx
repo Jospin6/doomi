@@ -6,10 +6,11 @@ type MainItemProps = {
     vendeur: string,
     prix?: number,
     image: string,
-    location: string
+    location: string,
+    created_at: string
 }
 
-export const MainItem = ({titre, vendeur, prix, image, location}: MainItemProps) => {
+export const MainItem = ({titre, vendeur, prix, image, location, created_at}: MainItemProps) => {
     return <div className="w-[180px] h-auto mt-[3px] pb-2 mr-2">
         <div className="text-[14px] text-white pb-[2px]">
             <span>{titre}</span>
@@ -33,7 +34,7 @@ export const MainItem = ({titre, vendeur, prix, image, location}: MainItemProps)
             </div>
             <div className="text-[12px] text-gray-500">
                 <div> {location} </div>
-                <div>Aujourd'hui à 11h</div>
+                <div>{created_at}</div>
             </div>
         </div>
     </div>
