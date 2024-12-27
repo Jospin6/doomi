@@ -47,14 +47,23 @@ interface Produit {
     prix: number,
     devise: string,
     vendeur: string;
-    image: string;
+    image_urls: string[],
     location: string;
     description: string;
     date: string;
-    user: user
+    user: User;
+    vehicule?: Vehicule;
+    vetement_chaussure?: Vetements;
+    immobilier?: Immobilier;
+    emploi?: Emploi,
+    service?: Service;
+    evenement?: Evenement;
+    autre_produit_attribut?: AutreProduitAttribut
 }
 
 interface SubCategorieProduit {
+    id: number;
+    titre: string;
     produits: Produit[];
 }
 
@@ -62,6 +71,76 @@ interface CategorieProduit {
     id: number;
     titre: string;
     sub_categorie_produits: SubCategorieProduit[];
+}
+
+export interface Image {
+    id: number,
+    imageable_type: string,
+    imageable_id: number,
+    service_url: string
+}
+
+export interface Vehicule {
+    modele: string,
+    annee: number,
+    kilometrage: string,
+    type_vehicule: number,
+    couleur: string,
+    carburant: string,
+    transmission: string,
+    nombre_portes: number,
+    nombre_places: number,
+    statut: number,
+    plan_de_paiement: number,
+    disponibilite: number
+}
+
+export interface Vetements {
+    type_vetement: number,
+    taille: number,
+    matiere: number
+}
+
+export interface Immobilier {
+    type_de_bien: number,
+    adresse: string,
+    surface_habitable: string,
+    nombre_chambres: number,
+    nombre_pieces: number
+}
+
+export interface Emploi {
+    type_contrat: number,
+    lieu: string,
+    secteur_activite: string,
+    niveau_experience: string,
+    date_limite: string,
+    site_web: string,
+    formation_requise: string,
+    etat_offre: number
+}
+
+export interface Evenement {
+    date_evenement: string,
+    lieu: string,
+    type_prix: number,
+    site_web: string,
+    etat_evenement: number
+}
+
+export interface VetementChaussure {
+    type_vetement: number,
+    taille: number,
+    matiere: number
+}
+
+export interface AutreProduitAttribut {
+    etat: number,
+    marque: string
+}
+
+export interface Service {
+    statut: string
 }
 
 interface ProduitData {
