@@ -1,5 +1,4 @@
 import { IoHeartOutline, IoShareSocialOutline, IoStar, IoStarOutline } from "react-icons/io5"
-import { MainItem } from "./MainItem"
 import Image from "next/image"
 import { useState } from "react"
 import { Popup } from "./Popup"
