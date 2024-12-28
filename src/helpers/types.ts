@@ -35,12 +35,6 @@ interface CityState {
     error: string | null;
 }
 
-interface user {
-    id: number,
-    username: string,
-    image: string
-}
-
 interface Produit {
     id: number;
     titre: string;

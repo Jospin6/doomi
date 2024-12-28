@@ -1,17 +1,19 @@
 import { IoMenu, IoStar, IoStarOutline } from "react-icons/io5"
 import { CategoryItem } from "./CategoryItem"
 import { MainButton } from "./MainButton"
-import {categoriItems} from "@/helpers/vitrine"
+import { categoriItems } from "@/helpers/vitrine"
 import { useDispatch, useSelector } from "react-redux"
 import { AppDispatch, RootState } from "@/features/store"
-import {setActiveIndex} from '@/features/vitrines/vitrineSubNavbarSlice'
+import { setActiveIndex } from '@/features/vitrines/vitrineSubNavbarSlice'
+import useCurrentUser from "@/hooks/useCurrentUser"
 import Image from "next/image"
 
 export const VitrineHeader = () => {
 
     const dispatch = useDispatch<AppDispatch>()
-    const {index} = useSelector((state: RootState) => state.vitrineSubNavbar)
-    const {loading, vitrines, error} = useSelector((state: RootState) => state.vitrines)
+    const { index } = useSelector((state: RootState) => state.vitrineSubNavbar)
+    const { loading, vitrines, error } = useSelector((state: RootState) => state.vitrines)
+    const user = useCurrentUser()
 
     const handleClick = (index: number) => {
         dispatch(setActiveIndex(index))
@@ -23,16 +25,19 @@ export const VitrineHeader = () => {
             <span className="text-[18px]"><IoMenu /></span>
         </div>
         <div className="w-full h-[200px] text-4xl font-bold flex justify-end items-end bg-white text-black p-6 rounded-b-lg">
-            <Image src={vitrines!.cover_img} alt="image" className="w-[100%] h-[100%] rounded-lg"/>
+            <Image src={vitrines!.cover_img} alt="image" className="w-[100%] h-[100%] rounded-lg" />
         </div>
         <div className="z-10 mt-[-50px]">
             <div className="px-6 flex w-full">
                 <div className="w-[100px] flex justify-center items-center text-white text-4xl font-bold h-[100px] rounded-full bg-yellow-800">
-                <Image src={vitrines!.profil_img} alt="image" className="w-[100px] h-[100px] rounded-full"/>
+                    {
+                        vitrines!.profil_img && (<Image src={vitrines!.profil_img} alt="image" className="w-[100px] h-[100px] rounded-full" />)
+                    }
+
                 </div>
                 <div className="pt-[60px] w-[85%] px-2 mb-4">
                     <div className="flex justify-between font-[500] w-full">
-                        <span className="text-[16px]"> {vitrines?.titre} </span>
+                        <span className="text-[16px]"> {user?.username} </span>
                         <span className="text-blue-500 text-[14px]">suivre</span>
                     </div>
                     <div className="text-[12px] text-gray-500">
@@ -67,7 +72,7 @@ export const VitrineHeader = () => {
                     />
                 ))}
                 <div>
-                    
+
                 </div>
             </div>
         </div>
