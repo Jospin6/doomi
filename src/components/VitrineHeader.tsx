@@ -1,3 +1,4 @@
+"use client"
 import { IoMenu, IoStar, IoStarOutline } from "react-icons/io5"
 import { CategoryItem } from "./CategoryItem"
 import { MainButton } from "./MainButton"
@@ -31,7 +32,7 @@ export const VitrineHeader = () => {
             <div className="px-6 flex w-full">
                 <div className="w-[100px] flex justify-center items-center text-white text-4xl font-bold h-[100px] rounded-full bg-yellow-800">
                     {
-                        vitrines!.profil_img && (<Image src={vitrines!.profil_img} alt="image" className="w-[100px] h-[100px] rounded-full" />)
+                        vitrines?.profil_img && (<Image src={vitrines!.profil_img} alt="image" className="w-[100px] h-[100px] rounded-full" />)
                     }
 
                 </div>
