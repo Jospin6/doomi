@@ -45,37 +45,39 @@ export default function Home() {
               if (categoryName === "emplois") {
                 return (
                   <>
-                    <h2 className="text-xl text-white font-[500] px-2 flex justify-between items-center">
+                    <h2 className="text-[16px] text-white font-[500] px-2 flex justify-between items-center">
                       <span>{categoryName}</span>
                       <Link href={`${categoryName}/${index}/`} className="text-blue-600 text-[12px]">Voir plus</Link>
                     </h2>
-                    {
-                      items.map((item, itemIndex) => (<MainItemOutline
-                        key={itemIndex}
-                        className={"ml-2"}
-                        image={item.image}
-                        entreprise={item.username}
-                        salaireHoraire={item.salaireHoraire}
-                        typeContrat={item.typeContrat}
-                        date={item.date}
-                        categ={categoryName}
-                        index={itemIndex}
-                        description={""}
-                        poste={item.titre} />))
-                    }
+                    <div className="flex flex-wrap">
+                      {
+                        items.map((item, itemIndex) => (<MainItemOutline
+                          key={itemIndex}
+                          className={"ml-2 w-[200px] mb-3"}
+                          image={item.image}
+                          entreprise={item.username}
+                          salaireHoraire={item.salaireHoraire}
+                          typeContrat={item.typeContrat}
+                          date={item.date}
+                          categ={categoryName}
+                          index={itemIndex}
+                          description={""}
+                          poste={item.titre} />))
+                      }
+                    </div>
                   </>
 
                 )
               } else {
                 return (
                   <div key={index} className="text-white px-2">
-                    <h2 className="text-xl font-[500] flex justify-between items-center">
+                    <h2 className="text-[16px] font-[500] flex justify-between items-center">
                       <span>{categoryName}</span>
                       <Link href={`${categoryName}/${index}/`} className="text-blue-600 text-[12px]">Voir plus</Link>
                     </h2>
                     <div style={{ display: 'flex', flexWrap: 'wrap' }}>
                       {items.map((item, itemIndex) => (
-                        <div key={itemIndex} className="m-5">
+                        <div key={itemIndex} className="mx-5 mb-3 mt-2">
                           <div className="flex items-center">
                             <div className="flex justify-center mr-2 mb-[5px] items-center rounded-full h-[25px] bg-blue-400 text-[12px] w-[25px]">
                               {item.username.charAt(0).toUpperCase()}
