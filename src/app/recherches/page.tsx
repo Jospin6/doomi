@@ -4,7 +4,7 @@ import { RootState } from "@/features/store";
 import { useSelector } from "react-redux";
 
 export default function MesRecherches() {
-    const {searchedProducts} = useSelector((state: RootState) => state.produits)
+    // const {searchedProducts} = useSelector((state: RootState) => state.produits)
 
     return <div className=" flex w-full text-white">
         <div className="w-[70%] min-h-[100vh] h-auto border-x-[1px] border-[#121212]">
@@ -27,7 +27,7 @@ export default function MesRecherches() {
                 </div>
 
                 <div className="mt-4">
-                    {
+                    {/* {
                         searchedProducts.map(produit => (
                             <>
                                 <MainItem 
@@ -39,7 +39,7 @@ export default function MesRecherches() {
                                 />
                             </>
                           ))
-                    }
+                    } */}
                 </div>
             </div>
         </div>

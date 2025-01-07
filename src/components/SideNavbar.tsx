@@ -23,13 +23,13 @@ export const SideNavbar = () => {
             doomi
         </div>
         <Link href={"/"}><MenuItem title="Home"><IoHomeOutline /></MenuItem></Link>
-        <Link href={"/mes_recherches"}><MenuItem title="Search"><IoSearchOutline /></MenuItem></Link>
+        <Link href={"/recherches"}><MenuItem title="Search"><IoSearchOutline /></MenuItem></Link>
         <Link href={"/favoris"}><MenuItem title="Favory"><IoHeartOutline /></MenuItem></Link>
         <Link href={"/notifications"}><MenuItem title="Notifications"><IoNotificationsOutline /></MenuItem></Link>
         <Link href={"/messages"}><MenuItem title="Messages"><IoChatboxOutline /></MenuItem></Link>
         <Link href={"/evenements"}><MenuItem title="Evenements"><IoCalendarOutline /></MenuItem></Link>
-        <Link href={"/emplois"}><MenuItem title="Emplois"><IoBriefcaseOutline /></MenuItem></Link>
-        <Link href={"/ma_vitrine"}><MenuItem title="Ma vitrine"><IoStorefrontOutline /></MenuItem></Link>       
+        <Link href={"/emplois/3"}><MenuItem title="Emplois"><IoBriefcaseOutline /></MenuItem></Link>
+        <Link href={"/ma_vitrine/1"}><MenuItem title="Ma vitrine"><IoStorefrontOutline /></MenuItem></Link>       
         <Link href={"/nouveau"}><MainButton text="Publier" className="py-2 mt-4 w-full text-[12px]" /></Link>
         <Link href={"/compte"}>
             <ListTile className=" mt-8 hover:bg-[#121212]" titre="Bahati" sousTitre="personnel" />

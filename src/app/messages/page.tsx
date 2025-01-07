@@ -6,12 +6,12 @@ import Image from "next/image"
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "@/features/store";
 import { useEffect } from "react";
-import {fetchUserConversations} from '@/features/conversations/conversationsApi'
+import { fetchUserConversations } from '@/features/conversations/conversationsApi'
 
 export default function Messages() {
     const dispatch = useDispatch<AppDispatch>()
-    const {loading, conversations, error} = useSelector((state: RootState) => state.conversations)
-    const {} = useSelector((state: RootState)=> state.messages)
+    const { loading, conversations, error } = useSelector((state: RootState) => state.conversations)
+    const { } = useSelector((state: RootState) => state.messages)
 
     useEffect(() => {
         dispatch(fetchUserConversations())
@@ -24,9 +24,7 @@ export default function Messages() {
             </div>
 
             <div className="mt-4">
-                {
-                    conversations.map(conversation => (<ListTile titre="LA MANNE" sousTitre="entreprise"/>))
-                }
+                <ListTile titre="LA MANNE" sousTitre="entreprise" />
             </div>
 
         </div>
@@ -34,11 +32,11 @@ export default function Messages() {
         <div className="w-[70%] relative">
             <MessageHeader />
 
-            {/* <div>
+            <div>
                 <div className="flex justify-end h-auto px-4 pt-4">
                     <div className="w-[150px] h-[200px] pb-2 rounded-lg bg-[#121212]">
                         <div>
-                            <Image src="/assets/vt5.png" alt="image" className="w-[150px] h-[150px] rounded-lg" width={"150"} height={"150"}/>
+                            <Image src="/assets/vt5.png" alt="image" className="w-[150px] h-[150px] rounded-lg" width={"150"} height={"150"} />
                         </div>
                         <div>
                             <p className="text-white text-[12px] pt-[4px]">T-shirt $10</p>
@@ -58,12 +56,12 @@ export default function Messages() {
                         Bonjour cher client nous vendons un T-shirt à $2 quand c'est une vente en gros
                     </span>
                 </div>
+            </div>
+
+            {/* <div>
+                
             </div> */}
 
-            <div>
-                {/* MESSAGES */}
-            </div>
-            
             <div className="w-full absolute bottom-0 right-0 h-[80px] px-4">
                 <div className="flex items-center mt-2 w-full rounded-lg bg-[#121212] h-[35px]">
                     <input

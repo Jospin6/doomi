@@ -12,7 +12,7 @@ import Image from "next/image"
 export const VitrineHeader = () => {
 
     const dispatch = useDispatch<AppDispatch>()
-    const { index } = useSelector((state: RootState) => state.vitrineSubNavbar)
+    const indexActive = useSelector((state: RootState) => state.vitrineSubNavbar.index)
     const { loading, vitrines, error } = useSelector((state: RootState) => state.vitrines)
     const user = useCurrentUser()
 
@@ -26,15 +26,16 @@ export const VitrineHeader = () => {
             <span className="text-[18px]"><IoMenu /></span>
         </div>
         <div className="w-full h-[200px] text-4xl font-bold flex justify-end items-end bg-white text-black p-6 rounded-b-lg">
-            <Image src={vitrines!.cover_img} alt="image" className="w-[100%] h-[100%] rounded-lg" />
+            {/* <Image src={vitrines!.cover_img} alt="image" className="w-[100%] h-[100%] rounded-lg" /> */}
+            {user?.username}
         </div>
         <div className="z-10 mt-[-50px]">
             <div className="px-6 flex w-full">
                 <div className="w-[100px] flex justify-center items-center text-white text-4xl font-bold h-[100px] rounded-full bg-yellow-800">
-                    {
+                    {/* {
                         vitrines?.profil_img && (<Image src={vitrines!.profil_img} alt="image" className="w-[100px] h-[100px] rounded-full" />)
-                    }
-
+                    } */}
+                    {user?.username.charAt(0).toUpperCase()}
                 </div>
                 <div className="pt-[60px] w-[85%] px-2 mb-4">
                     <div className="flex justify-between font-[500] w-full">
@@ -43,7 +44,7 @@ export const VitrineHeader = () => {
                     </div>
                     <div className="text-[12px] text-gray-500">
                         <div className="flex">
-                            <div>{vitrines?.followers_count} Followers . 5 Posts . 3 Note</div>
+                            <div>14 Followers . 5 Posts . 3 Note</div>
                             <div className="text-center text-gray-500 flex pl-[10px]">
                                 <IoStar className="text-yellow-500" />
                                 <IoStar className="text-yellow-500" />
@@ -52,7 +53,7 @@ export const VitrineHeader = () => {
                                 <IoStarOutline />
                             </div>
                         </div>
-                        <div> {vitrines?.description} </div>
+                        <div> photographe </div>
                         <div className="mt-2"><a href="#" className="text-blue-500">Modifier le profile</a></div>
                     </div>
                     {/* <button className="py-[3px] w-[20%] bg-blue-500 rounded-lg mt-2 mr-3 text-[12px]" >
@@ -67,7 +68,7 @@ export const VitrineHeader = () => {
                     <CategoryItem
                         key={index}
                         title={title}
-                        isActive={index === index}
+                        isActive={index === indexActive}
                         className="mr-4"
                         onClick={() => handleClick(index)}
                     />

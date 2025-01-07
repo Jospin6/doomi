@@ -11,11 +11,11 @@ export const Publications = () => {
 
     const dispatch = useDispatch<AppDispatch>()
     const { userProducts, loading, error } = useSelector((state: RootState) => state.produits)
-    const { user } = useSelector((state: RootState) => state.user)
+    // const { user } = useSelector((state: RootState) => state.user)
 
-    useEffect(() => {
-        dispatch(fetchUserProduits(user.id))
-    }, [])
+    // useEffect(() => {
+    //     dispatch(fetchUserProduits(user.id))
+    // }, [])
 
     return <>
         <div className="py-2 px-4">
@@ -26,9 +26,9 @@ export const Publications = () => {
         </div>
 
         <div className="px-[90px]">
-            {
+            {/* {
                 userProducts.map(produit => (<ProductsByCategory key={produit.id} category={produit} />))
-            }
+            } */}
         </div>
 
         {/* <ProductsByCategory category={undefined} /> */}

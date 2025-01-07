@@ -1,8 +1,8 @@
-import { Data } from "./helpers/types"
+import { Categ, Data } from "./helpers/types"
 
 export const data: Data = [
     {
-        "beauté": [
+        "beaute": [
             {
                 "titre": "Mascara",
                 "username": "Glody business",
@@ -30,7 +30,7 @@ export const data: Data = [
         ]
     },
     {
-        "vêtements": [
+        "vetements": [
             {
                 "titre": "tricot pour bébé",
                 "username": "LA MANNE",
@@ -93,7 +93,10 @@ export const data: Data = [
                 "prix": "0",
                 "location": "Bukavu",
                 "date": "il y a 3 jours",
-                "image": "/assets/emp2.png"
+                "image": "/assets/emp2.png",
+                "typeContrat": "temps plein",
+                "salaireHoraire": "20$/heure",
+                "description": "lorem ipsum"
             },
             {
                 "titre": "Developpeur full stack",
@@ -101,12 +104,15 @@ export const data: Data = [
                 "prix": "0",
                 "location": "Bukavu",
                 "date": "il y a 6 jours",
-                "image": "/assets/emp1.jpg"
+                "image": "/assets/emp1.jpg",
+                "typeContrat": "temps partiel",
+                "salaireHoraire": "35$/heure",
+                "description": "lorem ipsum"
             },
         ]
     },
     {
-        "vèhicules": [
+        "vehicules": [
             {
                 "titre": "PRADO à vendre",
                 "username": "jean",
@@ -146,7 +152,7 @@ export const search = [
     },
 ]
 
-export const categories = [
+export const categoriesData: Categ = [
     {
         "titre": "Vêtements",
         "image": ""

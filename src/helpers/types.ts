@@ -203,6 +203,9 @@ export interface Item {
     location: string;
     date: string;
     image: string;
+    typeContrat?: string;
+    salaireHoraire?: string;
+    description?: string
 }
 
 export interface Category {
@@ -211,6 +214,12 @@ export interface Category {
 
 export type Data = Category[];
 
+export interface CategData {
+    titre: string,
+    image: string
+}
+
+export type Categ = CategData[]
 
 export type {
     UserData,

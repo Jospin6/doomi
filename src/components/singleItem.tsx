@@ -1,45 +1,69 @@
 import { IoHeartOutline, IoShareSocialOutline, IoStar, IoStarOutline } from "react-icons/io5"
 import Image from "next/image"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Popup } from "./Popup"
 import { Input } from "./Input"
-import {Produit} from '@/helpers/types'
+import { Item, Produit } from '@/helpers/types'
+import { data } from "@/data"
 
 interface SingleItemProps {
-    produit: Produit | null
+    // produit: Produit | null,
+    categ?: string,
+    index?: number
 }
 
-export const SingleItem = ({produit}: SingleItemProps) => {
+export const SingleItem = ({ categ, index }: SingleItemProps) => {
     const [isOpen, setIsOpen] = useState(false)
     const toggleOpen = () => setIsOpen(!isOpen)
+    const [signleData, setSingleData] = useState<Item>()
+    useEffect(() => {
+        const handleData = (categ: string, index: number) => {
+            data.map((category, _) => {
+                const categoryName = Object.keys(category)[0];
+                const item = category[categoryName][index];
+                categoryName === categ && setSingleData(item)
+            })
+        }
+        handleData(categ!, index!)
+    }, [])
     return <>
         <div className="px-[50px] pt-4">
             <div className="rounded-lg h-[350px] bg-green-700">
-                <Image src={produit!.titre} alt="image" className="w-full h-[350px] rounded-lg" width={"180"} height={"220"} />
+                {
+                    signleData?.image && (
+                        <Image
+                            src={signleData!.image}
+                            alt="image"
+                            className="w-full h-[350px] rounded-lg"
+                            width={"180"}
+                            height={"220"} />
+                    )
+                }
+
             </div>
             <div className="text-xl py-4 text-white flex justify-between">
-                <span className="font-[500]">{"Maison à louer"}</span>
+                <span className="font-[500]">{signleData?.titre}</span>
                 <div className="text-[16px] flex">
                     <IoShareSocialOutline className="mr-2" />
                     <IoHeartOutline />
                 </div>
             </div>
-            <div className="text-[14px] text-gray-300 mb-4">
+            {/* <div className="text-[14px] text-gray-300 mb-4">
                 <p className="text-[20px]">Critères</p>
                 <p>Chambres: 4 chambres</p>
                 <p>Salons: 2 salons</p>
                 <p>Salles de bain: 2 salles de bain</p>
                 <p>Cuisines: 1 cuisine</p>
-            </div>
-            <div className="text-xl font-[500] mb-2 text-gray-300"> {produit?.devise}{produit?.prix} </div>
+            </div> */}
+            <div className="text-xl font-[500] mb-2 text-gray-300"> {signleData?.prix} </div>
             <div className="text-[12px] text-gray-500">
-                {produit?.date}
+                {signleData?.date}
             </div>
             <div className="flex justify-between items-center pt-4">
                 <div>
                     <div className="flex h-[50px] items-center">
                         <div className="w-[40px] h-[40px] rounded-full bg-red-300 mr-2"></div>
-                        <div className="text-[14px]">{produit?.user.username}</div>
+                        <div className="text-[14px]">{signleData?.username}</div>
                     </div>
                     <div className="text-center text-gray-500 flex pl-[45px]">
                         <IoStar className="text-yellow-500" />
@@ -67,7 +91,7 @@ export const SingleItem = ({produit}: SingleItemProps) => {
             <div className="mt-4">
                 <h2 className="text-[16px] text-gray-300 mb-2">Description</h2>
                 <p className="text-[12px] text-gray-500">
-                    {produit?.description}
+                    {signleData?.description}
                 </p>
             </div>
         </div>
