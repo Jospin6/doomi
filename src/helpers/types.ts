@@ -205,7 +205,8 @@ export interface Item {
     image: string;
     typeContrat?: string;
     salaireHoraire?: string;
-    description?: string
+    description?: string,
+    mail?: string
 }
 
 export interface Category {

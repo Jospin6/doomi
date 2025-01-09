@@ -8,11 +8,11 @@ interface EvenementDetailsProps {
 
 const EvenementDetails: React.FC<EvenementDetailsProps> = ({ formik }) => {
   return <>
-    <div>
+    <div className='mt-4'>
       <Input
         type="date"
         id="date_evenement"
-        inputBorder="border-[#121212]"
+        inputBorder="border-gray-700"
         placeholder="Entrer le date_evenement"
         label="Quel est le date_evenement ?"
         fieldName={"date_evenement"}
@@ -23,11 +23,11 @@ const EvenementDetails: React.FC<EvenementDetailsProps> = ({ formik }) => {
       )} */}
     </div>
 
-    <div>
+    <div className='mt-4'>
       <Input
         type="text"
         id="lieu"
-        inputBorder="border-[#121212]"
+        inputBorder="border-gray-700"
         placeholder="Entrer le lieu"
         label="Quel est le lieu ?"
         fieldName={"lieu"}
@@ -38,11 +38,11 @@ const EvenementDetails: React.FC<EvenementDetailsProps> = ({ formik }) => {
       )} */}
     </div>
 
-    <div>
+    <div className='mt-4'>
       <Input
         type="text"
         id="type_prix"
-        inputBorder="border-[#121212]"
+        inputBorder="border-gray-700"
         placeholder="Entrer le type_prix"
         label="Quel est le type_prix ?"
         fieldName={"type_prix"}
@@ -53,11 +53,11 @@ const EvenementDetails: React.FC<EvenementDetailsProps> = ({ formik }) => {
       )} */}
     </div>
 
-    <div>
+    <div className='mt-4'>
       <Input
         type="text"
         id="site_web"
-        inputBorder="border-[#121212]"
+        inputBorder="border-gray-700"
         placeholder="Entrer le site_web"
         label="Quel est le site_web ?"
         fieldName={"site_web"}

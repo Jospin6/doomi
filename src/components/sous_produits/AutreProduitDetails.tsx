@@ -9,11 +9,11 @@ interface AutreProduitDetailsProps {
 
 const AutreProduitDetails: React.FC<AutreProduitDetailsProps> = ({ formik }) => {
     return <>
-        <div>
+        <div className='mt-4'>
             <Input
                 type="text"
                 id="etat"
-                inputBorder="border-[#121212]"
+                inputBorder="border-gray-700"
                 placeholder="Entrer le etat"
                 label="Quel est le etat ?"
                 fieldName={"etat"}
@@ -23,11 +23,11 @@ const AutreProduitDetails: React.FC<AutreProduitDetailsProps> = ({ formik }) => 
                 <div>{(formik.errors.produit as FormikErrors<typeof initialValues>)?.etat}</div>
             )} */}
         </div>
-        <div>
+        <div className='mt-4'>
             <Input
                 type="text"
                 id="marque"
-                inputBorder="border-[#121212]"
+                inputBorder="border-gray-700"
                 placeholder="Entrer le marque"
                 label="Quel est le marque ?"
                 fieldName={"marque"}

@@ -8,11 +8,11 @@ interface EmploiDetailsProps {
 
 const EmploiDetails: React.FC<EmploiDetailsProps> = ({ formik }) => {
   return <>
-    <div>
+    <div className='mt-4'>
       <Input
         type="text"
         id="type_contrat"
-        inputBorder="border-[#121212]"
+        inputBorder="border-gray-700"
         placeholder="Entrer le type_contrat"
         label="Quel est le type_contrat ?"
         fieldName={"type_contrat"}
@@ -23,11 +23,11 @@ const EmploiDetails: React.FC<EmploiDetailsProps> = ({ formik }) => {
       )} */}
     </div>
 
-    <div>
+    <div className='mt-4'>
       <Input
         type="text"
         id="lieu"
-        inputBorder="border-[#121212]"
+        inputBorder="border-gray-700"
         placeholder="Entrer le lieu"
         label="Quel est le lieu ?"
         fieldName={"lieu"}
@@ -38,11 +38,11 @@ const EmploiDetails: React.FC<EmploiDetailsProps> = ({ formik }) => {
       )} */}
     </div>
 
-    <div>
+    <div className='mt-4'>
       <Input
         type="text"
         id="secteur_activite"
-        inputBorder="border-[#121212]"
+        inputBorder="border-gray-700"
         placeholder="Entrer le secteur_activite"
         label="Quel est le secteur_activite ?"
         fieldName={"secteur_activite"}
@@ -53,11 +53,11 @@ const EmploiDetails: React.FC<EmploiDetailsProps> = ({ formik }) => {
       )} */}
     </div>
 
-    <div>
+    <div className='mt-4'>
       <Input
         type="text"
         id="niveau_experience"
-        inputBorder="border-[#121212]"
+        inputBorder="border-gray-700"
         placeholder="Entrer le niveau_experience"
         label="Quel est le niveau_experience ?"
         fieldName={"niveau_experience"}
@@ -68,11 +68,11 @@ const EmploiDetails: React.FC<EmploiDetailsProps> = ({ formik }) => {
       )} */}
     </div>
 
-    <div>
+    <div className='mt-4'>
       <Input
         type="text"
         id="date_limite"
-        inputBorder="border-[#121212]"
+        inputBorder="border-gray-700"
         placeholder="Entrer le date_limite"
         label="Quel est le date_limite ?"
         fieldName={"date_limite"}
@@ -83,11 +83,11 @@ const EmploiDetails: React.FC<EmploiDetailsProps> = ({ formik }) => {
       )} */}
     </div>
 
-    <div>
+    <div className='mt-4'>
       <Input
         type="text"
         id="site_web"
-        inputBorder="border-[#121212]"
+        inputBorder="border-gray-700"
         placeholder="Entrer le site_web"
         label="Quel est le site_web ?"
         fieldName={"site_web"}
@@ -98,11 +98,11 @@ const EmploiDetails: React.FC<EmploiDetailsProps> = ({ formik }) => {
       )} */}
     </div>
 
-    <div>
+    <div className='mt-4'>
       <Input
         type="text"
         id="formation_requise"
-        inputBorder="border-[#121212]"
+        inputBorder="border-gray-700"
         placeholder="Entrer le formation_requise"
         label="Quel est le formation_requise ?"
         fieldName={"formation_requise"}

@@ -4,6 +4,7 @@
 
 
 @layer base {
+
     input[type='number']::-webkit-outer-spin-button,
     input[type='number']::-webkit-inner-spin-button,
     input[type='number'] {
@@ -11,4 +12,20 @@
         margin: 0;
         -moz-appearance: textfield !important;
     }
+}
+
+/* .swiper-button-next,
+.swiper-button-prev {
+    @apply bg-gray-800 text-white text-[16px] rounded-full p-4 hover:bg-blue-600;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+    @apply text-white text-[16px];
+} */
+
+select.custom-select option {
+    background-color: black;
+    color: rgb(209, 209, 209);
+    padding-top: 2px;
 }

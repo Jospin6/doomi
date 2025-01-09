@@ -18,7 +18,7 @@ type MainItemOutlineProps = {
 export const MainItemOutline = ({ className, categ, index, entreprise, description, poste, image, typeContrat, date, salaireHoraire }: MainItemOutlineProps) => {
     return <div className={`${className} shadow border-[1px] border-[#121212] h-auto rounded-lg mt-2 p-2 mr-2`}>
         <div className="text-[12px] text-white pb-[2px] flex justify-between">
-            <Link href={`ct/${categ}/${index}`}>
+            <Link href={`/ct/${categ}/${index}`}>
                 <div className="flex">
                     <div className="w-[30px] h-[30px] rounded-lg bg-red-200 mr-2">
                         <Image src={image!} alt={poste} className="rounded-lg w-[30px] h-[30px]" width={30} height={30} />
@@ -34,7 +34,7 @@ export const MainItemOutline = ({ className, categ, index, entreprise, descripti
             <IoHeart className="text-red-500" />
         </div>
         <div>
-            <Link href={`ct/${categ}/${index}`} className="text-white text-[14px] my-[5px]"> {poste} </Link>
+            <Link href={`/ct/${categ}/${index}`} className="text-white text-[14px] my-[5px]"> {poste} </Link>
             <div className="text-gray-500 text-[12px]">{typeContrat} {salaireHoraire}</div>
             <div className="text-[10px] my-[5px] w-[160px] rounded-full bg-green-500 py-[3px] text-center text-white">
                 Recrute activement

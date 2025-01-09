@@ -8,8 +8,9 @@ export default function Nouveau() {
             <div className="border-b-[1px] border-[#121212]">
                {/* IL FAUT AJOUTER UN DESIGN ICI */}
             </div>
-            <div className="p-4 ">
-                <div className="w-[60%]">
+            <div className="p-4 w-full">
+                <div className="text-white mb-6 mt-2 text-md" style={{"fontFamily": "Verdana"}}>Ajouter un nouveau produit</div>
+                <div className="w-[80%] m-[auto]">
                     <ProduitForm />
                 </div>
             </div>

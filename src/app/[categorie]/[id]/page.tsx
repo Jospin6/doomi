@@ -23,9 +23,9 @@ interface CategoriesProps {
 export default function Categorie({ params }: CategoriesProps) {
     const dispatch = useDispatch<AppDispatch>()
     const { loading, category, error } = useSelector((state: RootState) => state.categories)
-    useEffect(() => {
-        dispatch(fetchCategoryById(params.id))
-    }, [])
+    // useEffect(() => {
+    //     dispatch(fetchCategoryById(params.id))
+    // }, [])
     return <div className=" flex w-full text-white">
         <div className="w-[70%] min-h-[100vh] h-auto border-x-[1px] border-[#121212]">
             <SearchBar isHidden={true} />
@@ -70,6 +70,8 @@ export default function Categorie({ params }: CategoriesProps) {
                                             className={"ml-2"}
                                             image={item.image}
                                             entreprise={item.username}
+                                            categ={categoryName}
+                                            index={itemIndex}
                                             salaireHoraire={item.salaireHoraire}
                                             typeContrat={item.typeContrat}
                                             date={item.date}

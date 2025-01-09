@@ -13,9 +13,9 @@ export default function Messages() {
     const { loading, conversations, error } = useSelector((state: RootState) => state.conversations)
     const { } = useSelector((state: RootState) => state.messages)
 
-    useEffect(() => {
-        dispatch(fetchUserConversations())
-    }, [])
+    // useEffect(() => {
+    //     dispatch(fetchUserConversations())
+    // }, [])
     return <div className=" flex w-full text-white">
         <div className="w-[30%] min-h-[100vh] h-auto border-x-[1px] border-[#121212] p-2">
             <div className="flex justify-between h-[45px] items-center text-white">
@@ -24,7 +24,7 @@ export default function Messages() {
             </div>
 
             <div className="mt-4">
-                <ListTile titre="LA MANNE" sousTitre="entreprise" />
+                <ListTile titre="LA MANNE" lettre="L" sousTitre="entreprise" />
             </div>
 
         </div>

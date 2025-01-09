@@ -1,5 +1,5 @@
 export const Apropos = () => {
-    return <>
+    return <div className="px-4">
         <div>
             <p className="text-gray-400 pb-4 pt-2">
                 Bienvenue chez Bahati Photographie, où chaque image raconte une histoire unique.
@@ -22,5 +22,5 @@ export const Apropos = () => {
             </p>
 
         </div>
-    </>
+    </div>
 }

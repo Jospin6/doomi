@@ -8,11 +8,11 @@ interface VehicleDetailsProps {
 
 const VehicleDetails: React.FC<VehicleDetailsProps> = ({ formik }) => {
   return <>
-    <div>
+    <div className='mt-4'>
       <Input
         type="text"
         id="modele"
-        inputBorder="border-[#121212]"
+        inputBorder="border-gray-700"
         placeholder="Entrer la modele"
         label="Quel est ta modele ?"
         fieldName={"modele"}
@@ -23,11 +23,11 @@ const VehicleDetails: React.FC<VehicleDetailsProps> = ({ formik }) => {
       )} */}
     </div>
 
-    <div>
+    <div className='mt-4'>
       <Input
         type="text"
         id="annee"
-        inputBorder="border-[#121212]"
+        inputBorder="border-gray-700"
         placeholder="Entrer la annee"
         label="Quel est ta annee ?"
         fieldName={"annee"}
@@ -38,11 +38,11 @@ const VehicleDetails: React.FC<VehicleDetailsProps> = ({ formik }) => {
       )} */}
     </div>
 
-    <div>
+    <div className='mt-4'>
       <Input
         type="text"
         id="kilometrage"
-        inputBorder="border-[#121212]"
+        inputBorder="border-gray-700"
         placeholder="Entrer la kilometrage"
         label="Quel est ta kilometrage ?"
         fieldName={"kilometrage"}
@@ -53,11 +53,11 @@ const VehicleDetails: React.FC<VehicleDetailsProps> = ({ formik }) => {
       )} */}
     </div>
 
-    <div>
+    <div className='mt-4'>
       <Input
         type="text"
         id="type_vehicule"
-        inputBorder="border-[#121212]"
+        inputBorder="border-gray-700"
         placeholder="Entrer la type_vehicule"
         label="Quel est ta type_vehicule ?"
         fieldName={"type_vehicule"}
@@ -68,11 +68,11 @@ const VehicleDetails: React.FC<VehicleDetailsProps> = ({ formik }) => {
       )} */}
     </div>
 
-    <div>
+    <div className='mt-4'>
       <Input
         type="text"
         id="couleur"
-        inputBorder="border-[#121212]"
+        inputBorder="border-gray-700"
         placeholder="Entrer la couleur"
         label="Quel est ta couleur ?"
         fieldName={"couleur"}
@@ -83,11 +83,11 @@ const VehicleDetails: React.FC<VehicleDetailsProps> = ({ formik }) => {
       )} */}
     </div>
 
-    <div>
+    <div className='mt-4'>
       <Input
         type="text"
         id="carburant"
-        inputBorder="border-[#121212]"
+        inputBorder="border-gray-700"
         placeholder="Entrer la carburant"
         label="Quel est ta carburant ?"
         fieldName={"carburant"}
@@ -98,11 +98,11 @@ const VehicleDetails: React.FC<VehicleDetailsProps> = ({ formik }) => {
       )} */}
     </div>
 
-    <div>
+    <div className='mt-4'>
       <Input
         type="text"
         id="transmission"
-        inputBorder="border-[#121212]"
+        inputBorder="border-gray-700"
         placeholder="Entrer la transmission"
         label="Quel est ta transmission ?"
         fieldName={"transmission"}
@@ -113,11 +113,11 @@ const VehicleDetails: React.FC<VehicleDetailsProps> = ({ formik }) => {
       )} */}
     </div>
 
-    <div>
+    <div className='mt-4'>
       <Input
         type="text"
         id="nombre_portes"
-        inputBorder="border-[#121212]"
+        inputBorder="border-gray-700"
         placeholder="Entrer la nombre_portes"
         label="Quel est ta nombre_portes ?"
         fieldName={"nombre_portes"}
@@ -128,11 +128,11 @@ const VehicleDetails: React.FC<VehicleDetailsProps> = ({ formik }) => {
       )} */}
     </div>
 
-    <div>
+    <div className='mt-4'>
       <Input
         type="text"
         id="nombre_places"
-        inputBorder="border-[#121212]"
+        inputBorder="border-gray-700"
         placeholder="Entrer la nombre_places"
         label="Quel est ta nombre_places ?"
         fieldName={"nombre_places"}
@@ -143,11 +143,11 @@ const VehicleDetails: React.FC<VehicleDetailsProps> = ({ formik }) => {
       )} */}
     </div>
 
-    <div>
+    <div className='mt-4'>
       <Input
         type="text"
         id="plan_de_paiement"
-        inputBorder="border-[#121212]"
+        inputBorder="border-gray-700"
         placeholder="Entrer la plan_de_paiement"
         label="Quel est ta plan_de_paiement ?"
         fieldName={"plan_de_paiement"}
@@ -158,11 +158,11 @@ const VehicleDetails: React.FC<VehicleDetailsProps> = ({ formik }) => {
       )} */}
     </div>
 
-    <div>
+    <div className='mt-4'>
       <Input
         type="text"
         id="disponibilite"
-        inputBorder="border-[#121212]"
+        inputBorder="border-gray-700"
         placeholder="Entrer la disponibilite"
         label="Quel est ta disponibilite ?"
         fieldName={"disponibilite"}

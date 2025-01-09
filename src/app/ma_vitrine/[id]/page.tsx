@@ -34,7 +34,7 @@ export default function MaVitrine() {
         <div className="w-[70%] min-h-[100vh] h-auto border-x-[1px] border-[#121212]">
             <VitrineHeader />
 
-            <div className="flex flex-wrap px-[90px]">
+            <div className="flex flex-wrap">
 
                 {renderActiveComponent()}
 

@@ -205,8 +205,8 @@ const ProduitForm = () => {
                 {subCategory === AUTRE_PRODUIT && <AutreProduitDetails formik={formik} />}
                 {subCategory === SERVICE && <ServicesDetails formik={formik} />}
 
-                <div>
-                    <button type="submit" className="bg-blue-500 rounded-lg text-[14px] px-[10px] py-[3px]">Publier</button>
+                <div className='flex justify-end mt-4'>
+                    <button type="submit" className="bg-[#D14318] rounded-lg text-[14px] w-[200px] h-[35px]">Publier le produit</button>
                 </div>
             </form>
         </>

@@ -8,11 +8,11 @@ interface ImmobilierDetailsProps {
 
 const ImmobilierDetails: React.FC<ImmobilierDetailsProps> = ({ formik }) => {
   return <>
-    <div>
+    <div className='mt-4'>
       <Input
         type="text"
         id="type_de_bien"
-        inputBorder="border-[#121212]"
+        inputBorder="border-gray-700"
         placeholder="Entrer le type_de_bien"
         label="Quel est le type_de_bien ?"
         fieldName={"type_de_bien"}
@@ -23,11 +23,11 @@ const ImmobilierDetails: React.FC<ImmobilierDetailsProps> = ({ formik }) => {
       )} */}
     </div>
 
-    <div>
+    <div className='mt-4'>
       <Input
         type="text"
         id="adresse"
-        inputBorder="border-[#121212]"
+        inputBorder="border-gray-700"
         placeholder="Entrer le adresse"
         label="Quel est le adresse ?"
         fieldName={"adresse"}
@@ -38,11 +38,11 @@ const ImmobilierDetails: React.FC<ImmobilierDetailsProps> = ({ formik }) => {
       )} */}
     </div>
 
-    <div>
+    <div className='mt-4'>
       <Input
         type="text"
         id="surface_habitable"
-        inputBorder="border-[#121212]"
+        inputBorder="border-gray-700"
         placeholder="Entrer le surface_habitable"
         label="Quel est le surface_habitable ?"
         fieldName={"surface_habitable"}
@@ -53,11 +53,11 @@ const ImmobilierDetails: React.FC<ImmobilierDetailsProps> = ({ formik }) => {
       )} */}
     </div>
 
-    <div>
+    <div className='mt-4'>
       <Input
         type="number"
         id="nombre_chambres"
-        inputBorder="border-[#121212]"
+        inputBorder="border-gray-700"
         placeholder="Entrer le nombre_chambres"
         label="Quel est le nombre_chambres ?"
         fieldName={"nombre_chambres"}
@@ -68,11 +68,11 @@ const ImmobilierDetails: React.FC<ImmobilierDetailsProps> = ({ formik }) => {
       )} */}
     </div>
 
-    <div>
+    <div className='mt-4'>
       <Input
         type="number"
         id="nombre_pieces"
-        inputBorder="border-[#121212]"
+        inputBorder="border-gray-700"
         placeholder="Entrer le nombre_pieces"
         label="Quel est le nombre_pieces ?"
         fieldName={"nombre_pieces"}

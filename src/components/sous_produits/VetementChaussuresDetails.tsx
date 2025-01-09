@@ -8,11 +8,11 @@ interface VetementChaussuresDetailsProps {
 
 const VetementChaussuresDetails: React.FC<VetementChaussuresDetailsProps> = ({ formik }) => {
   return <>
-    <div>
+    <div className='mt-4'>
       <Input
         type="text"
         id="type"
-        inputBorder="border-[#121212]"
+        inputBorder="border-gray-700"
         placeholder="Entrer la type"
         label="Quel est ta type ?"
         fieldName={"type_vetement"}
@@ -23,11 +23,11 @@ const VetementChaussuresDetails: React.FC<VetementChaussuresDetailsProps> = ({ f
       )} */}
     </div>
 
-    <div>
+    <div className='mt-4'>
       <Input
         type="text"
         id="taille"
-        inputBorder="border-[#121212]"
+        inputBorder="border-gray-700"
         placeholder="Entrer la taille"
         label="Quel est ta taille ?"
         fieldName={"taille"}
@@ -38,11 +38,11 @@ const VetementChaussuresDetails: React.FC<VetementChaussuresDetailsProps> = ({ f
       )} */}
     </div>
 
-    <div>
+    <div className='mt-4'>
       <Input
         type="text"
         id="matiere"
-        inputBorder="border-[#121212]"
+        inputBorder="border-gray-700"
         placeholder="Entrer la matiere"
         label="Quel est ta matiere ?"
         fieldName={"matiere"}

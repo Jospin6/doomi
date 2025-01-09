@@ -62,7 +62,7 @@ export const SingleItem = ({ categ, index }: SingleItemProps) => {
             <div className="flex justify-between items-center pt-4">
                 <div>
                     <div className="flex h-[50px] items-center">
-                        <div className="w-[40px] h-[40px] rounded-full bg-red-300 mr-2"></div>
+                        <div className="w-[40px] flex justify-center items-center text-[16px] font-[500] h-[40px] rounded-full bg-red-400 mr-2">{signleData?.username.charAt(0).toUpperCase()}</div>
                         <div className="text-[14px]">{signleData?.username}</div>
                     </div>
                     <div className="text-center text-gray-500 flex pl-[45px]">
