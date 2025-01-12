@@ -7,14 +7,14 @@ export default function Favoris() {
         <div className="w-[70%] min-h-[100vh] h-auto border-x-[1px] border-[#121212]">
             <SearchBar isHidden={true} />
             <div className="px-4 py-2">
-                <SecondButton text="tous"/>
-                <SecondButton text="produits"/>
-                <SecondButton text="services"/>
-                <SecondButton text="emplois"/>
+                <SecondButton text="tous" />
+                <SecondButton text="produits" />
+                <SecondButton text="services" />
+                <SecondButton text="emplois" />
             </div>
             <div className="px-[90px]">
-                <MainItemOutline className="w-full" entreprise="LA MANNE" description="alimentation" poste="Caissier"/>
-                <MainItemOutline className="w-full" entreprise="MAPASA CAR" description="Agence de transport" poste="Chauffeur"/>
+                <MainItemOutline className="w-full" entreprise="LA MANNE" description="alimentation" poste="Caissier" />
+                <MainItemOutline className="w-full" entreprise="MAPASA CAR" description="Agence de transport" poste="Chauffeur" />
             </div>
         </div>
 
