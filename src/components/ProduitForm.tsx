@@ -1,14 +1,14 @@
 "use client";
 import React, { useEffect, useState } from 'react';
-import { FormikProps, useFormik } from "formik";
+import { useFormik } from "formik";
 import { useDispatch, useSelector } from "react-redux";
-import VehicleDetails from './sous_produits/VehicleDetails';
-import ImmobilierDetails from './sous_produits/ImmobilierDetails';
-import EmploiDetails from './sous_produits/EmploiDetails';
-import EvenementDetails from './sous_produits/EvenementDetails';
-import VetementChaussuresDetails from './sous_produits/VetementChaussuresDetails';
-import AutreProduitDetails from './sous_produits/AutreProduitDetails';
-import ServicesDetails from './sous_produits/ServicesDetails';
+import VehicleDetails from './product_forms/VehicleDetails';
+import ImmobilierDetails from './product_forms/ImmobilierDetails';
+import EmploiDetails from './product_forms/EmploiDetails';
+import EvenementDetails from './product_forms/EvenementDetails';
+import VetementChaussuresDetails from './product_forms/VetementChaussuresDetails';
+import AutreProduitDetails from './product_forms/AutreProduitDetails';
+import ServicesDetails from './product_forms/ServicesDetails';
 import { useRouter } from 'next/navigation';
 import {
     VIHICULE,
@@ -27,7 +27,7 @@ import {
     produitService
 } from '@/helpers/constants';
 import { AppDispatch, RootState } from '@/features/store';
-import ProduitDetails from './sous_produits/ProduitDetails';
+import ProduitDetails from './product_forms/ProduitDetails';
 import { postProduit } from '@/features/produits/produitsApi';
 import useCurrentUser from '@/hooks/useCurrentUser';
 import * as Yup from 'yup'
@@ -78,7 +78,7 @@ const ProduitForm = () => {
         handeSubProduitChange()
     }, [subCategory])
 
-    
+
 
     const initialValues = {
         titre: '',
